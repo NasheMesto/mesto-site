@@ -4687,3 +4687,23 @@ input, select, textarea {
 		}
 
 	}
+
+.menu-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    max-width: 760px;
+    margin: 2rem auto;
+}
+
+.menu-gallery-item {
+    width: 100%;
+}
+
+.menu-gallery-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.4rem;
+}
