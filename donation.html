@@ -127,11 +127,17 @@
 						<dl class="details-list">
 							<div>
 								<dt data-copy-en="Bank name" data-copy-ru="Название банка">Bank name</dt>
-								<dd>BANGKOK BANK PCL.</dd>
+								<dd>
+									<code>BANGKOK BANK PCL.</code>
+									<button class="copy-button" type="button" data-copy-value="BANGKOK BANK PCL." aria-label="Copy bank name"><span class="icon regular fa-copy" aria-hidden="true"></span><span data-copy-label>Copy</span></button>
+								</dd>
 							</div>
 							<div>
 								<dt data-copy-en="Bank address" data-copy-ru="Адрес банка">Bank address</dt>
-								<dd>HEAD OFFICE 333 SILOM ROAD., BANGKOK 10500, THAILAND</dd>
+								<dd>
+									<code>HEAD OFFICE 333 SILOM ROAD., BANGKOK 10500, THAILAND</code>
+									<button class="copy-button" type="button" data-copy-value="HEAD OFFICE 333 SILOM ROAD., BANGKOK 10500, THAILAND" aria-label="Copy bank address"><span class="icon regular fa-copy" aria-hidden="true"></span><span data-copy-label>Copy</span></button>
+								</dd>
 							</div>
 							<div>
 								<dt>SWIFT</dt>
@@ -142,7 +148,10 @@
 							</div>
 							<div>
 								<dt data-copy-en="Account name" data-copy-ru="Имя владельца счёта">Account name</dt>
-								<dd>ANASTASIIA KRASEVA</dd>
+								<dd>
+									<code>ANASTASIIA KRASEVA</code>
+									<button class="copy-button" type="button" data-copy-value="ANASTASIIA KRASEVA" aria-label="Copy account name"><span class="icon regular fa-copy" aria-hidden="true"></span><span data-copy-label>Copy</span></button>
+								</dd>
 							</div>
 							<div>
 								<dt data-copy-en="Account number" data-copy-ru="Номер счёта">Account number</dt>
@@ -153,7 +162,10 @@
 							</div>
 							<div>
 								<dt data-copy-en="Purpose of transfer" data-copy-ru="Назначение перевода">Purpose of transfer</dt>
-								<dd data-copy-en="Voluntary support for MESTO — no goods or services are provided in return" data-copy-ru="Добровольная поддержка MESTO — в обмен не предоставляются товары или услуги">Voluntary support for MESTO — no goods or services are provided in return</dd>
+								<dd>
+									<code data-copy-en="Voluntary support for MESTO — no goods or services are provided in return" data-copy-ru="Добровольная поддержка MESTO — в обмен не предоставляются товары или услуги">Voluntary support for MESTO — no goods or services are provided in return</code>
+									<button class="copy-button" type="button" data-copy-value="Voluntary support for MESTO — no goods or services are provided in return" aria-label="Copy purpose of transfer"><span class="icon regular fa-copy" aria-hidden="true"></span><span data-copy-label>Copy</span></button>
+								</dd>
 							</div>
 						</dl>
 
@@ -182,8 +194,8 @@
 					<div class="wallet-grid">
 						<article class="wallet-card">
 							<div class="wallet-card__top">
-								<span class="coin-mark coin-mark--eth">Ξ</span>
-								<div><h4>ETH</h4><p>Ethereum Mainnet</p></div>
+								<span class="coin-mark coin-mark--eth"><span class="icon brands fa-ethereum" aria-hidden="true"></span></span>
+								<div class="wallet-card__identity"><h4>ETH</h4><span class="wallet-network">Ethereum Mainnet</span></div>
 							</div>
 							<p class="network-note" data-copy-en="Send only ETH via Ethereum Mainnet" data-copy-ru="Отправляйте только ETH через Ethereum Mainnet">Send only ETH via Ethereum Mainnet</p>
 							<div class="wallet-card__qr wallet-card__qr--eth">
@@ -197,8 +209,8 @@
 
 						<article class="wallet-card">
 							<div class="wallet-card__top">
-								<span class="coin-mark coin-mark--btc">₿</span>
-								<div><h4>BTC</h4><p>Bitcoin Network</p></div>
+								<span class="coin-mark coin-mark--btc"><span class="icon brands fa-bitcoin" aria-hidden="true"></span></span>
+								<div class="wallet-card__identity"><h4>BTC</h4><span class="wallet-network">Bitcoin Network</span></div>
 							</div>
 							<p class="network-note" data-copy-en="Send only BTC via the Bitcoin network" data-copy-ru="Отправляйте только BTC через сеть Bitcoin">Send only BTC via the Bitcoin network</p>
 							<div class="wallet-card__qr wallet-card__qr--btc">
@@ -213,7 +225,7 @@
 						<article class="wallet-card">
 							<div class="wallet-card__top">
 								<span class="coin-mark coin-mark--usdt">₮</span>
-								<div><h4>USDT</h4><p>TRON Network · TRC-20</p></div>
+								<div class="wallet-card__identity"><h4>USDT</h4><span class="wallet-network">TRON · TRC-20</span></div>
 							</div>
 							<p class="network-note" data-copy-en="Send only USDT via the TRON network (TRC-20)" data-copy-ru="Отправляйте только USDT через сеть TRON (TRC-20)">Send only USDT via the TRON network (TRC-20)</p>
 							<div class="wallet-card__qr wallet-card__qr--trc">
@@ -227,12 +239,12 @@
 
 						<article class="wallet-card">
 							<div class="wallet-card__top">
-								<span class="coin-mark coin-mark--ton">◆</span>
-								<div><h4>USDT</h4><p>The Open Network · TON</p></div>
+								<span class="coin-mark coin-mark--usdt">₮</span>
+								<div class="wallet-card__identity"><h4>USDT</h4><span class="wallet-network">The Open Network · TON</span></div>
 							</div>
 							<p class="network-note" data-copy-en="Send only USDT via The Open Network (TON)" data-copy-ru="Отправляйте только USDT через The Open Network (TON)">Send only USDT via The Open Network (TON)</p>
 							<div class="wallet-card__qr wallet-card__qr--ton">
-								<img src="images/donation/usdt-ton.png" alt="QR code for MESTO USDT TON wallet" loading="lazy" />
+								<img src="images/donation/usdt-ton.png" alt="QR code for MESTO USDT TON wallet" />
 							</div>
 							<div class="wallet-address">
 								<code>UQB14DidZlySp-Q7kV-7Hzte1g_VtkaCbTeg3aLV2hWhGECV</code>
@@ -243,7 +255,7 @@
 						<article class="wallet-card">
 							<div class="wallet-card__top">
 								<span class="coin-mark coin-mark--usdt">₮</span>
-								<div><h4>USDT</h4><p>BNB Smart Chain · BEP-20</p></div>
+								<div class="wallet-card__identity"><h4>USDT</h4><span class="wallet-network">BNB Smart Chain · BEP-20</span></div>
 							</div>
 							<p class="network-note" data-copy-en="Send only USDT via BNB Smart Chain (BEP-20)" data-copy-ru="Отправляйте только USDT через BNB Smart Chain (BEP-20)">Send only USDT via BNB Smart Chain (BEP-20)</p>
 							<div class="wallet-card__qr wallet-card__qr--bep">

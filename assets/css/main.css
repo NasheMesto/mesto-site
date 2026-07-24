@@ -1,5 +1,44 @@
 @import url(fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("../webfonts/cabinet-grotesk-regular.woff2") format("woff2");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("../webfonts/cabinet-grotesk-medium.woff2") format("woff2");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("../webfonts/cabinet-grotesk-bold.woff2") format("woff2");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("../webfonts/cabinet-grotesk-extrabold.woff2") format("woff2");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 800;
+}
+
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("../webfonts/cabinet-grotesk-black.woff2") format("woff2");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 900;
+}
 
 /*
 	Massively by HTML5 UP
@@ -148,8 +187,8 @@ input, select, textarea {
 	}
 
 	body, input, select, textarea {
-		font-family: "Merriweather", Georgia, serif;
-		font-weight: 300;
+		font-family: "Cabinet Grotesk", Arial, sans-serif;
+		font-weight: 400;
 		font-size: 1rem;
 		line-height: 2.375;
 	}
@@ -168,7 +207,7 @@ input, select, textarea {
 		}
 
 	strong, b {
-		font-weight: 600;
+		font-weight: 700;
 	}
 
 	em, i {
@@ -181,7 +220,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: "Cabinet Grotesk", Arial, sans-serif;
 		font-weight: 900;
 		line-height: 1.5;
 		letter-spacing: 0.075em;
@@ -209,19 +248,23 @@ input, select, textarea {
 
 	h3 {
 		font-size: 1.25rem;
+		font-weight: 900;
 		margin: 0 0 1.5rem 0;
 	}
 
 	h4 {
 		font-size: 1rem;
+		font-weight: 900;
 	}
 
 	h5 {
 		font-size: 0.9rem;
+		font-weight: 900;
 	}
 
 	h6 {
 		font-size: 0.8rem;
+		font-weight: 900;
 	}
 
 	sub {
@@ -2078,7 +2121,7 @@ input, select, textarea {
 		border-radius: 0;
 		cursor: pointer;
 		display: inline-block;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: "Cabinet Grotesk", Arial, sans-serif;
 		font-size: 0.8rem;
 		font-weight: 900;
 		letter-spacing: 0.075em;
@@ -2313,8 +2356,8 @@ input, select, textarea {
 
 	label {
 		display: block;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
-		font-weight: 900;
+		font-family: "Cabinet Grotesk", Arial, sans-serif;
+		font-weight: 800;
 		line-height: 1.5;
 		letter-spacing: 0.075em;
 		font-size: 0.8rem;
@@ -2407,9 +2450,9 @@ input, select, textarea {
 			display: inline-block;
 			font-size: 1rem;
 			letter-spacing: 0;
-			font-family: "Merriweather", Georgia, serif;
+			font-family: "Cabinet Grotesk", Arial, sans-serif;
 			text-transform: none;
-			font-weight: 300;
+			font-weight: 400;
 			padding-left: 2.8rem;
 			padding-right: 1rem;
 			position: relative;
@@ -3023,9 +3066,9 @@ input, select, textarea {
 		}
 
 		table th {
-			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-family: "Cabinet Grotesk", Arial, sans-serif;
 			font-size: 0.8rem;
-			font-weight: 900;
+			font-weight: 800;
 			letter-spacing: 0.075em;
 			line-height: 1.5;
 			padding: 0 0.75rem 0.75rem 0.75rem;
@@ -3123,9 +3166,9 @@ input, select, textarea {
 			transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
 			border: solid 2px;
 			display: inline-block;
-			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-family: "Cabinet Grotesk", Arial, sans-serif;
 			font-size: 0.8rem;
-			font-weight: 900;
+			font-weight: 800;
 			height: 3rem;
 			letter-spacing: 0.075em;
 			line-height: calc(3rem - 4px);
@@ -3244,7 +3287,7 @@ input, select, textarea {
 
 			#wrapper > .bg.fixed {
 				position: fixed;
-				width: 100vw;
+				width: 100%;
 				height: 100vh;
 			}
 
@@ -3566,12 +3609,16 @@ input, select, textarea {
 			border-style: solid;
 			border-color: #ffffff;
 			border-width: 5px !important;
-			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-family: "Cabinet Grotesk", Arial, sans-serif;
 			font-size: 2.25rem;
 			font-weight: 900;
 			letter-spacing: 0.075em;
 			line-height: 1;
 			padding: 1rem 1.75rem;
+			text-indent: 0.075em;
 			text-transform: uppercase;
 			visibility: visible;
 		}
@@ -3691,7 +3738,7 @@ input, select, textarea {
 			-webkit-flex-shrink: 1;
 			-ms-flex-shrink: 1;
 			flex-shrink: 1;
-			font-family: "Source Sans Pro", Helvetica, sans-serif;
+			font-family: "Cabinet Grotesk", Arial, sans-serif;
 			font-weight: 900;
 			letter-spacing: 0.075em;
 			list-style: none;
@@ -3868,6 +3915,20 @@ input, select, textarea {
 				border-top-width: 2px;
 				text-align: center;
 			}
+
+				#main > .posts > article.feature-list-card {
+					text-align: left;
+				}
+
+					#main > .posts > article.feature-list-card .feature-list {
+						list-style: none;
+						margin-left: 0;
+						padding-left: 0;
+					}
+
+						#main > .posts > article.feature-list-card .feature-list li {
+							padding-left: 0;
+						}
 
 				#main > .posts > article > :last-child {
 					margin-bottom: 0;
@@ -4387,9 +4448,9 @@ input, select, textarea {
 		position: relative;
 		color: rgba(255, 255, 255, 0.25);
 		cursor: default;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: "Cabinet Grotesk", Arial, sans-serif;
 		font-size: 0.8rem;
-		font-weight: 900;
+		font-weight: 800;
 		letter-spacing: 0.075em;
 		line-height: 1.5;
 		text-align: center;
@@ -4497,7 +4558,7 @@ input, select, textarea {
 		right: 0.75rem;
 		border: 0;
 		color: #ffffff;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: "Cabinet Grotesk", Arial, sans-serif;
 		font-size: 0.9rem;
 		font-weight: 900;
 		letter-spacing: 0.075em;
@@ -4589,7 +4650,7 @@ input, select, textarea {
 				#navPanel .links li a {
 					border-bottom: 0;
 					display: block;
-					font-family: "Source Sans Pro", Helvetica, sans-serif;
+					font-family: "Cabinet Grotesk", Arial, sans-serif;
 					font-size: 0.9rem;
 					font-size: 0.9rem;
 					font-weight: 900;

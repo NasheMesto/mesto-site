@@ -14,21 +14,15 @@
 .donation-page {
 	background: var(--donation-dark);
 	color: var(--donation-ink);
+	overflow-x: hidden;
 }
 
 .donation-page #wrapper {
 	background-image: linear-gradient(rgba(15, 23, 35, 0.64), rgba(15, 23, 35, 0.86)), url("../../images/bg.jpg");
 }
 
-.donation-page #header {
-	height: 13rem;
-	padding-top: 2rem;
-}
-
 .donation-page #header .logo {
 	border-color: rgba(255, 255, 255, 0.8);
-	letter-spacing: 0.35em;
-	padding-left: 1.2rem;
 }
 
 .donation-page #nav {
@@ -46,7 +40,7 @@
 
 .donation-main {
 	background: var(--donation-paper) !important;
-	max-width: 78rem !important;
+	max-width: 72rem !important;
 }
 
 #main.donation-main > section {
@@ -62,23 +56,12 @@
 	align-items: end;
 	min-height: 36rem;
 	overflow: hidden;
-	background:
-		radial-gradient(circle at 83% 12%, rgba(220, 235, 113, 0.95) 0 5rem, transparent 5.1rem),
-		linear-gradient(135deg, var(--donation-ink) 0%, #243451 100%);
+	background: linear-gradient(135deg, var(--donation-ink) 0%, #243451 100%);
 	color: var(--donation-white);
 }
 
 .donation-hero::after {
-	content: "";
-	position: absolute;
-	right: -7rem;
-	bottom: -11rem;
-	width: 25rem;
-	height: 25rem;
-	border: 1px solid rgba(255, 255, 255, 0.2);
-	border-radius: 50%;
-	box-shadow: 0 0 0 3rem rgba(255, 255, 255, 0.035), 0 0 0 6rem rgba(255, 255, 255, 0.025);
-	pointer-events: none;
+	display: none;
 }
 
 .donation-hero__content,
@@ -87,11 +70,16 @@
 	z-index: 1;
 }
 
+.donation-hero__content {
+	min-width: 0;
+	max-width: 100%;
+}
+
 .eyebrow,
 .method-kicker {
 	margin-bottom: 1.2rem;
 	color: var(--donation-lime);
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.78rem;
 	font-weight: 700;
 	letter-spacing: 0.17em;
@@ -104,7 +92,7 @@
 	color: var(--donation-white);
 	font-size: clamp(3rem, 7vw, 6.7rem);
 	line-height: 0.96;
-	letter-spacing: -0.045em;
+	letter-spacing: -0.01em;
 	text-transform: none;
 }
 
@@ -134,7 +122,7 @@
 
 .text-link {
 	color: #fff !important;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.8rem;
 	font-weight: 700;
 	letter-spacing: 0.12em;
@@ -151,7 +139,7 @@
 	gap: 0.7rem;
 	justify-items: end;
 	color: rgba(255, 255, 255, 0.65);
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.7rem;
 	font-weight: 700;
 	letter-spacing: 0.12em;
@@ -172,8 +160,8 @@
 	border-radius: 999px;
 	background: transparent;
 	box-shadow: none;
-	color: #fff;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	color: rgba(255, 255, 255, 0.58) !important;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.72rem;
 	font-weight: 700;
 	line-height: 2.5rem;
@@ -182,7 +170,7 @@
 
 .language-switch__button:hover {
 	box-shadow: none;
-	color: var(--donation-lime) !important;
+	color: rgba(255, 255, 255, 0.9) !important;
 }
 
 .language-switch__button.is-active {
@@ -200,7 +188,7 @@
 .section-number {
 	margin-bottom: 1rem;
 	color: var(--donation-accent);
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
 	letter-spacing: 0.18em;
@@ -210,7 +198,7 @@
 	color: var(--donation-ink);
 	font-size: clamp(2.1rem, 4vw, 3.4rem);
 	line-height: 1.08;
-	letter-spacing: -0.025em;
+	letter-spacing: -0.01em;
 	text-transform: none;
 }
 
@@ -289,7 +277,7 @@
 	background: transparent;
 	box-shadow: none;
 	color: var(--donation-muted);
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.78rem;
 	font-weight: 700;
 	line-height: 1.35;
@@ -323,6 +311,7 @@
 	margin: 0;
 	color: var(--donation-ink);
 	font-size: 2rem;
+	letter-spacing: -0.01em;
 	text-transform: none;
 }
 
@@ -363,7 +352,7 @@
 
 .details-list dt {
 	color: var(--donation-muted);
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.75rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
@@ -387,8 +376,8 @@
 	border: 0;
 	background: transparent;
 	color: inherit;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
-	font-weight: 600;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
+	font-weight: 500;
 	overflow-wrap: anywhere;
 }
 
@@ -404,7 +393,7 @@
 	background: #fff;
 	box-shadow: none;
 	color: var(--donation-ink);
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.68rem;
 	font-weight: 700;
 	line-height: 2.15rem;
@@ -530,10 +519,22 @@
 	font-size: 1.05rem;
 }
 
-.wallet-card__top p {
-	margin: 0;
-	color: var(--donation-muted);
-	font-size: 0.8rem;
+.wallet-card__identity {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 0.25rem 0.65rem;
+	min-width: 0;
+}
+
+.wallet-network {
+	color: var(--donation-ink);
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.055em;
+	line-height: 1.35;
+	text-transform: uppercase;
 }
 
 .coin-mark {
@@ -544,15 +545,18 @@
 	place-items: center;
 	border-radius: 50%;
 	color: #fff;
-	font-family: Arial, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 1.2rem;
 	font-weight: 700;
+}
+
+.coin-mark .icon {
+	margin: 0;
 }
 
 .coin-mark--eth { background: #627eea; }
 .coin-mark--btc { background: #f7931a; }
 .coin-mark--usdt { background: #26a17b; }
-.coin-mark--ton { background: #229ed9; }
 
 .network-note {
 	min-height: 2.7rem;
@@ -580,11 +584,22 @@
 	left: -45%;
 }
 
-.wallet-card__qr--eth img { top: -16%; }
-.wallet-card__qr--btc img { top: -17%; }
+.wallet-card__qr--eth img { top: -45%; }
+.wallet-card__qr--btc img {
+	width: 175%;
+	left: -37.5%;
+	top: -39%;
+}
 .wallet-card__qr--trc img { top: -88%; }
-.wallet-card__qr--ton img { top: -108%; }
+.wallet-card__qr--ton img { top: -121%; }
 .wallet-card__qr--bep img { top: -88%; }
+
+.wallet-card__qr--ton {
+	background-image: url("../../images/donation/usdt-ton.png");
+	background-position: center 39%;
+	background-repeat: no-repeat;
+	background-size: 190% auto;
+}
 
 .wallet-address {
 	display: grid;
@@ -634,7 +649,7 @@
 	border-radius: 999px;
 	background: var(--donation-lime);
 	color: var(--donation-ink);
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.68rem;
 	font-weight: 700;
 	letter-spacing: 0.1em;
@@ -687,8 +702,8 @@
 .contact-card > span:last-child {
 	min-width: 0;
 	overflow-wrap: anywhere;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
-	font-weight: 600;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
+	font-weight: 500;
 }
 
 .contact-card small {
@@ -726,7 +741,8 @@
 	grid-template-columns: auto 1fr auto;
 	gap: 2rem;
 	align-items: center;
-	max-width: 78rem;
+	width: calc(100% - 4rem);
+	max-width: 72rem;
 	margin: 0 auto;
 	padding: 3rem 5rem;
 	background: var(--donation-paper);
@@ -734,7 +750,7 @@
 
 .donation-footer__logo {
 	color: var(--donation-ink) !important;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 1.15rem;
 	font-weight: 900;
 	letter-spacing: 0.25em;
@@ -748,7 +764,7 @@
 
 .back-to-top {
 	color: var(--donation-ink) !important;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.72rem;
 	font-weight: 700;
 	letter-spacing: 0.08em;
@@ -766,7 +782,7 @@
 	background: var(--donation-ink);
 	box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.2);
 	color: #fff;
-	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
 	font-size: 0.8rem;
 	opacity: 0;
 	pointer-events: none;
@@ -834,10 +850,6 @@
 }
 
 @media screen and (max-width: 736px) {
-	.donation-page #header {
-		height: 8rem;
-	}
-
 	#main.donation-main > section {
 		padding: 3.5rem 1.4rem;
 	}
@@ -855,6 +867,28 @@
 
 	.donation-hero__lead {
 		font-size: 1rem;
+	}
+
+	html[lang="ru"] .donation-hero .eyebrow {
+		font-size: 0.68rem;
+		letter-spacing: 0.12em;
+		overflow-wrap: anywhere;
+	}
+
+	html[lang="ru"] .donation-hero h1 {
+		max-width: 100%;
+		font-size: clamp(2.15rem, 10.5vw, 3.5rem);
+		line-height: 1;
+		overflow-wrap: break-word;
+		hyphens: auto;
+	}
+
+	html[lang="ru"] .donation-hero__lead {
+		max-width: 100%;
+		font-size: 0.92rem;
+		line-height: 1.6;
+		overflow-wrap: break-word;
+		hyphens: auto;
 	}
 
 	.donation-hero__aside {
@@ -939,6 +973,12 @@
 		grid-template-columns: 1fr;
 		gap: 0.75rem;
 		padding: 2.5rem 1.4rem;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.donation-footer {
+		width: 100%;
 	}
 }
 
