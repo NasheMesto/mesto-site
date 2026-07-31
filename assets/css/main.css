@@ -4769,6 +4769,61 @@ input, select, textarea {
     border-radius: 0.4rem;
 }
 
+.menu-page header.major {
+	margin-bottom: 2rem;
+}
+
+.menu-feature {
+	max-width: 760px;
+	margin: 0 auto 1.5rem;
+}
+
+.menu-feature img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 0.4rem;
+}
+
+.menu-copy {
+	max-width: 850px;
+	margin: 0 auto;
+}
+
+.menu-copy > p {
+	font-size: 1rem;
+	line-height: 1.8;
+	margin: 0 0 1rem;
+	text-align: left;
+}
+
+.menu-copy > h2 {
+	margin: 2.75rem 0 1rem;
+}
+
+.menu-page .menu-gallery {
+	margin-top: 3rem;
+}
+
+.menu-page .menu-cta {
+	margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 736px) {
+	.menu-feature {
+		margin-bottom: 2rem;
+	}
+
+	.menu-copy > p {
+		font-size: 0.95rem;
+		line-height: 1.7;
+	}
+
+	.menu-copy > h2 {
+		margin-top: 2.25rem;
+	}
+}
+
 /*текст про место и помощь*/
 
 .about-text {
