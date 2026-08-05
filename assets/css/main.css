@@ -4835,6 +4835,59 @@ input, select, textarea {
 	margin-bottom: 3rem;
 }
 
+.menu-page .delivery-cta {
+	margin: 2rem auto 3rem;
+}
+
+.delivery-cta__button {
+	position: relative;
+	overflow: hidden;
+}
+
+.delivery-cta__button > span {
+	position: relative;
+	z-index: 1;
+}
+
+.delivery-cta__button::before {
+	content: "";
+	position: absolute;
+	top: -50%;
+	bottom: -50%;
+	left: 0;
+	width: 35%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+	pointer-events: none;
+	animation: delivery-button-shine 3s ease-in-out infinite;
+}
+
+@keyframes delivery-button-shine {
+	0%, 70% {
+		opacity: 0;
+		transform: translateX(-250%) skewX(-20deg);
+	}
+
+	72% {
+		opacity: 0.85;
+	}
+
+	92% {
+		opacity: 0.85;
+		transform: translateX(500%) skewX(-20deg);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(500%) skewX(-20deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.delivery-cta__button::before {
+		animation: none;
+	}
+}
+
 @media screen and (max-width: 736px) {
 	.menu-feature-layout {
 		grid-template-columns: minmax(0, 1fr) 5.75rem;
