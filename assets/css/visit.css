@@ -1,5 +1,5 @@
 /* Visit landing page: scoped to the invitation, with the shared site shell retained. */
-#main > .post.visit-page { padding: 0; background: #f6f1e8; color: #272824; }
+#main > .post.visit-page { padding: 0; background: #ffffff; color: #212931; font-family: 'Cabinet Grotesk', sans-serif; }
 .visit-page h1, .visit-page h2 { letter-spacing: -.035em; text-transform: none; }
 .visit-page p { text-align: left; line-height: 1.7; }
 .visit-hero { display: grid; grid-template-columns: 1fr 1fr; }
@@ -14,12 +14,12 @@
 .visit-page .visit-button.secondary { background: transparent; color: #303e32; }
 .visit-page .visit-button.secondary:hover { background: #e7e9dc; color: #303e32 !important; }
 .visit-page a:focus-visible { outline: 3px solid #b76f37; outline-offset: 4px; }
-.visit-facts { display: flex; justify-content: center; gap: 2rem; padding: 1.15rem 2rem; background: #e7e9dc; font-family: 'Cabinet Grotesk', sans-serif; font-size: .95rem; }
+.visit-facts { display: flex; justify-content: center; gap: 2rem; padding: 1.15rem 2rem; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee; font-family: 'Cabinet Grotesk', sans-serif; font-size: .95rem; }
 .visit-story { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 3rem; padding: 3.5rem; }
 .visit-story img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: .3rem; }
 .visit-story h2, .visit-location h2 { font-size: clamp(2rem, 3vw, 3rem); line-height: 1.08; margin-bottom: 1rem; }
 .visit-story p { margin-bottom: 1.1rem; }
-.visit-story.reverse { background: #eae2d6; }
+.visit-story.reverse { border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee; }
 .visit-story.reverse .visit-story-copy { order: -1; }
 .visit-story-copy > a:not(.visit-button) { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700; }
 .visit-page .visit-location { margin: 0; padding: 3.5rem; }
