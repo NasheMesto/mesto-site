@@ -1,0 +1,47 @@
+/* Visit landing page: scoped to the invitation, with the shared site shell retained. */
+#main > .post.visit-page { padding: 0; background: #f6f1e8; color: #272824; }
+.visit-page h1, .visit-page h2 { letter-spacing: -.035em; text-transform: none; }
+.visit-page p { text-align: left; line-height: 1.7; }
+.visit-hero { display: grid; grid-template-columns: 1fr 1fr; }
+.visit-intro { padding: 3.5rem 3rem; align-self: center; }
+.visit-eyebrow { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: #795337; margin-bottom: 1rem; }
+.visit-page h1 { font-size: clamp(2.5rem, 4.4vw, 4.6rem); line-height: 1.03; margin: 0 0 1.4rem; }
+.visit-intro > p:not(.visit-eyebrow) { font-size: 1.04rem; margin-bottom: 1.5rem; }
+.visit-hero > img { width: 100%; height: 100%; min-height: 32rem; object-fit: cover; object-position: 59% center; }
+.visit-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+.visit-page .visit-button { display: inline-flex; align-items: center; justify-content: center; min-height: 3.2rem; padding: .7rem 1.2rem; border: 1px solid #303e32; border-radius: .2rem; background: #303e32; color: #fff; font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700; font-size: .95rem; line-height: 1.3; text-decoration: none; transition: background .15s; }
+.visit-page .visit-button:hover { background: #435b45; color: #fff !important; }
+.visit-page .visit-button.secondary { background: transparent; color: #303e32; }
+.visit-page .visit-button.secondary:hover { background: #e7e9dc; color: #303e32 !important; }
+.visit-page a:focus-visible { outline: 3px solid #b76f37; outline-offset: 4px; }
+.visit-facts { display: flex; justify-content: center; gap: 2rem; padding: 1.15rem 2rem; background: #e7e9dc; font-family: 'Cabinet Grotesk', sans-serif; font-size: .95rem; }
+.visit-story { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 3rem; padding: 3.5rem; }
+.visit-story img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: .3rem; }
+.visit-story h2, .visit-location h2 { font-size: clamp(2rem, 3vw, 3rem); line-height: 1.08; margin-bottom: 1rem; }
+.visit-story p { margin-bottom: 1.1rem; }
+.visit-story.reverse { background: #eae2d6; }
+.visit-story.reverse .visit-story-copy { order: -1; }
+.visit-story-copy > a:not(.visit-button) { font-family: 'Cabinet Grotesk', sans-serif; font-weight: 700; }
+.visit-page .visit-location { margin: 0; padding: 3.5rem; }
+.visit-arrival { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2rem; margin-bottom: 2rem; }
+.visit-arrival p { margin-bottom: 0; }
+.visit-arrival .visit-eyebrow { margin-bottom: .8rem; }
+@media (max-width: 980px) {
+  .visit-intro { padding: 2.5rem 2rem; }
+  .visit-hero > img { min-height: 29rem; }
+  .visit-story { padding: 2.5rem 2rem; gap: 2rem; }
+  .visit-page .visit-location { padding: 2.5rem 2rem; }
+}
+@media (max-width: 736px) {
+  .visit-hero, .visit-story, .visit-arrival { grid-template-columns: 1fr; }
+  .visit-hero > img { min-height: 0; height: auto; aspect-ratio: 3 / 2; }
+  .visit-intro { padding: 2rem 1.5rem; }
+  .visit-page h1 { font-size: 3rem; }
+  .visit-facts { flex-direction: column; align-items: center; gap: .3rem; padding: 1rem; text-align: center; }
+  .visit-story { padding: 2.2rem 1.5rem; gap: 1.5rem; }
+  .visit-story.reverse .visit-story-copy { order: 0; }
+  .visit-page .visit-location { padding: 2.2rem 1.5rem; }
+  .visit-arrival { gap: 1.3rem; }
+  .visit-actions { gap: .6rem; }
+  .visit-actions .visit-button { flex: 1 1 auto; }
+}
