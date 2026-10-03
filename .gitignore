@@ -1,0 +1,13 @@
+# Ticket backend: never include private runtime data in a static deployment.
+server/node_modules/
+server/.env
+server/.env.*
+!server/.env.example
+server/var/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+output/
+tmp/
+.env
+.env.*
