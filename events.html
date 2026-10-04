@@ -55,7 +55,14 @@
         <section class="schedule" aria-labelledby="schedule-heading">
             <h2 id="schedule-heading">This week &amp; coming up at Nashe Mesto</h2>
             <p class="schedule-intro">Our weekly lineup is published on Todo.Today, usually by Sunday evening. This schedule refreshes on Monday mornings. All times are local to Koh Phangan.</p>
-            <div id="weekly-events" class="schedule-grid"></div>
+            <div class="schedule-controls" hidden>
+                <span id="schedule-position" aria-live="polite" aria-atomic="true"></span>
+                <div class="schedule-arrows">
+                    <button type="button" id="schedule-prev" aria-label="Previous events" aria-controls="weekly-events">←</button>
+                    <button type="button" id="schedule-next" aria-label="Next events" aria-controls="weekly-events">→</button>
+                </div>
+            </div>
+            <div id="weekly-events" class="schedule-grid" role="region" aria-label="Upcoming events — scroll to browse" tabindex="0"></div>
             <p id="schedule-status" role="status">Loading upcoming events…</p>
             <p><a href="https://todo.today/c/mesto-nashe-mesto/">See the latest schedule on Todo.Today &rarr;</a></p>
             <noscript><p>Open our Todo.Today channel above to see upcoming events.</p></noscript>

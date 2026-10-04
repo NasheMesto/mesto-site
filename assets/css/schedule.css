@@ -1,15 +1,21 @@
 .schedule { margin: 0 0 3rem; padding-bottom: 2rem; border-bottom: 2px solid #eee; }
 .schedule > h2 { margin-bottom: .8rem; }
 .schedule-intro { margin-bottom: 1rem; }
-.schedule-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
-.schedule-card { min-width: 0; border: 1px solid #ddd; padding: 1rem; border-radius: 6px; }
+.schedule-controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 0 0 1rem; }
+.schedule-controls[hidden] { display: none; }
+#schedule-position { font-size: .85rem; color: #555; }
+.schedule-arrows { display: flex; gap: .5rem; }
+.schedule-arrows button { padding: 0; width: 3rem; height: 3rem; line-height: 1; font-size: 1.3rem; letter-spacing: 0; border-radius: 50%; }
+.schedule-grid { display: flex; gap: 1.5rem; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 1px; padding: 2px 1px 1rem; scrollbar-width: thin; }
+.schedule-grid:focus-visible { outline: 2px solid #ef5c43; outline-offset: 4px; }
+.schedule-card { flex: 0 0 calc((100% - 3rem) / 3); min-width: 0; border: 1px solid #ddd; padding: 1rem; border-radius: 6px; scroll-snap-align: start; display: flex; flex-direction: column; }
 .schedule-card a { border: 0; }
 .schedule-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 3px; }
 .schedule-card h3 { font-size: 1.1rem; line-height: 1.5; margin: 1rem 0 .6rem; overflow-wrap: anywhere; }
 .schedule-card p { text-align: left; line-height: 1.6; }
 .schedule-date { font-weight: bold; font-size: .85rem; margin: 0 0 .8rem; }
 .schedule-details { margin-bottom: .8rem; font-size: .9rem; }
-.schedule-link { font-weight: bold; }
+.schedule-link { font-weight: bold; margin-top: auto; align-self: flex-start; }
 #schedule-status { font-size: .8rem; margin: 1rem 0; color: #555; text-align: left; }
 .schedule-ticket-entry { margin: 2rem 0 3rem; scroll-margin-top: 1.5rem; }
 .schedule-ticket-heading { margin-bottom: 1rem; }
@@ -30,5 +36,5 @@
 .schedule-ticket-soon h3 { margin: 0 0 .4rem; font-size: 1rem; line-height: 1.4; }
 .site-page #main > .post .schedule-ticket-soon p { margin: 0; font-size: .85rem; line-height: 1.6; color: #777; }
 @media (max-width: 736px) { .schedule-ticket-list { grid-template-columns: 1fr; } .schedule-ticket-feature { grid-template-columns: 80px minmax(0, 1fr); gap: .9rem; } }
-@media (max-width: 980px) { .schedule-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 600px) { .schedule-grid { grid-template-columns: 1fr; } }
+@media (max-width: 980px) { .schedule-card { flex-basis: calc((100% - 1.5rem) / 2); } }
+@media (max-width: 600px) { .schedule-grid { gap: 1rem; } .schedule-card { flex-basis: 88%; } }
