@@ -87,6 +87,13 @@
 		document.querySelectorAll('[data-method-panel]').forEach(function (panel) {
 			panel.hidden = panel.getAttribute('data-method-panel') !== method;
 		});
+
+		if (method === 'card') {
+			var widget = document.querySelector('.coffee-widget');
+			if (widget && !widget.getAttribute('src')) {
+				widget.src = widget.getAttribute('data-src');
+			}
+		}
 	}
 
 	document.querySelectorAll('[data-language]').forEach(function (button) {
@@ -139,4 +146,5 @@
 	}
 
 	setLanguage(savedLanguage || (navigator.language.toLowerCase().indexOf('ru') === 0 ? 'ru' : 'en'));
+	activateMethod('card');
 })();

@@ -620,40 +620,50 @@
 	justify-self: start;
 }
 
-.support-panel--soon {
+.support-panel--coffee {
 	position: relative;
 	max-width: 46rem;
 	margin: 1rem auto 0;
-	padding: 4rem;
+	padding: 2.5rem 1.5rem;
 	border-radius: var(--donation-radius);
 	background:
-		radial-gradient(circle at 95% 5%, rgba(220, 235, 113, 0.65), transparent 11rem),
+		radial-gradient(circle at 95% 5%, rgba(64, 220, 165, 0.35), transparent 11rem),
 		var(--donation-ink);
 	color: rgba(255, 255, 255, 0.75);
 	text-align: center;
 }
 
-.support-panel--soon h3 {
+.support-panel--coffee h3 {
 	margin: 1rem 0 1.2rem;
 	color: #fff;
 }
 
-.support-panel--soon p {
+.support-panel--coffee p {
 	font-size: 0.95rem;
 	line-height: 1.75;
 }
 
-.soon-badge {
-	display: inline-flex;
-	padding: 0.4rem 0.75rem;
-	border-radius: 999px;
-	background: var(--donation-lime);
-	color: var(--donation-ink);
-	font-family: "Cabinet Grotesk", Arial, sans-serif;
-	font-size: 0.68rem;
-	font-weight: 700;
-	letter-spacing: 0.1em;
-	text-transform: uppercase;
+.coffee-widget {
+	display: block;
+	width: 100%;
+	max-width: 420px;
+	height: 700px;
+	margin: 0 auto;
+	border: 0;
+	border-radius: 10px;
+	background: #fff;
+}
+
+.support-panel--coffee .coffee-fallback {
+	margin: 1.25rem 0 0;
+}
+
+.coffee-fallback a {
+	color: #40dca5;
+}
+
+.coffee-fallback a:hover {
+	color: #fff !important;
 }
 
 .contact-section {
@@ -961,8 +971,8 @@
 		grid-column: auto;
 	}
 
-	.support-panel--soon {
-		padding: 3rem 1.5rem;
+	.support-panel--coffee {
+		padding: 2rem 0.75rem;
 	}
 
 	.contact-grid {

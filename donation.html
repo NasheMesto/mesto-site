@@ -13,7 +13,7 @@
 	<title>Support MESTO</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<meta name="description" content="Support MESTO on Koh Phangan by bank transfer or cryptocurrency." />
+	<meta name="description" content="Support MESTO on Koh Phangan through Buy Me a Coffee, bank transfer or cryptocurrency." />
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Support MESTO" />
 	<meta property="og:description" content="Help an independent art and community space on Koh Phangan stay open to everyone." />
@@ -100,7 +100,11 @@
 				</div>
 
 				<div class="support-tabs" role="tablist" aria-label="Support methods">
-					<button type="button" id="tab-bank" class="support-tabs__button is-active" role="tab" aria-selected="true" aria-controls="panel-bank" data-method="bank">
+					<button type="button" id="tab-card" class="support-tabs__button is-active" role="tab" aria-selected="true" aria-controls="panel-card" data-method="card">
+						<span class="icon solid fa-credit-card" aria-hidden="true"></span>
+						<span data-copy-en="Card & monthly" data-copy-ru="Карта и подписка">Card & monthly</span>
+					</button>
+					<button type="button" id="tab-bank" class="support-tabs__button" role="tab" aria-selected="false" aria-controls="panel-bank" data-method="bank" tabindex="-1">
 						<span class="icon solid fa-university" aria-hidden="true"></span>
 						<span data-copy-en="Bank transfer" data-copy-ru="Банковский перевод">Bank transfer</span>
 					</button>
@@ -108,13 +112,9 @@
 						<span class="icon brands fa-bitcoin" aria-hidden="true"></span>
 						<span data-copy-en="Cryptocurrency" data-copy-ru="Криптовалюта">Cryptocurrency</span>
 					</button>
-					<button type="button" id="tab-card" class="support-tabs__button" role="tab" aria-selected="false" aria-controls="panel-card" data-method="card" tabindex="-1">
-						<span class="icon solid fa-credit-card" aria-hidden="true"></span>
-						<span data-copy-en="Card & monthly" data-copy-ru="Карта и подписка">Card & monthly</span>
-					</button>
 				</div>
 
-				<div id="panel-bank" class="support-panel" role="tabpanel" aria-labelledby="tab-bank" data-method-panel="bank">
+				<div id="panel-bank" class="support-panel" role="tabpanel" aria-labelledby="tab-bank" data-method-panel="bank" hidden>
 					<div class="support-panel__header">
 						<div>
 							<p class="method-kicker">SWIFT / BANK</p>
@@ -269,11 +269,12 @@
 					</div>
 				</div>
 
-				<div id="panel-card" class="support-panel support-panel--soon" role="tabpanel" aria-labelledby="tab-card" data-method-panel="card" hidden>
-					<span class="soon-badge" data-copy-en="Coming soon" data-copy-ru="Скоро">Coming soon</span>
-					<h3 data-copy-en="Online card & monthly support" data-copy-ru="Оплата картой и регулярная поддержка">Online card & monthly support</h3>
-					<p data-copy-en="We are setting up card payments and recurring monthly contributions through established platforms such as Stripe and Buy Me a Coffee. We will publish payment links only after the accounts are fully verified and ready to use." data-copy-ru="Мы настраиваем оплату картой и регулярные ежемесячные взносы через такие платформы, как Stripe и Buy Me a Coffee. Ссылки появятся здесь только после полной верификации аккаунтов.">We are setting up card payments and recurring monthly contributions through established platforms such as Stripe and Buy Me a Coffee. We will publish payment links only after the accounts are fully verified and ready to use.</p>
-					<p data-copy-en="Until then, you can support MESTO by bank transfer or cryptocurrency. Thank you for your patience and trust." data-copy-ru="До тех пор вы можете поддержать MESTO банковским переводом или криптовалютой. Спасибо за терпение и доверие.">Until then, you can support MESTO by bank transfer or cryptocurrency. Thank you for your patience and trust.</p>
+				<div id="panel-card" class="support-panel support-panel--coffee" role="tabpanel" aria-labelledby="tab-card" data-method-panel="card">
+					<p class="method-kicker">BUY ME A COFFEE</p>
+					<h3 data-copy-en="Help MESTO stay a place for everyone 💛" data-copy-ru="Помогите МЕСТУ оставаться пространством для всех 💛">Help MESTO stay a place for everyone 💛</h3>
+					<!-- Embed the same form used by BMC's floating widget, inside this tab. -->
+					<iframe class="coffee-widget" title="Support MESTO on Buy Me a Coffee" data-src="https://www.buymeacoffee.com/widget/page/mesto?description=Support%20me%20on%20Buy%20me%20a%20coffee!&amp;color=%2340DCA5" allow="publickey-credentials-get *; payment *"></iframe>
+					<p class="coffee-fallback"><a href="https://www.buymeacoffee.com/mesto" target="_blank" rel="noopener noreferrer" data-copy-en="Open Buy Me a Coffee in a new tab ↗" data-copy-ru="Открыть Buy Me a Coffee в новой вкладке ↗">Open Buy Me a Coffee in a new tab ↗</a></p>
 				</div>
 			</section>
 
