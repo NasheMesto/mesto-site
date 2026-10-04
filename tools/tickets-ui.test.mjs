@@ -22,7 +22,7 @@ function preview(search = '?lang=ru', checkoutMode = 'auto') {
   });
   const calls = [];
   let onComplete;
-  const location = { search, href: `http://127.0.0.1:4242/tickets.html${search}` };
+  const location = { search, href: `http://127.0.0.1:4242/events/scary-house-2026-10-31.html${search}` };
   const context = vm.createContext({
     URL, URLSearchParams, Intl, AbortSignal, setTimeout, clearTimeout,
     location, history: { replaceState(_state, _unused, url) { location.href = String(url); } },
@@ -56,6 +56,7 @@ test('static Payment Link release makes no private API calls, including after a 
   assert.equal(ui.element('#stripe-checkout').hidden, true);
   assert.equal(ui.element('#embedded-placeholder').hidden, true);
   assert.equal(ui.document.documentElement.lang, 'ru');
+  assert.equal(ui.element('.ticket-back').href, '/events.html#ticketed-events');
 });
 
 test('static release ignores local test order parameters rather than displaying a test confirmation', async () => {
@@ -77,6 +78,8 @@ test('embedded completion replaces checkout with a visible, focused confirmation
   assert.equal(ui.element('#embedded-status-title').textContent, 'Тестовая оплата прошла!');
   assert.match(ui.element('#embedded-order-summary').textContent, /NM-TEST/);
   assert.equal(new URL(ui.location.href).searchParams.get('order'), orderId);
+  assert.equal(new URL(ui.location.href).hash, '#tickets');
+  assert.ok(ui.element('#embedded-result').href.startsWith('/ticket-result.html?'));
 });
 
 test('refreshing a completed order restores confirmation without creating another payment session', async () => {

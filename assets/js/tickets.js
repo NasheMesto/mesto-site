@@ -98,7 +98,7 @@
   const mount = document.querySelector('#stripe-checkout');
   const resultLink = document.querySelector('#embedded-result');
   const retry = document.querySelector('#ticket-retry');
-  const section = document.querySelector('#embedded-payment');
+  const section = document.querySelector('#tickets');
   let status = 'checking', ready = false, busy = false, completed = false;
   let checkout = null, stripePromise = null, request = null, orderId = null, publishableKey = '', confirmedOrder = null;
   function renderCheckoutMode() {
@@ -139,8 +139,8 @@
       if (value !== undefined) element.textContent = value;
     }
     for (const button of document.querySelectorAll('[data-language]')) button.setAttribute('aria-pressed', String(button.dataset.language === language));
-    document.querySelector('.ticket-back').href = 'events.html#ticketed-events';
-    if (completed) resultLink.href = `ticket-result.html?order=${encodeURIComponent(orderId)}&lang=${language}`;
+    document.querySelector('.ticket-back').href = '/events.html#ticketed-events';
+    if (completed) resultLink.href = `/ticket-result.html?order=${encodeURIComponent(orderId)}&lang=${language}`;
     showStatus(status);
     renderOrderSummary();
     renderCheckoutMode();
@@ -183,13 +183,13 @@
     completed = true;
     checkout?.destroy(); checkout = null;
     mount.hidden = true; placeholder.hidden = false; retry.hidden = true;
-    resultLink.href = `ticket-result.html?order=${encodeURIComponent(orderId)}&lang=${language}`;
+    resultLink.href = `/ticket-result.html?order=${encodeURIComponent(orderId)}&lang=${language}`;
     resultLink.hidden = false; showStatus('waiting');
     // Keep the completed order available on refresh without creating another checkout.
     const url = new URL(location.href);
     url.searchParams.set('order', orderId);
     url.searchParams.set('lang', language);
-    url.hash = 'embedded-payment';
+    url.hash = 'tickets';
     history.replaceState(null, '', url);
     function revealResult() {
       placeholder.focus({ preventScroll: true });
