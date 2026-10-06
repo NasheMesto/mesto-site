@@ -71,6 +71,8 @@ body.tickets-body { --ticket-ink: #293d32; --ticket-paper: #f6f4ed; --ticket-mut
 .ticket-booking-bottom { display: flex; gap: .8rem; font-size: .78rem; color: var(--ticket-muted); border-top: 1px solid var(--ticket-line); padding-top: 1rem; }
 .ticket-booking-bottom > span:first-child { font-size: 1rem; }
 .ticket-question { display: inline-block; font-size: .78rem; margin-top: 1rem; text-decoration: underline; text-underline-offset: 3px; }
+.tickets-body .ticket-cash-note { margin: 1rem 0 0; font-size: .82rem; color: var(--ticket-muted); }
+.ticket-cash-note a { text-decoration: underline; text-underline-offset: 3px; }
 .ticket-venue { margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; background: #e5e8db; }
 .ticket-venue img { display: block; height: 330px; width: 100%; object-fit: cover; }
 .ticket-venue > div { padding: 2.7rem; align-self: center; }

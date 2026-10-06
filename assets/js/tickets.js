@@ -52,8 +52,10 @@
   "testNote": "Встроенная форма — тестовая. Деньги не списываются, билет для входа не выдаётся.",
   "alternative": "Или на отдельной странице",
   "checkoutButton": "Купить на Stripe",
-  "noCharge": "По этой ссылке — настоящая оплата.",
-  "questions": "Есть вопросы? Напишите нам ↗",
+  "noCharge": "Вы перейдёте на страницу оплаты Stripe, где сможете выбрать нужное количество взрослых и детских билетов.",
+  "questions": "Есть вопросы? Напишите нам в Telegram ↗",
+  "cashTickets": "Хотите оплатить наличными? Билеты можно купить на баре MESTO.",
+  "cashMap": "Как добраться — Google Maps ↗",
   "venueTitle": "До встречи в Scary House!",
   "venueCopy": "31 октября, 18:00–22:00. Детский Halloween для детей 5–12 лет и сопровождающих взрослых."
 };
@@ -75,13 +77,15 @@
     deliveryAnswer: 'Save your Stripe payment confirmation. At the entrance, tell us the email address used for your booking. Children must be accompanied by an adult.',
     refundQuestion: 'Who can I contact about refunds?', refundAnswer: 'For refund or cancellation questions, contact tickets@nashemesto.com. Please check the conditions before booking.',
     foodQuestion: 'Where can I see the menu?', menuLink: 'View the MESTO menu ↗',
-    checkoutButton: 'Buy on Stripe', noCharge: 'This link accepts real payments.',
+    checkoutButton: 'Buy on Stripe', noCharge: 'You’ll be taken to Stripe checkout, where you can choose the number of adult and child tickets.',
     testNote: 'The embedded form is a test. No money is charged and no admission ticket is issued.',
     alternative: 'Or on a separate page', embeddedEyebrow: 'Book your place',
     embeddedTitle: 'Your tickets. One step closer to adventure.', testBadge: 'Test mode',
     embeddedCopy: 'Child ticket: ฿500. Accompanying adult: ฿300. Choose quantities and pay on the secure Stripe payment page.',
     placeholderTitle: 'The Stripe payment form will appear here', retry: 'Try again', resultLink: 'View test order status ↗',
-    questions: 'Have a question? Message us ↗', venueTitle: 'See you at Scary House!',
+    questions: 'Questions? Contact us on Telegram ↗',
+    cashTickets: 'Prefer to pay in cash? Tickets are available at the MESTO bar.', cashMap: 'Find MESTO on Google Maps ↗',
+    venueTitle: 'See you at Scary House!',
     venueCopy: 'October 31, 6–10 PM. Kids Halloween for ages 5–12 and accompanying adults.'
   };
   const messages = {
