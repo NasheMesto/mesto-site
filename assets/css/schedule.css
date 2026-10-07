@@ -32,6 +32,8 @@
 .schedule-ticket-date, .schedule-ticket-price { font-weight: bold; }
 .schedule-ticket-note { color: #65586c; }
 .schedule-ticket-details { display: inline-block; font-weight: bold; margin-top: .25rem; font-size: .8rem; }
+.schedule-ball-feature { background: #f8f1ed; border-color: #dbc7bb; }
+.schedule-ticket-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .schedule-ticket-soon { padding: 1.1rem; border: 1px dashed #ddd; display: flex; flex-direction: column; justify-content: center; }
 .schedule-ticket-soon h3 { margin: 0 0 .4rem; font-size: 1rem; line-height: 1.4; }
 .site-page #main > .post .schedule-ticket-soon p { margin: 0; font-size: .85rem; line-height: 1.6; color: #777; }
