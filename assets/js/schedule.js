@@ -47,30 +47,62 @@
     if (url.protocol !== 'https:' || url.hostname !== 'todo.today') throw new Error('Invalid URL');
     return url.href;
   }
+  // Keep local ticket destinations separate from the automatically refreshed Todo feed.
+  const ticketedEvents = [
+    {
+      todoId: 226758, date: '2026-10-31', titleMatch: /scary\s+house/i,
+      url: 'events/scary-house-2026-10-31.html',
+    },
+    {
+      date: '2026-11-07', titleMatch: /dungeons\s*(?:&|and|＆)\s*dracula|halloween\s+ball/i,
+      url: 'events/dungeons-dracula-2026-11-07.html',
+      fallback: {
+        id: 'mesto-dungeons-dracula-2026', title: 'Dungeons & Dracula — MESTO Halloween Ball',
+        start: '2026-11-07T20:00:00+07:00', end: '2026-11-08T02:00:00+07:00',
+        date: '2026-11-07', time: '8:00 PM – 2:00 AM',
+        price: '฿500–฿800 · Thai & Myanmar nationals ฿300', booking: 'Online Tickets',
+        image: 'images/halloween-ball/poster.jpg',
+      },
+    },
+  ];
+  function matchesTicket(event, ticket) {
+    return event.date === ticket.date &&
+      ((ticket.todoId && String(event.id) === String(ticket.todoId)) || ticket.titleMatch.test(event.title));
+  }
+  function combinedEvents(events) {
+    const combined = [...events];
+    for (const ticket of ticketedEvents) {
+      if (ticket.fallback && !events.some(event => matchesTicket(event, ticket))) {
+        combined.push(ticket.fallback);
+      }
+    }
+    return combined.sort((a, b) => Date.parse(a.start) - Date.parse(b.start));
+  }
   fetch('data/events.json', { cache: 'no-cache' }).then(r => {
     if (!r.ok) throw new Error('Schedule unavailable');
     return r.json();
   }).then(data => {
     if (!Array.isArray(data.events) || !Number.isFinite(Date.parse(data.updatedAt))) throw new Error('Invalid schedule');
     const now = Date.now();
-    const active = data.events.filter(e => {
+    const active = combinedEvents(data.events).filter(e => {
       const cutoff = e.end || `${e.date}T23:59:59+07:00`;
       return Date.parse(cutoff) > now;
     });
     const fragment = document.createDocumentFragment();
     for (const event of active) {
+      const ticket = ticketedEvents.find(ticket => matchesTicket(event, ticket));
       const card = element('article', '', 'schedule-card');
       const link = element('a');
-      link.href = todoUrl(event.url);
+      link.href = ticket ? ticket.url : todoUrl(event.url);
       if (event.image) {
         const img = element('img');
-        img.src = todoUrl(event.image); img.alt = ''; img.loading = 'lazy';
+        img.src = ticket?.fallback === event ? event.image : todoUrl(event.image); img.alt = ''; img.loading = 'lazy';
         link.append(img);
       }
       link.append(element('h3', event.title));
       card.append(element('p', `${dateFormat.format(new Date(event.start))} · ${event.time}`, 'schedule-date'), link);
       card.append(element('p', [event.price, event.booking].filter(Boolean).join(' · '), 'schedule-details'));
-      const more = element('a', 'Event details →', 'schedule-link'); more.href = link.href; card.append(more);
+      const more = element('a', ticket ? 'Details & tickets →' : 'Event details →', 'schedule-link'); more.href = link.href; card.append(more);
       fragment.append(card);
     }
     host.replaceChildren(fragment);
