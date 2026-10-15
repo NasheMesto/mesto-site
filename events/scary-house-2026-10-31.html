@@ -9,9 +9,11 @@
   <title>Scary House · Tickets at MESTO</title>
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/tickets.css">
-  <script src="../assets/js/tickets.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/manager-checkout.css?v=20261015-1">
+  <script src="../assets/js/tickets.js?v=20261015-manager-1" defer></script>
+  <script src="../assets/js/manager-checkout.js?v=20261015-1" defer></script>
 </head>
-<body class="tickets-body scary-tickets" data-checkout-mode="payment-link">
+<body class="tickets-body scary-tickets" data-checkout-mode="manager">
   <a class="ticket-skip" href="#ticket-main" data-i18n="skip">Skip to event</a>
   <div class="ticket-preview-banner" data-i18n="preview" data-embedded-only hidden>Local preview · Embedded checkout in test mode</div>
   <header class="ticket-header">
@@ -60,7 +62,7 @@
         <section class="ticket-faq" aria-labelledby="faq-title">
           <h3 id="faq-title" data-i18n="faqTitle">Good to know</h3>
           <details><summary data-i18n="ageQuestion">Who is the event for?</summary><p data-i18n="ageAnswer">Kids ages 5–12. Children must be accompanied by an adult.</p></details>
-          <details><summary data-i18n="deliveryQuestion">How do I enter the event?</summary><p data-i18n="deliveryAnswer">Save your Stripe payment confirmation. At the entrance, tell us the email address used for your booking. Children must be accompanied by an adult.</p></details>
+          <details><summary data-i18n="deliveryQuestion">How do I enter the event?</summary><p data-i18n="deliveryAnswer">After payment is confirmed, we email a QR ticket for each person. Check your spam folder too. Show the QR codes on your phone at the entrance.</p></details>
           <details><summary data-i18n="refundQuestion">Who can I contact about refunds?</summary><p data-i18n="refundAnswer">For refund or cancellation questions, contact tickets@nashemesto.com. Please check the conditions before booking.</p></details>
           <details><summary data-i18n="foodQuestion">Where can I see the menu?</summary><p><a href="https://menu.ps.me/6AMZWSBkt3Q" data-i18n="menuLink">View the MESTO menu ↗</a></p></details>
         </section>
@@ -70,15 +72,16 @@
 
     <section id="tickets" class="ticket-embedded-section" aria-labelledby="embedded-title">
       <div class="ticket-embedded-heading"><div><p class="ticket-eyebrow" data-i18n="embeddedEyebrow">Book your place</p><h2 id="embedded-title" data-i18n="embeddedTitle">Your tickets. One step closer to adventure.</h2></div><span class="ticket-demo-badge" data-i18n="testBadge" data-embedded-only hidden>Test mode</span></div>
-      <p class="ticket-small" data-i18n="embeddedCopy">Child ticket: ฿500. Accompanying adult: ฿300. Choose quantities and pay on the secure Stripe payment page.</p>
+      <p class="ticket-small" data-i18n="embeddedCopy">Choose your child and adult tickets below. Pay by card or PromptPay. Your QR tickets will arrive by email after payment.</p>
       <p class="ticket-family-note" data-i18n="accompaniment">Adult accompaniment is required</p>
       <div id="embedded-placeholder" class="ticket-embedded-placeholder" tabindex="-1" hidden><span id="embedded-icon" class="ticket-embedded-icon" aria-hidden="true">↳</span><strong id="embedded-status-title" data-i18n="placeholderTitle">The Stripe payment form will appear here</strong><p id="embedded-status" role="status" aria-live="polite"></p><p id="embedded-order-summary" hidden></p><button id="ticket-retry" type="button" class="ticket-change" hidden data-i18n="retry">Try again</button><a id="embedded-result" href="../ticket-result.html" hidden data-i18n="resultLink">View test order status ↗</a></div>
       <div id="stripe-checkout" hidden></div>
+      <div id="manager-checkout" class="ticket-manager-shell" data-mesto-event="event-19cfa24b-4ddc-44df-a38c-abea37767ba7" aria-label="Scary House ticket payment"><p id="manager-checkout-status" class="ticket-small" role="status">Loading secure payment…</p></div>
       <p class="ticket-checkout-note" data-i18n="testNote" data-embedded-only hidden>The embedded form is a test. No money is charged and no admission ticket is issued.</p>
-      <div class="ticket-payment-alternative"><span data-i18n="alternative" data-embedded-only hidden>Or on a separate page</span><a id="ticket-checkout" href="https://buy.stripe.com/14AeVeci4blTel6aaGfEk00" target="_blank" rel="noopener noreferrer"><span data-i18n="checkoutButton">Buy on Stripe</span><span aria-hidden="true"> ↗</span></a><p class="ticket-small" data-i18n="noCharge">You’ll be taken to Stripe checkout, where you can choose the number of adult and child tickets.</p></div>
-      <a class="ticket-question" href="https://t.me/Nashemesto_kpg" data-i18n="questions">Questions? Contact us on Telegram ↗</a>
+      <div class="ticket-payment-alternative"><a id="ticket-checkout" href="https://manager.nashemesto.com/embed-preview.html?event=event-19cfa24b-4ddc-44df-a38c-abea37767ba7" target="_blank" rel="noopener noreferrer"><span data-i18n="checkoutButton">Open payment window</span><span aria-hidden="true"> ↗</span></a><p class="ticket-small" data-i18n="noCharge">If the form does not open, use the separate payment window. It sends the same QR tickets by email.</p></div>
+      <a class="ticket-question" href="https://t.me/Nashemesto_kpg" data-i18n="questions">Can’t complete payment? Contact us on Telegram ↗</a>
       <p class="ticket-cash-note"><span data-i18n="cashTickets">Prefer to pay in cash? Tickets are available at the MESTO bar.</span> <a href="https://maps.app.goo.gl/wbX84mRGxvMj23M57" data-i18n="cashMap">Find MESTO on Google Maps ↗</a></p>
-      <noscript><p>Use the Buy on Stripe button above to choose and pay for your tickets.</p></noscript>
+      <noscript><p>Turn on JavaScript to buy tickets online, or contact us on Telegram for help.</p></noscript>
     </section>
 
     <section class="ticket-venue" aria-labelledby="venue-title">

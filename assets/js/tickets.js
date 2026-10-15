@@ -1,6 +1,7 @@
-/* Payment Link on the static site; embedded test checkout where its backend is available. */
+/* Event page language and legacy test UI. Production payment uses the manager widget. */
 (() => {
   'use strict';
+  const managerMode = document.body?.dataset.checkoutMode === 'manager';
   let language = new URLSearchParams(location.search).get('lang') === 'ru' ? 'ru' : 'en';
   const russian = {
   "skip": "К мероприятию",
@@ -88,6 +89,22 @@
     venueTitle: 'See you at Scary House!',
     venueCopy: 'October 31, 6–10 PM. Kids Halloween for ages 5–12 and accompanying adults.'
   };
+  if (managerMode) {
+    Object.assign(english, {
+      deliveryAnswer: 'After payment is confirmed, we email a QR ticket for each person. Check your spam folder too. Show the QR codes on your phone at the entrance.',
+      embeddedCopy: 'Choose your child and adult tickets below. Pay by card or PromptPay. Your QR tickets will arrive by email after payment.',
+      checkoutButton: 'Open payment window',
+      noCharge: 'If the form does not open, use the separate payment window. It sends the same QR tickets by email.',
+      questions: 'Can’t complete payment? Contact us on Telegram ↗'
+    });
+    Object.assign(russian, {
+      deliveryAnswer: 'После подтверждения оплаты мы отправим на почту отдельный QR-билет на каждого гостя. Проверьте также папку «Спам». На входе покажите QR-коды с телефона.',
+      embeddedCopy: 'Выберите детские билеты и билеты для сопровождающих взрослых ниже. Оплатите картой или через PromptPay. После оплаты QR-билеты придут на почту.',
+      checkoutButton: 'Открыть окно оплаты',
+      noCharge: 'Если форма не открывается, воспользуйтесь отдельным окном оплаты. Оно отправит те же QR-билеты на почту.',
+      questions: 'Не получается оплатить? Напишите нам в Telegram ↗'
+    });
+  }
   const messages = {
     ru: { checking: 'Проверяем доступность оплаты…', unavailable: 'Встроенная оплата пока недоступна. Можно открыть отдельную страницу Stripe.',
       loading: 'Открываем защищённую форму Stripe…', error: 'Не удалось открыть форму. Попробуйте ещё раз или откройте отдельную страницу Stripe.',
@@ -250,8 +267,8 @@
   }
   retry.addEventListener('click', () => { void startEmbedded(); });
   async function configure() {
-    // GitHub Pages has no private API. Its release explicitly uses the live Payment Link.
-    if (document.body?.dataset.checkoutMode === 'payment-link') return;
+    // The static release delegates payment to the manager, or to a legacy Payment Link.
+    if (managerMode || document.body?.dataset.checkoutMode === 'payment-link') return;
     const previousOrder = new URLSearchParams(location.search).get('order');
     if (/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i.test(previousOrder || '')) {
       orderId = previousOrder;

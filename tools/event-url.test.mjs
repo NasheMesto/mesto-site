@@ -27,7 +27,7 @@ test('old links to other sections retain the section', () => {
 test('public event has a working ticket anchor and local asset paths', () => {
   const page = fs.readFileSync(new URL('..' + eventPath, import.meta.url), 'utf8');
   assert.match(page, /id="tickets"/);
-  assert.match(page, /data-checkout-mode="payment-link"/);
+  assert.match(page, /data-checkout-mode="manager"/);
   const pageUrl = new URL('..' + eventPath, import.meta.url);
   for (const [, reference] of page.matchAll(/(?:src|href)="([^"]+)"/g)) {
     if (/^(?:https?:|mailto:|#)/.test(reference)) continue;

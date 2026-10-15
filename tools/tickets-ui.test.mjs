@@ -66,6 +66,15 @@ test('static release ignores local test order parameters rather than displaying 
   assert.equal(ui.element('#embedded-result').hidden, true);
 });
 
+test('manager checkout never starts the legacy test API, including after reload and language change', async () => {
+  const ui = preview(`?order=${orderId}`, 'manager');
+  await settle(); ui.language('ru'); await settle();
+  assert.deepEqual(ui.calls, []);
+  assert.equal(ui.element('#stripe-checkout').hidden, true);
+  assert.equal(ui.element('#embedded-result').hidden, true);
+  assert.equal(ui.document.documentElement.lang, 'ru');
+});
+
 test('embedded completion replaces checkout with a visible, focused confirmation and retains the order URL', async () => {
   const ui = preview();
   await settle();
