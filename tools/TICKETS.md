@@ -36,3 +36,19 @@ node --test tools/event-url.test.mjs tools/tickets-ui.test.mjs tools/manager-che
 
 Publish only website files. Never add local `.env` files, database files, server
 handoff archives or the `output/` and `tmp/` directories to a Pages release.
+
+## Dungeons & Dracula
+
+The adult ball uses the same loader with event
+`event-b67c1b6c-81c3-4e3b-b94d-e4d1f8368f9d`. Its 500/600/700/800 THB releases
+are controlled by `ticket_rules` on the manager server in Thailand time. The
+300 THB community price is separate. Two manual friend discounts (500/300 THB)
+have no Stripe binding and cannot appear in online checkout. Each requires a
+manual issue reason. Total inventory is shared across every type.
+
+Only the current online release and the community type appear to the buyer.
+The static page describes the complete calendar without claiming any one phase
+is current. Price selection and time checks happen again inside the reservation
+transaction. A previously reserved order keeps its original price until its
+35-minute reservation expires. Historical direct-link purchases remain separate;
+replacing the page does not import or email them automatically.

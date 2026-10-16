@@ -28,3 +28,12 @@ test('blocked widget offers a useful alternative; a mounted widget removes only 
  const f=fixture(null,{lang:'ru'});f.scripts[0].listeners.error();assert.match(f.status.textContent,/Telegram/);assert.equal(f.status.hidden,false);f.mount();assert.equal(f.status.hidden,true);assert.equal(f.cleared,true);
  assert.equal(fixture(null,{slug:'../bad'}).scripts.length,0);
 });
+
+
+test('adult Halloween reuses the same loader with its own event; closed releases are not hard-coded as current',()=>{
+ const pageUrl=new URL('../events/dungeons-dracula-2026-11-07.html',import.meta.url),page=fs.readFileSync(pageUrl,'utf8');
+ assert.match(page,/data-checkout-mode="manager"/);assert.match(page,/data-mesto-event="event-b67c1b6c-81c3-4e3b-b94d-e4d1f8368f9d"/);assert.equal((page.match(/id="manager-checkout"/g)||[]).length,1);
+ assert.doesNotMatch(page,/buy\.stripe\.com|Early Bird available|class="is-current"/);assert.match(page,/Card &amp; PromptPay/);assert.match(page,/we email a QR ticket for each guest/);assert.match(page,/Can’t complete payment/);
+ for(const [,ref]of page.matchAll(/(?:src|href)="([^"]+)"/g)){if(/^(?:https?:|mailto:|#)/.test(ref))continue;assert.ok(fs.existsSync(new URL(ref,pageUrl)),ref);}
+ const f=fixture(null,{slug:'event-b67c1b6c-81c3-4e3b-b94d-e4d1f8368f9d'});assert.equal(f.scripts[0].dataset.event,'event-b67c1b6c-81c3-4e3b-b94d-e4d1f8368f9d');assert.equal(new URL(f.fallback.href).searchParams.get('event'),'event-b67c1b6c-81c3-4e3b-b94d-e4d1f8368f9d');
+});

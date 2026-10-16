@@ -1,4 +1,4 @@
-/* Language control only. Payment uses the event's hosted Stripe link. */
+/* Event language control. Payment uses the reusable manager widget. */
 (() => {
   'use strict';
   const russian = {
@@ -63,6 +63,14 @@
     '7 November, 20:00–02:00. A night of medieval fantasy, strange encounters and glorious costumes.': '7 ноября, 20:00–02:00. Ночь средневекового фэнтези, странных встреч и великолепных костюмов.',
     'Exact location on the map ↗': 'Точная локация на карте ↗'
   };
+  Object.assign(russian, {
+    'Card & PromptPay': 'Карта и PromptPay',
+    'Ticket prices follow the dates below, in Thailand time. The form shows the tickets available now.': 'Цены действуют по датам ниже, по времени Таиланда. В форме показаны билеты, доступные сейчас.',
+    'Open payment window': 'Открыть окно оплаты',
+    'If the form does not open, use the separate payment window. After payment is confirmed, your QR tickets will arrive by email.': 'Если форма не открывается, воспользуйтесь отдельным окном оплаты. После подтверждения оплаты QR-билеты придут на почту.',
+    'Can’t complete payment? Contact MESTO on Telegram ↗': 'Не получается оплатить? Напишите MESTO в Telegram ↗',
+    'Choose your tickets below and pay by card or PromptPay. After payment is confirmed, we email a QR ticket for each guest. Check your spam folder too. For help, contact': 'Выберите билеты ниже и оплатите картой или через PromptPay. После подтверждения оплаты мы отправим на почту QR-билет на каждого гостя. Проверьте также папку «Спам». Если нужна помощь, пишите'
+  });
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const originals = [];
   while (walker.nextNode()) {

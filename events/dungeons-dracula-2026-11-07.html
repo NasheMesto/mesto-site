@@ -10,9 +10,11 @@
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/tickets.css">
   <link rel="stylesheet" href="../assets/css/halloween-ball.css">
-  <script src="../assets/js/halloween-ball.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/manager-checkout.css?v=20261016-1">
+  <script src="../assets/js/halloween-ball.js?v=20261016-1" defer></script>
+  <script src="../assets/js/manager-checkout.js?v=20261016-1" defer></script>
 </head>
-<body class="tickets-body ball-body" data-event-id="dungeons-dracula" data-sales-enabled="true" data-checkout-mode="payment-link">
+<body class="tickets-body ball-body" data-event-id="dungeons-dracula" data-sales-enabled="true" data-checkout-mode="manager">
   <a class="ticket-skip" href="#ticket-main">Skip to event</a>
   <header class="ticket-header">
     <a class="ticket-logo" href="https://nashemesto.com/" aria-label="MESTO home">MESTO<span>KOH PHANGAN</span></a>
@@ -66,20 +68,21 @@
         <figure><img src="../images/halloween-ball/costume-6.jpg" alt="A guest in a golden gown with a pearl crown and jewellery" loading="lazy" width="1877" height="2500"></figure>
       </div>
     </section>
-    <section class="ball-faq ticket-faq" aria-labelledby="faq-title"><h2 id="faq-title">Whispers from the court.</h2><details><summary>How should I prepare my costume?</summary><p>Start with a character you would love to become. Handmade, borrowed, thrifted and transformed looks are welcome. Join the costume preparation day at MESTO on 24 October if you would like to work on your ideas alongside others.</p></details><details><summary>Is the buffet included in my ticket?</summary><p>Yes. Your ticket includes a Halloween-themed snack buffet: mini sandwiches, vegetables, bread and spreads, sweets and fruit, with presentation inspired by the world of the ball.</p></details><details><summary>How will I pay and receive my ticket?</summary><p>Use the Buy on Stripe button to choose quantities and pay securely. Keep your payment confirmation. For admission and ticket delivery questions, contact <a href="https://t.me/Nashemesto_kpg">MESTO on Telegram ↗</a>.</p></details></section>
+    <section class="ball-faq ticket-faq" aria-labelledby="faq-title"><h2 id="faq-title">Whispers from the court.</h2><details><summary>How should I prepare my costume?</summary><p>Start with a character you would love to become. Handmade, borrowed, thrifted and transformed looks are welcome. Join the costume preparation day at MESTO on 24 October if you would like to work on your ideas alongside others.</p></details><details><summary>Is the buffet included in my ticket?</summary><p>Yes. Your ticket includes a Halloween-themed snack buffet: mini sandwiches, vegetables, bread and spreads, sweets and fruit, with presentation inspired by the world of the ball.</p></details><details><summary>How will I pay and receive my ticket?</summary><p>Choose your tickets below and pay by card or PromptPay. After payment is confirmed, we email a QR ticket for each guest. Check your spam folder too. For help, contact <a href="https://t.me/Nashemesto_kpg">MESTO on Telegram ↗</a>.</p></details></section>
     <section id="tickets" class="ticket-embedded-section ball-tickets" aria-labelledby="tickets-title">
-      <div class="ticket-embedded-heading"><div><p class="ticket-eyebrow">YOUR INVITATION TO THE COURT</p><h2 id="tickets-title">Choose your entrance.</h2></div><span class="ticket-demo-badge">Early Bird available</span></div>
-      <p>Early Bird is available now. Advance ticket prices rise with each release; later releases are shown below.</p>
+      <div class="ticket-embedded-heading"><div><p class="ticket-eyebrow">YOUR INVITATION TO THE COURT</p><h2 id="tickets-title">Choose your entrance.</h2></div><span class="ticket-demo-badge">Card &amp; PromptPay</span></div>
+      <p>Ticket prices follow the dates below, in Thailand time. The form shows the tickets available now.</p>
       <ol class="ball-releases" aria-label="Planned ticket price sequence">
-        <li class="is-current"><span class="ball-release-number">01 / CURRENT RELEASE</span><h3>Early Bird</h3><p class="ball-release-dates">From sales launch through 18 October (inclusive)</p><strong>฿500</strong></li>
+        <li><span class="ball-release-number">01 / ADVANCE</span><h3>Early Bird</h3><p class="ball-release-dates">From sales launch through 18 October (inclusive)</p><strong>฿500</strong></li>
         <li><span class="ball-release-number">02 / ADVANCE</span><h3>Second Release</h3><p class="ball-release-dates">19–31 October (inclusive)</p><strong>฿600</strong></li>
         <li><span class="ball-release-number">03 / ADVANCE</span><h3>Final Release</h3><p class="ball-release-dates">1–6 November (inclusive)</p><strong>฿700</strong></li>
         <li><span class="ball-release-number">04 / EVENT DAY</span><h3>At the Door</h3><p class="ball-release-dates">7 November · Online and at the bar</p><strong>฿800</strong></li>
       </ol>
       <div class="ball-community-ticket"><div><p class="ticket-eyebrow">SEPARATE TICKET CATEGORY</p><h3>Thai &amp; Myanmar Community Ticket</h3><p>฿300 tickets for Thai and Myanmar nationals.</p><p>Available throughout the sales period.</p><p class="ball-fine">Verification conditions to be confirmed.</p></div><strong>฿300</strong></div>
-      <div class="ball-sales-state"><div><strong>Your invitation awaits.</strong><p>Early Bird ฿500. The themed buffet is included in your ticket.</p></div><a id="ticket-checkout" class="ticket-primary" href="https://buy.stripe.com/8x2dRa2Hudu1b8UaaGfEk01" target="_blank" rel="noopener noreferrer" aria-describedby="booking-status"><span>Buy on Stripe</span><span aria-hidden="true">↗</span></a></div>
-      <p id="booking-status" class="ticket-small">You will be taken to Stripe to choose quantities and pay securely. Keep your payment confirmation.</p>
-      <a class="ticket-question" href="https://t.me/Nashemesto_kpg" target="_blank" rel="noopener noreferrer">Questions? Contact MESTO on Telegram ↗</a>
+      <div class="ball-sales-state"><div><strong>Your invitation awaits.</strong><p>The themed buffet is included in your ticket.</p></div></div>
+      <div id="manager-checkout" class="ticket-manager-shell" data-mesto-event="event-b67c1b6c-81c3-4e3b-b94d-e4d1f8368f9d" aria-label="Dungeons and Dracula ticket payment"><p id="manager-checkout-status" class="ticket-small" role="status">Loading secure payment…</p></div>
+      <div class="ticket-payment-alternative"><a id="ticket-checkout" href="https://manager.nashemesto.com/embed-preview.html?event=event-b67c1b6c-81c3-4e3b-b94d-e4d1f8368f9d" target="_blank" rel="noopener noreferrer"><span>Open payment window</span><span aria-hidden="true"> ↗</span></a><p id="booking-status" class="ticket-small">If the form does not open, use the separate payment window. After payment is confirmed, your QR tickets will arrive by email.</p></div>
+      <a class="ticket-question" href="https://t.me/Nashemesto_kpg" target="_blank" rel="noopener noreferrer">Can’t complete payment? Contact MESTO on Telegram ↗</a>
     </section>
     <section class="ticket-venue" aria-labelledby="venue-title">
       <div class="ticket-date-art" aria-hidden="true"><span>07 / 11</span><strong>DUNGEONS<br>&amp; DRACULA</strong></div>
