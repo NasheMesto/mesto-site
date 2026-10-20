@@ -19,7 +19,7 @@
 	<meta property="og:title" content="Cheesecakes for Cinema — MESTO" />
 	<meta property="og:description" content="All the profit from every slice of Basque cheesecake at MESTO goes towards a projector for movie nights." />
 	<meta property="og:url" content="https://nashemesto.com/cheesecake.html" />
-	<link rel="stylesheet" href="assets/css/cheesecake.css?v=5" />
+	<link rel="stylesheet" href="assets/css/cheesecake.css?v=6" />
 </head>
 <body>
 	<div class="page">
@@ -44,9 +44,13 @@
 						<canvas class="sprite" data-cake-sprite></canvas>
 						<span class="visually-hidden">About the cheesecake</span>
 					</button>
-					<div class="projector">
-						<canvas class="sprite" data-projector-sprite role="img" aria-label="JMGO N1S 4K projector"></canvas>
+					<div class="rooster" data-rooster aria-hidden="true">
+						<canvas class="sprite" data-rooster-sprite></canvas>
 					</div>
+					<button type="button" class="projector" data-projector aria-expanded="false" aria-controls="about-projector">
+						<canvas class="sprite" data-projector-sprite></canvas>
+						<span class="visually-hidden">About the JMGO N1S 4K projector</span>
+					</button>
 				</div>
 
 				<div class="bar" role="progressbar" aria-valuemin="0" data-bar>
@@ -64,10 +68,18 @@
 					</div>
 				</div>
 
-				<div class="about-cake" id="about-cake" data-about>
-					<div class="about-cake__inner">
+				<div class="about" id="about-cake" data-about="cake">
+					<div class="about__inner">
 						<h2>Basque cheesecake</h2>
 						<p>Born in 1990 at La Viña, a bar in San Sebastián, Spain. No crust and a very hot oven: the top caramelises almost black, while the inside stays soft and creamy.</p>
+					</div>
+				</div>
+
+				<div class="about" id="about-projector" data-about="projector">
+					<div class="about__inner">
+						<img class="about__photo" src="images/cheesecake/jmgo-n1s-4k.png" alt="JMGO N1S 4K projector on its gimbal stand" width="550" height="453" loading="lazy" />
+						<h2>JMGO N1S 4K</h2>
+						<p>A compact 4K triple-laser projector on a built-in gimbal: it tilts to aim at a wall or the ceiling, focuses and squares the picture by itself, and has Google TV and speakers inside. It will run MESTO's movie nights.</p>
 					</div>
 				</div>
 			</section>
@@ -78,6 +90,6 @@
 		</footer>
 	</div>
 
-	<script src="assets/js/cheesecake.js?v=5"></script>
+	<script src="assets/js/cheesecake.js?v=6"></script>
 </body>
 </html>

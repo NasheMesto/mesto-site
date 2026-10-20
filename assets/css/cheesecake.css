@@ -180,6 +180,44 @@ h1 {
 	position: absolute;
 	right: 0;
 	bottom: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.projector:focus-visible {
+	outline: 2px dashed var(--caramel);
+	outline-offset: 4px;
+}
+
+.rooster {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	pointer-events: none;
+}
+
+.plea {
+	position: absolute;
+	bottom: 100%;
+	left: 0;
+	color: var(--ink);
+	font-size: 0.7rem;
+	font-weight: 900;
+	letter-spacing: 0.075em;
+	line-height: 1;
+	white-space: nowrap;
+	text-transform: uppercase;
+	animation: plea 1.4s ease-out forwards;
+}
+
+@keyframes plea {
+	0% { opacity: 0; transform: translate(-30%, 6px) rotate(-8deg) scale(0.6); }
+	20% { opacity: 1; transform: translate(-40%, -4px) rotate(-8deg) scale(1); }
+	75% { opacity: 1; transform: translate(-50%, -16px) rotate(-8deg) scale(1); }
+	100% { opacity: 0; transform: translate(-55%, -24px) rotate(-8deg) scale(1); }
 }
 
 .bar {
@@ -244,21 +282,29 @@ h1 {
 
 /* Cheesecake info */
 
-.about-cake {
+.about {
 	display: grid;
 	grid-template-rows: 0fr;
 	transition: grid-template-rows 0.35s ease;
 }
 
-.about-cake.is-open {
+.about.is-open {
 	grid-template-rows: 1fr;
 }
 
-.about-cake__inner {
+.about__inner {
 	overflow: hidden;
 }
 
-.about-cake h2 {
+.about__photo {
+	display: block;
+	width: 100%;
+	max-width: 22rem;
+	height: auto;
+	margin: 1.5rem auto 0;
+}
+
+.about h2 {
 	margin: 1.5rem 0 0.4rem;
 	font-size: 1.1rem;
 	font-weight: 900;
@@ -267,7 +313,7 @@ h1 {
 	text-transform: uppercase;
 }
 
-.about-cake p {
+.about p {
 	margin: 0;
 }
 
@@ -310,7 +356,11 @@ h1 {
 		transform: translate(-50%, -16px) rotate(-6deg);
 	}
 
-	.about-cake {
+	.about {
 		transition: none;
+	}
+
+	.plea {
+		animation-duration: 0.01s;
 	}
 }
