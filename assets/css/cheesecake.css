@@ -1,0 +1,316 @@
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("../webfonts/cabinet-grotesk-regular.woff2") format("woff2");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Cabinet Grotesk";
+	src: url("../webfonts/cabinet-grotesk-black.woff2") format("woff2");
+	font-display: swap;
+	font-style: normal;
+	font-weight: 900;
+}
+
+/* Sizes and colours follow the main site (main.css). */
+:root {
+	--ink: #212931;
+	--muted: #909498;
+	--caramel: #c9762f;
+	--green: #3f9b5a;
+	--green-light: #74c487;
+	--logo: #c5c8cc;
+	--pixel: 2px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: #ffffff;
+	color: var(--ink);
+	font-family: "Cabinet Grotesk", Arial, sans-serif;
+	font-size: 11pt;
+	line-height: 1.8;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: inherit;
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+	max-width: 38rem;
+	min-height: 100vh;
+	min-height: 100svh;
+	margin: 0 auto;
+	padding: 1.25rem 1rem 2rem;
+}
+
+main {
+	flex: 1;
+}
+
+.topbar {
+	display: flex;
+	align-items: center;
+}
+
+.brand img {
+	width: 68px;
+	height: 68px;
+	opacity: 0.28;
+}
+
+.brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.9rem;
+	color: var(--logo);
+	font-size: 2.2rem;
+	font-weight: 900;
+	letter-spacing: 0.075em;
+	line-height: 1;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+/* Story */
+
+.intro {
+	margin-top: 3rem;
+}
+
+h1 {
+	margin: 0 0 1rem;
+	font-size: 44px;
+	font-weight: 900;
+	line-height: 1.2;
+	letter-spacing: 0.075em;
+	text-transform: uppercase;
+}
+
+.intro p {
+	margin: 0;
+}
+
+.baker-link {
+	text-decoration-color: var(--caramel);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 3px;
+}
+
+/* Fund tracker */
+
+.fund {
+	margin-top: 3rem;
+}
+
+.lane {
+	position: relative;
+	height: 100px;
+}
+
+.sprite {
+	display: block;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+.cake {
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.cake .sprite {
+	animation: ride 0.6s steps(1) infinite;
+}
+
+.cake:focus-visible {
+	outline: 2px dashed var(--caramel);
+	outline-offset: 4px;
+}
+
+@keyframes ride {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(calc(var(--pixel) * -1)); }
+}
+
+.tap-me {
+	position: absolute;
+	top: 0;
+	left: 62%;
+	color: var(--caramel);
+	font-size: 0.75rem;
+	font-weight: 900;
+	letter-spacing: 0.075em;
+	line-height: 1;
+	white-space: nowrap;
+	text-transform: uppercase;
+	opacity: 0;
+	pointer-events: none;
+	animation: tap-me 3.2s ease-out infinite;
+}
+
+.tap-me.is-gone {
+	display: none;
+}
+
+@keyframes tap-me {
+	0%, 55% { opacity: 0; transform: translate(-50%, 8px) rotate(-6deg) scale(0.6); }
+	65% { opacity: 1; transform: translate(-50%, -12px) rotate(-6deg) scale(1); }
+	88% { opacity: 1; transform: translate(-50%, -22px) rotate(-6deg) scale(1); }
+	100% { opacity: 0; transform: translate(-50%, -30px) rotate(-6deg) scale(1); }
+}
+
+.projector {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.bar {
+	position: relative;
+	height: 14px;
+	border: var(--pixel) solid var(--ink);
+	background: #ffffff;
+}
+
+.bar__fill {
+	height: 100%;
+	min-width: 4px;
+	background: repeating-linear-gradient(
+		-45deg,
+		var(--green) 0 4px,
+		var(--green-light) 4px 8px
+	);
+	background-size: 11.3px 11.3px;
+	animation: stripes 0.8s steps(4) infinite;
+}
+
+@keyframes stripes {
+	to { background-position: 11.3px 0; }
+}
+
+.labels {
+	position: relative;
+	height: 3.25rem;
+	margin-top: 0.6rem;
+}
+
+.label {
+	position: absolute;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	line-height: 1.4;
+	white-space: nowrap;
+}
+
+.label strong {
+	font-size: 1.1rem;
+	font-weight: 900;
+	letter-spacing: 0.04em;
+}
+
+.label span {
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+.label--raised {
+	left: 0;
+	align-items: center;
+}
+
+.label--goal {
+	right: 0;
+	align-items: flex-end;
+	text-align: right;
+}
+
+/* Cheesecake info */
+
+.about-cake {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: grid-template-rows 0.35s ease;
+}
+
+.about-cake.is-open {
+	grid-template-rows: 1fr;
+}
+
+.about-cake__inner {
+	overflow: hidden;
+}
+
+.about-cake h2 {
+	margin: 1.5rem 0 0.4rem;
+	font-size: 1.1rem;
+	font-weight: 900;
+	line-height: 1.3;
+	letter-spacing: 0.075em;
+	text-transform: uppercase;
+}
+
+.about-cake p {
+	margin: 0;
+}
+
+/* Footer */
+
+.footer {
+	margin-top: 3rem;
+	color: var(--muted);
+	text-align: center;
+}
+
+.footer a {
+	text-decoration: none;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+@media (max-width: 736px) {
+	h1 {
+		font-size: 36.67px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cake .sprite,
+	.bar__fill,
+	.tap-me {
+		animation: none;
+	}
+
+	.tap-me {
+		opacity: 1;
+		transform: translate(-50%, -16px) rotate(-6deg);
+	}
+
+	.about-cake {
+		transition: none;
+	}
+}
