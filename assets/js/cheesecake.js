@@ -242,15 +242,15 @@
 		return points;
 	}
 
-	/* ---------- JMGO N1S 4K ----------
-	   White rounded head seen from the front-left like the product photo:
-	   grey front panel with the lens on the right, speaker grille on the
-	   side, held by a gimbal bracket that sits on a flat base. */
+	/* ---------- Hisense Vidda C2 Ultra ----------
+	   Graphite rounded head seen from the front-left like the product photo:
+	   black glass front with a big lens on the right and a speaker strip
+	   below, held by two posts that rise from a round puck base. */
 
-	var PROJECTOR_YAW = -0.6; // front turned towards the cheesecake
-	var HEAD = { x: 8, y: 6.5, z0: 4, z1: 16, radius: 3 };
-	var PANEL = { x: HEAD.x - 1.1, z0: HEAD.z0 + 3.4, z1: HEAD.z1 - 1.1 };
-	var LENS = { x: 2.6, z: (PANEL.z0 + PANEL.z1) / 2, radius: 3.6 };
+	var PROJECTOR_YAW = -0.5; // front turned towards the cheesecake
+	var HEAD = { x: 8, y: 6, z0: 11, z1: 21.5, radius: 2.6 };
+	var PANEL = { x: HEAD.x - 0.9, z0: HEAD.z0 + 2.8, z1: HEAD.z1 - 0.9 };
+	var LENS = { x: 3, z: (PANEL.z0 + PANEL.z1) / 2, radius: 3.8 };
 
 	function insideRounded(x, z, halfX, z0, z1, radius) {
 		var cz = (z0 + z1) / 2;
@@ -266,40 +266,47 @@
 	}
 
 	function frontColour(x, z) {
-		if (!insideRounded(x, z, PANEL.x, PANEL.z0, PANEL.z1, 2)) return rgb('#f4f5f6');
+		if (!insideRounded(x, z, PANEL.x, PANEL.z0, PANEL.z1, 1.8)) {
+			// Speaker strip under the glass.
+			var grille = z < PANEL.z0 && z > HEAD.z0 + 0.8 && Math.abs(x) < HEAD.x - 1 && (Math.round(x) + Math.round(z)) % 2 === 0;
+			return rgb(grille ? '#3a3f46' : '#5a6069');
+		}
 		var lx = x - LENS.x;
 		var lz = z - LENS.z;
 		var r = Math.sqrt(lx * lx + lz * lz);
 		if (r <= LENS.radius) {
-			if (r > LENS.radius - 0.7) return rgb('#e6e9ec');
-			if (lx < -0.3 && lz > 0.3 && r > 0.6 && r < 1.7) return rgb('#9fd0ff');
-			return rgb('#2b4c8c');
+			if (r > LENS.radius - 0.9) return rgb('#c3c8cf');
+			if (lx < -0.3 && lz > 0.3 && r > 0.7 && r < 2) return rgb('#a3d3ff');
+			return rgb('#1d2c47');
 		}
-		if (x > -5.6 && x < -2.6 && Math.abs(z - LENS.z) < 0.6) return rgb('#4d5258');
-		return rgb('#b7bcc2');
+		if (x > -5.6 && x < -2.8 && Math.abs(z - LENS.z) < 0.6) return rgb('#3a3f47');
+		return rgb('#15181d');
 	}
 
 	function projectorPoints() {
 		var points = [];
 		var yaw = PROJECTOR_YAW;
-		var white = rgb('#f4f5f6');
-		var bracket = { top: rgb('#e2e4e7'), front: rgb('#d3d6da'), side: rgb('#d3d6da') };
+		var graphite = rgb('#575d66');
+		var post = { top: rgb('#4c525b'), front: rgb('#3f454e'), side: rgb('#3f454e') };
 
 		function push(v, colour) {
 			var p = rotate(v, yaw);
 			points.push({ x: p[0], y: p[1], z: p[2], colour: colour });
 		}
 
-		// Flat base and the bracket arms up to the pivots.
-		addBox(points, { x0: -9.8, x1: 9.8, y0: -6, y1: 6.5, z0: 0, z1: 1.4 }, bracket, yaw);
-		addBox(points, { x0: -9.8, x1: -8.6, y0: -2, y1: 2, z0: 1.4, z1: 11 }, bracket, yaw);
-		addBox(points, { x0: 8.6, x1: 9.8, y0: -2, y1: 2, z0: 1.4, z1: 11 }, bracket, yaw);
+		// Round puck base with a lighter top.
+		addDisc(points, 0, 0, 2.6, 8.6, function (x, y, r) { return shade(rgb(r > 6.6 ? '#c9cdd2' : r > 3 ? '#b4b9bf' : '#c9cdd2'), [0, 0, 1]); });
+		addWall(points, 0, 0, 8.6, 0, 2.6, function (a, z, normal) { return shade(rgb('#7a8089'), normal, 0.75); });
+
+		// Two posts up to the pivots on the sides of the head.
+		addBox(points, { x0: -9.8, x1: -8.6, y0: -1.3, y1: 1.3, z0: 2.6, z1: 17 }, post, yaw);
+		addBox(points, { x0: 8.6, x1: 9.8, y0: -1.3, y1: 1.3, z0: 2.6, z1: 17 }, post, yaw);
 
 		for (var x = -HEAD.x; x <= HEAD.x; x += STEP) {
 			for (var z = HEAD.z0; z <= HEAD.z1; z += STEP) {
 				if (!insideHead(x, z)) continue;
-				push([x, HEAD.y, z], shade(frontColour(x, z), rotate([0, 1, 0], yaw), 0.8));
-				push([x, -HEAD.y, z], shade(white, rotate([0, -1, 0], yaw), 0.8));
+				push([x, HEAD.y, z], shade(frontColour(x, z), rotate([0, 1, 0], yaw), 0.85));
+				push([x, -HEAD.y, z], shade(graphite, rotate([0, -1, 0], yaw), 0.8));
 				// Rounded shell, extruded front to back.
 				var edge = !insideHead(x + 0.6, z) || !insideHead(x - 0.6, z) || !insideHead(x, z + 0.6) || !insideHead(x, z - 0.6);
 				if (!edge) continue;
@@ -307,19 +314,19 @@
 				var nz = insideHead(x, z + 0.6) ? (insideHead(x, z - 0.6) ? 0 : -1) : 1;
 				var normal = rotate(normalise([nx, 0, nz || (nx ? 0 : 1)]), yaw);
 				for (var y = -HEAD.y; y <= HEAD.y; y += STEP) {
-					// Speaker grille dots on the sides.
-					var grille = nz === 0 && Math.abs(y) < HEAD.y - 1 && Math.round(y) % 2 === 0 && Math.round(z) % 2 === 0;
-					push([x, y, z], shade(grille ? rgb('#c9ccd0') : white, normal, 0.8));
+					// Vent grille on the lower part of the sides.
+					var grille = nz === 0 && z < HEAD.z0 + 4.5 && Math.abs(y) < HEAD.y - 1 && (Math.round(y) + Math.round(z)) % 2 === 0;
+					push([x, y, z], shade(grille ? rgb('#33373e') : graphite, normal, 0.8));
 				}
 			}
 		}
 
-		// Pivot discs where the bracket holds the head.
+		// Pivot caps where the posts hold the head.
 		[-1, 1].forEach(function (side) {
-			for (var u = -2.4; u <= 2.4; u += STEP) {
-				for (var v = -2.4; v <= 2.4; v += STEP) {
-					if (u * u + v * v > 5.8) continue;
-					push([side * 9.9, u, 10.4 + v], shade(rgb('#dfe2e5'), rotate([side, 0, 0], yaw), 0.8));
+			for (var u = -1.5; u <= 1.5; u += STEP) {
+				for (var v = -1.5; v <= 1.5; v += STEP) {
+					if (u * u + v * v > 2.2) continue;
+					push([side * 9.9, u, 16.2 + v], shade(rgb('#6b7179'), rotate([side, 0, 0], yaw), 0.8));
 				}
 			}
 		});

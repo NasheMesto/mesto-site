@@ -108,6 +108,19 @@ h1 {
 	margin: 0;
 }
 
+.intro .eyebrow {
+	margin-bottom: 0.5rem;
+	color: var(--muted);
+	font-weight: 900;
+	letter-spacing: 0.075em;
+	text-transform: uppercase;
+}
+
+.intro .tagline {
+	margin-top: 0.75rem;
+	font-weight: 900;
+}
+
 .baker-link {
 	text-decoration-color: var(--caramel);
 	text-decoration-thickness: 2px;
@@ -160,6 +173,7 @@ h1 {
 	position: absolute;
 	top: 0;
 	left: 62%;
+	translate: -50% 0;
 	color: var(--caramel);
 	font-size: 0.75rem;
 	font-weight: 900;
@@ -169,18 +183,23 @@ h1 {
 	text-transform: uppercase;
 	opacity: 0;
 	pointer-events: none;
-	animation: tap-me 3.2s ease-out infinite;
+	animation: tap-me-rise 3.2s infinite, tap-me-fade 3.2s linear infinite;
 }
 
 .tap-me.is-gone {
 	display: none;
 }
 
-@keyframes tap-me {
-	0%, 55% { opacity: 0; transform: translate(-50%, 8px) rotate(-6deg) scale(0.6); }
-	65% { opacity: 1; transform: translate(-50%, -12px) rotate(-6deg) scale(1); }
-	88% { opacity: 1; transform: translate(-50%, -22px) rotate(-6deg) scale(1); }
-	100% { opacity: 0; transform: translate(-50%, -30px) rotate(-6deg) scale(1); }
+/* Text floats straight up and slows down; it never speeds up at the end. */
+@keyframes tap-me-rise {
+	0%, 50% { transform: translateY(6px); animation-timing-function: cubic-bezier(0.25, 0.6, 0.35, 1); }
+	100% { transform: translateY(-24px); }
+}
+
+@keyframes tap-me-fade {
+	0%, 50% { opacity: 0; }
+	60%, 85% { opacity: 1; }
+	100% { opacity: 0; }
 }
 
 .projector {
@@ -209,7 +228,8 @@ h1 {
 .plea {
 	position: absolute;
 	bottom: 100%;
-	left: 0;
+	left: 50%;
+	translate: -50% 0;
 	color: var(--ink);
 	font-size: 0.7rem;
 	font-weight: 900;
@@ -217,14 +237,18 @@ h1 {
 	line-height: 1;
 	white-space: nowrap;
 	text-transform: uppercase;
-	animation: plea 1.4s ease-out forwards;
+	animation: plea-rise 1.6s cubic-bezier(0.25, 0.6, 0.35, 1) forwards, plea-fade 1.6s linear forwards;
 }
 
-@keyframes plea {
-	0% { opacity: 0; transform: translate(-30%, 6px) rotate(-8deg) scale(0.6); }
-	20% { opacity: 1; transform: translate(-40%, -4px) rotate(-8deg) scale(1); }
-	75% { opacity: 1; transform: translate(-50%, -16px) rotate(-8deg) scale(1); }
-	100% { opacity: 0; transform: translate(-55%, -24px) rotate(-8deg) scale(1); }
+@keyframes plea-rise {
+	from { transform: translateY(4px); }
+	to { transform: translateY(-26px); }
+}
+
+@keyframes plea-fade {
+	0% { opacity: 0; }
+	15%, 70% { opacity: 1; }
+	100% { opacity: 0; }
 }
 
 .bar {
@@ -360,7 +384,7 @@ h1 {
 
 	.tap-me {
 		opacity: 1;
-		transform: translate(-50%, -16px) rotate(-6deg);
+		transform: translateY(-16px);
 	}
 
 	.about {
