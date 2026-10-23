@@ -389,7 +389,8 @@
 	};
 
 	// The guitarist: chibi, black clothes, black-and-gold Thai Yak mask,
-	// leaning back mid-solo with the guitar neck raised.
+	// leaning back mid-solo with the head thrown back, gold tusks out and the
+	// guitar neck raised.
 	var GUITARIST_COLOURS = Object.assign({
 		g: '#e0b13a', G: '#a87b1c', k: '#25211d', e: '#fff1a8', w: '#ffffff',
 		c: '#33373f', C: '#4a505a', b: '#16181c',
@@ -398,17 +399,17 @@
 
 	var GUITARIST_FRAMES = [
 		[
-			'.........g........',
-			'.........g........',
-			'........ggg.......',
-			'........gGg.......',
-			'.......ggggg......',
-			'......GgggggG.....',
-			'......kkkkkkk.....',
-			'......kekekkg.....',
-			'......kkkkkkg.....',
-			'hh....wkwkkk......',
-			'..N.......cccC....',
+			'............g.....',
+			'...........gg.....',
+			'..........ggG.....',
+			'.........gggg.....',
+			'........gggggG....',
+			'.......GgggggG....',
+			'.......kkkkkkk....',
+			'.......kekekkg....',
+			'......gkkkkkkg....',
+			'hh...gg.gkkkk.....',
+			'..N..g....cccC....',
 			'...sscccccccCC....',
 			'....N.....cccC....',
 			'....RNRR..cccC....',
@@ -422,17 +423,17 @@
 			'....bbb......bbb..'
 		],
 		[
-			'.........g........',
-			'.........g........',
-			'........ggg.......',
-			'........gGg.......',
-			'.......ggggg......',
-			'......GgggggG.....',
-			'......kkkkkkk.....',
-			'......kekekkg.....',
-			'......kkkkkkg.....',
-			'hh....wkwkkk......',
-			'..Ns......cccC....',
+			'............g.....',
+			'...........gg.....',
+			'..........ggG.....',
+			'.........gggg.....',
+			'........gggggG....',
+			'.......GgggggG....',
+			'.......kkkkkkk....',
+			'.......kekekkg....',
+			'......gkkkkkkg....',
+			'hh...gg.gkkkk.....',
+			'..Ns.g....cccC....',
 			'...NscccccccCC....',
 			'....N.....cccC....',
 			'....RNRR..cccC....',
@@ -565,23 +566,57 @@
 			show(guitaristCanvas, guitaristFrames[lick]);
 		}, 160);
 
-		// Now and then one or two tiny cheesecakes pop out of the solo.
-		function popCakes() {
-			var count = Math.random() < 0.35 ? 2 : 1;
-			var side = Math.random() < 0.5 ? -1 : 1;
-			for (var c = 0; c < count; c++) {
-				var cake = document.createElement('canvas');
-				cake.className = 'sprite mini-cake';
-				show(cake, miniCake);
-				var direction = count === 2 && c === 1 ? -side : side;
-				cake.style.setProperty('--dx', direction * (18 + Math.random() * 22) + 'px');
-				cake.style.setProperty('--dy', -(16 + Math.random() * 14) + 'px');
-				cake.addEventListener('animationend', function (event) { event.target.remove(); });
-				guitarist.appendChild(cake);
+		// Now and then a tiny cheesecake or two flies out of the solo, always
+		// backwards: a real throw under gravity that bounces, slides and fades.
+		var GRAVITY = 900; // px per second squared
+		function throwCake() {
+			var cake = document.createElement('canvas');
+			cake.className = 'sprite mini-cake';
+			show(cake, miniCake);
+			cake.style.visibility = 'hidden';
+			lane.appendChild(cake);
+
+			var floor = lane.clientHeight - cake.offsetHeight;
+			var maxX = lane.clientWidth - cake.offsetWidth;
+			var x = guitarist.offsetLeft + guitarist.offsetWidth * 0.45;
+			var y = lane.clientHeight - guitarist.offsetHeight * 0.55;
+			var vx = 45 + Math.random() * 45;
+			var vy = -(170 + Math.random() * 90);
+			var resting = 0;
+			var last = null;
+
+			function step(now) {
+				var dt = last === null ? 0 : Math.min((now - last) / 1000, 0.05);
+				last = now;
+				cake.style.visibility = '';
+
+				vy += GRAVITY * dt;
+				x += vx * dt;
+				y += vy * dt;
+				if (x > maxX) { x = maxX; vx = -vx * 0.4; }
+				if (y >= floor) {
+					y = floor;
+					vy = Math.abs(vy) > 60 ? -vy * 0.35 : 0;
+					vx *= 0.6;
+				}
+				if (vy === 0 && y === floor) {
+					vx *= Math.pow(0.02, dt);
+					resting += dt;
+				}
+				cake.style.transform = 'translate(' + Math.round(x) + 'px, ' + Math.round(y) + 'px)';
+				cake.style.opacity = resting > 0.6 ? String(Math.max(0, 1 - (resting - 0.6) / 0.4)) : '';
+				if (resting < 1) window.requestAnimationFrame(step);
+				else cake.remove();
 			}
-			window.setTimeout(popCakes, 1800 + Math.random() * 2400);
+			window.requestAnimationFrame(step);
 		}
-		window.setTimeout(popCakes, 1200);
+
+		function popCakes() {
+			throwCake();
+			if (Math.random() < 0.3) window.setTimeout(throwCake, 180);
+			window.setTimeout(popCakes, 5000 + Math.random() * 5000);
+		}
+		window.setTimeout(popCakes, 2500);
 	}
 
 	// Each sprite opens its own story below; only one is open at a time.
