@@ -388,63 +388,76 @@
 		].concat(ROOSTER_LEGS)
 	};
 
-	// The guitarist: chibi, black clothes, black-and-gold Thai Yak mask,
-	// leaning back mid-solo with the head thrown back, gold tusks out and the
-	// guitar neck raised.
+	// The guitarist: chibi, sleeveless black top, a big black-and-gold Thai
+	// Yak mask, leaning back mid-solo on a red Flying V with a pointy headstock.
 	var GUITARIST_COLOURS = Object.assign({
-		g: '#e0b13a', G: '#a87b1c', k: '#25211d', e: '#fff1a8', w: '#ffffff',
-		c: '#33373f', C: '#4a505a', b: '#16181c',
-		R: '#d23b3b', D: '#a12a2a', W: '#f2f2f2', N: '#9b6a35', h: '#3a2a1c'
+		g: '#e0b13a', G: '#a87b1c', k: '#2a2622', e: '#fff6d6', x: '#c62828', r: '#b3261e', w: '#ffffff',
+		c: '#3a3f48', C: '#555b66', p: '#2c3038', b: '#16181c',
+		R: '#d8262c', D: '#9e1b20', W: '#f4f4f4', m: '#c9ccd1', N: '#8a5a2b', h: '#1c1d21'
 	}, SKIN);
 
 	var GUITARIST_FRAMES = [
 		[
-			'............g.....',
-			'...........gg.....',
-			'..........ggG.....',
-			'.........gggg.....',
-			'........gggggG....',
-			'.......GgggggG....',
-			'.......kkkkkkk....',
-			'.......kekekkg....',
-			'......gkkkkkkg....',
-			'hh...gg.gkkkk.....',
-			'..N..g....cccC....',
-			'...sscccccccCC....',
-			'....N.....cccC....',
-			'....RNRR..cccC....',
-			'...RRRRWscccc.....',
-			'...DRRRWRccc......',
-			'....DRRRcccc......',
-			'.....DD.cc.cc.....',
-			'.......cc...cc....',
-			'......cc.....cc...',
-			'.....cc......cc...',
-			'....bbb......bbb..'
+			'.............g..........',
+			'.............g..........',
+			'............gGg.........',
+			'.............g..........',
+			'...........ggGgg........',
+			'............gGg.........',
+			'..........gggGggg.......',
+			'.........GgGgGgGgG......',
+			'.........kggkkkggk......',
+			'.........keekgkeek......',
+			'........gkexkgkexkg.....',
+			'........gkkkkgkkkkg.....',
+			'h.......gkgrrrrrgkg.....',
+			'.hh......kgwrrrwgk......',
+			'..hN......kkkkkkk.......',
+			'....N.......ssS.........',
+			'.....N....sssccccC......',
+			'.....sNsss..SccccCs.....',
+			'......sN...cccccC.S.....',
+			'........N.cccccC.s......',
+			'.........Nmmppsss.......',
+			'.........RRRRssR........',
+			'........D.RRDDRRRRR.....',
+			'.........DRR..DDDRR.....',
+			'.........pDRR..ppDD.....',
+			'........ppDRR...pp......',
+			'.......pp..DRR..pp......',
+			'......pppp......ppp.....',
+			'....bbbbbb......bbbbb...'
 		],
 		[
-			'............g.....',
-			'...........gg.....',
-			'..........ggG.....',
-			'.........gggg.....',
-			'........gggggG....',
-			'.......GgggggG....',
-			'.......kkkkkkk....',
-			'.......kekekkg....',
-			'......gkkkkkkg....',
-			'hh...gg.gkkkk.....',
-			'..Ns.g....cccC....',
-			'...NscccccccCC....',
-			'....N.....cccC....',
-			'....RNRR..cccC....',
-			'...RRRRWRcccc.....',
-			'...DRRRWsccc......',
-			'....DRRRcccc......',
-			'.....DD.cc.cc.....',
-			'.......cc...cc....',
-			'......cc.....cc...',
-			'.....cc......cc...',
-			'....bbb......bbb..'
+			'.............g..........',
+			'.............g..........',
+			'............gGg.........',
+			'.............g..........',
+			'...........ggGgg........',
+			'............gGg.........',
+			'..........gggGggg.......',
+			'.........GgGgGgGgG......',
+			'.........kggkkkggk......',
+			'.........keekgkeek......',
+			'........gkexkgkexkg.....',
+			'........gkkkkgkkkkg.....',
+			'h.......gkgrrrrrgkg.....',
+			'.hh......kgwrrrwgk......',
+			'..hN......kkkkkkk.......',
+			'....N.......ssS.........',
+			'.....Ns...sssccccC......',
+			'......ssss..SccccCs.....',
+			'.......N...cccccC.S.....',
+			'........N.cccccC.s......',
+			'.........Nmmpppss.......',
+			'.........RRRRRsR........',
+			'........D.RRDsRRRRR.....',
+			'.........DRR..DDDRR.....',
+			'.........pDRR..ppDD.....',
+			'........ppDRR...pp......',
+			'.......pp..DRR..pp......',
+			'......pppp......ppp.....',
+			'....bbbbbb......bbbbb...'
 		]
 	];
 
@@ -487,7 +500,7 @@
 		var laneWidth = lane.clientWidth;
 		var cakeWidth = cakeButton.offsetWidth;
 		var projectorWidth = projectorCanvas.offsetWidth;
-		lane.style.height = Math.max(cakeCanvas.offsetHeight, projectorCanvas.offsetHeight) + 'px';
+		lane.style.height = Math.max(cakeCanvas.offsetHeight, projectorCanvas.offsetHeight, guitaristCanvas.offsetHeight, roosterCanvas.offsetHeight) + 'px';
 		var roosterLeft = Math.round(laneWidth / 2 - roosterCanvas.offsetWidth / 2);
 		rooster.style.left = roosterLeft + 'px';
 		guitarist.style.left = roosterLeft + roosterCanvas.offsetWidth + 2 * PIXEL + 'px';
@@ -580,7 +593,7 @@
 			var maxX = lane.clientWidth - cake.offsetWidth;
 			var x = guitarist.offsetLeft + guitarist.offsetWidth * 0.45;
 			var y = lane.clientHeight - guitarist.offsetHeight * 0.55;
-			var vx = 45 + Math.random() * 45;
+			var vx = 35 + Math.random() * 35;
 			var vy = -(170 + Math.random() * 90);
 			var resting = 0;
 			var last = null;
