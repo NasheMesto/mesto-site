@@ -64,24 +64,25 @@ main {
 }
 
 .brand img {
-	width: 100px;
-	height: 100px;
+	width: 1.95em;
+	height: 1.95em;
 	opacity: 0.15;
 }
 
 /* The wordmark sits on the bottom line of the chicken; the SVG has a
    transparent margin under the drawing, and the caps need no descender room. */
 .brand span {
-	margin-bottom: 2px;
+	margin-bottom: 0.04em;
 	line-height: 0.72;
 }
 
 .brand {
 	display: inline-flex;
 	align-items: flex-end;
-	gap: 0.9rem;
+	gap: 0.16em;
 	color: var(--logo);
-	font-size: 3.2rem;
+	/* Twice the old size on wide screens; shrinks to fit narrow phones. */
+	font-size: min(6.2rem, 15vw);
 	font-weight: 900;
 	letter-spacing: 0.075em;
 	line-height: 1;
@@ -223,6 +224,32 @@ h1 {
 	bottom: 0;
 	left: 50%;
 	pointer-events: none;
+}
+
+.guitarist {
+	position: absolute;
+	bottom: 0;
+	pointer-events: none;
+}
+
+/* Tiny cheesecakes pop out of the solo and fall away to either side. */
+.mini-cake {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	translate: -50% 0;
+	animation: mini-cake-arc 1.1s forwards, mini-cake-fade 1.1s linear forwards;
+}
+
+@keyframes mini-cake-arc {
+	0% { transform: translate(0, 0); animation-timing-function: cubic-bezier(0.3, 0.7, 0.5, 1); }
+	45% { transform: translate(calc(var(--dx) * 0.5), var(--dy)); animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.5); }
+	100% { transform: translate(var(--dx), 14px); }
+}
+
+@keyframes mini-cake-fade {
+	0%, 75% { opacity: 1; }
+	100% { opacity: 0; }
 }
 
 .plea {
@@ -391,7 +418,33 @@ h1 {
 		transition: none;
 	}
 
-	.plea {
+	.guitarist {
+	position: absolute;
+	bottom: 0;
+	pointer-events: none;
+}
+
+/* Tiny cheesecakes pop out of the solo and fall away to either side. */
+.mini-cake {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	translate: -50% 0;
+	animation: mini-cake-arc 1.1s forwards, mini-cake-fade 1.1s linear forwards;
+}
+
+@keyframes mini-cake-arc {
+	0% { transform: translate(0, 0); animation-timing-function: cubic-bezier(0.3, 0.7, 0.5, 1); }
+	45% { transform: translate(calc(var(--dx) * 0.5), var(--dy)); animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.5); }
+	100% { transform: translate(var(--dx), 14px); }
+}
+
+@keyframes mini-cake-fade {
+	0%, 75% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+.plea {
 		animation-duration: 0.01s;
 	}
 }

@@ -1,4 +1,4 @@
-/* Cheesecake → projector fund: isometric pixel sprites, the begging rooster and the progress bar. */
+/* Cheesecake → projector fund: isometric pixel sprites, the begging rooster, the shredding Yak and the progress bar. */
 (function () {
 	'use strict';
 
@@ -18,6 +18,8 @@
 	var projectorButton = document.querySelector('[data-projector]');
 	var rooster = document.querySelector('[data-rooster]');
 	var roosterCanvas = document.querySelector('[data-rooster-sprite]');
+	var guitarist = document.querySelector('[data-guitarist]');
+	var guitaristCanvas = document.querySelector('[data-guitarist-sprite]');
 	var tapMe = document.querySelector('[data-tap-me]');
 	var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -333,54 +335,122 @@
 		return points;
 	}
 
-	/* ---------- the rooster who begs for cake ----------
-	   Hand-drawn frames facing left, towards the cheesecake. */
+	/* ---------- hand-drawn characters ----------
+	   Small pixel maps, one letter per pixel, outlined automatically. */
 
-	var ROOSTER_COLOURS = {
-		w: '#ffffff', g: '#dedede', r: '#e0453a', y: '#f5b31c', k: '#212931',
-		b: '#3f86d4', B: '#2f6db3', p: '#454b57', s: '#f1c39b'
-	};
+	var SKIN = { s: '#f1c39b', S: '#d9a57c', n: '#f08aa0' };
+
+	// The rooster: shirtless, bare feet, facing the cheesecake on the left.
+	// Both frames share the exact same legs so he never slides between poses.
+	var ROOSTER_COLOURS = Object.assign({
+		w: '#ffffff', g: '#dedede', r: '#e0453a', y: '#f5b31c', k: '#212931', p: '#454b57'
+	}, SKIN);
+
+	var ROOSTER_LEGS = [
+		'..........ppp.......',
+		'..........ppp.......',
+		'..........ppp.......',
+		'..........ppp....s..',
+		'..........ppppppsss.'
+	];
 
 	var ROOSTER_FRAMES = {
 		// Kneeling, face on the floor.
 		bow: [
-			'................',
-			'................',
-			'................',
-			'................',
-			'................',
-			'................',
-			'................',
-			'................',
-			'................',
-			'...........pp...',
-			'.wwwww...bbppp..',
-			'rwwwwwwbbbbBpp..',
-			'rwwwwwwgbbB.pp..',
-			'rwwwwwgg.s..pp..',
-			'..yyg...ss.ppppp'
+			'....................',
+			'....................',
+			'....................',
+			'....................',
+			'....................',
+			'....................',
+			'....................',
+			'....................',
+			'....................',
+			'....................',
+			'.wwww..sssppp.......',
+			'rwwwwwsssSppp.......',
+			'rwwwwgsns.ppp.......',
+			'rwwwgg.s..ppp....s..',
+			'.yyg..ss..ppppppsss.'
 		],
 		// Kneeling upright, arms wide, beak to the sky.
 		pray: [
-			'.......r.r......',
-			'......rrrr......',
-			'ss...wwwwww...ss',
-			'.s..ywkwwwwg..s.',
-			'.s.yywwwwwwg..s.',
-			'..s.rwwwwwwg.s..',
-			'..s.r.wwwwg..s..',
-			'...s..bbbb..s...',
-			'....ssbbbBss....',
-			'......bbbB......',
-			'......pppp......',
-			'......ppp.......',
-			'......ppp.......',
-			'......pppppp....',
-			'......pppppppp..'
-		]
+			'...........r.r......',
+			'..........rrrr......',
+			'....ss...wwwwww...ss',
+			'.....s..ywkwwwwg..s.',
+			'.....s.yywwwwwwg..s.',
+			'......s.rwwwwwwg.s..',
+			'......s.r.wwwwg..s..',
+			'.......s.sssss..s...',
+			'........ssnsnSss....',
+			'.........ssssS......'
+		].concat(ROOSTER_LEGS)
 	};
 
-	function roosterImage(rows) {
+	// The guitarist: chibi, black clothes, black-and-gold Thai Yak mask,
+	// leaning back mid-solo with the guitar neck raised.
+	var GUITARIST_COLOURS = Object.assign({
+		g: '#e0b13a', G: '#a87b1c', k: '#25211d', e: '#fff1a8', w: '#ffffff',
+		c: '#33373f', C: '#4a505a', b: '#16181c',
+		R: '#d23b3b', D: '#a12a2a', W: '#f2f2f2', N: '#9b6a35', h: '#3a2a1c'
+	}, SKIN);
+
+	var GUITARIST_FRAMES = [
+		[
+			'.........g........',
+			'.........g........',
+			'........ggg.......',
+			'........gGg.......',
+			'.......ggggg......',
+			'......GgggggG.....',
+			'......kkkkkkk.....',
+			'......kekekkg.....',
+			'......kkkkkkg.....',
+			'hh....wkwkkk......',
+			'..N.......cccC....',
+			'...sscccccccCC....',
+			'....N.....cccC....',
+			'....RNRR..cccC....',
+			'...RRRRWscccc.....',
+			'...DRRRWRccc......',
+			'....DRRRcccc......',
+			'.....DD.cc.cc.....',
+			'.......cc...cc....',
+			'......cc.....cc...',
+			'.....cc......cc...',
+			'....bbb......bbb..'
+		],
+		[
+			'.........g........',
+			'.........g........',
+			'........ggg.......',
+			'........gGg.......',
+			'.......ggggg......',
+			'......GgggggG.....',
+			'......kkkkkkk.....',
+			'......kekekkg.....',
+			'......kkkkkkg.....',
+			'hh....wkwkkk......',
+			'..Ns......cccC....',
+			'...NscccccccCC....',
+			'....N.....cccC....',
+			'....RNRR..cccC....',
+			'...RRRRWRcccc.....',
+			'...DRRRWsccc......',
+			'....DRRRcccc......',
+			'.....DD.cc.cc.....',
+			'.......cc...cc....',
+			'......cc.....cc...',
+			'.....cc......cc...',
+			'....bbb......bbb..'
+		]
+	];
+
+	var MINI_CAKE = ['..ddd..', '.ddddd.', 'cdddddc', 'ccccccc', '.ccccc.'];
+	var MINI_CAKE_COLOURS = { d: '#5c3017', c: '#f6efdf' };
+
+	function pixelImage(rows, palette) {
 		var height = rows.length + 2;
 		var width = rows[0].length + 2;
 		var grid = [];
@@ -388,7 +458,7 @@
 			grid.push([]);
 			for (var x = 0; x < width; x++) {
 				var key = (rows[y - 1] || '')[x - 1];
-				grid[y].push(key && ROOSTER_COLOURS[key] ? rgb(ROOSTER_COLOURS[key]) : null);
+				grid[y].push(key && palette[key] ? rgb(palette[key]) : null);
 			}
 		}
 		var image = new ImageData(width, height);
@@ -417,7 +487,9 @@
 		var cakeWidth = cakeButton.offsetWidth;
 		var projectorWidth = projectorCanvas.offsetWidth;
 		lane.style.height = Math.max(cakeCanvas.offsetHeight, projectorCanvas.offsetHeight) + 'px';
-		rooster.style.left = Math.round(laneWidth / 2 - roosterCanvas.offsetWidth / 2) + 'px';
+		var roosterLeft = Math.round(laneWidth / 2 - roosterCanvas.offsetWidth / 2);
+		rooster.style.left = roosterLeft + 'px';
+		guitarist.style.left = roosterLeft + roosterCanvas.offsetWidth + 2 * PIXEL + 'px';
 
 		var maxLeft = Math.max(0, laneWidth - projectorWidth - cakeWidth - 8);
 		var cakeLeft = Math.min(Math.max(progress * laneWidth - cakeWidth / 2, 0), maxLeft);
@@ -452,11 +524,14 @@
 
 	var projector = projectorPoints();
 	var projectorFrames = [rasterise(projector, boundsOf(projector))];
-	var roosterFrames = { bow: roosterImage(ROOSTER_FRAMES.bow), pray: roosterImage(ROOSTER_FRAMES.pray) };
+	var roosterFrames = { bow: pixelImage(ROOSTER_FRAMES.bow, ROOSTER_COLOURS), pray: pixelImage(ROOSTER_FRAMES.pray, ROOSTER_COLOURS) };
+	var guitaristFrames = GUITARIST_FRAMES.map(function (rows) { return pixelImage(rows, GUITARIST_COLOURS); });
+	var miniCake = pixelImage(MINI_CAKE, MINI_CAKE_COLOURS);
 
 	show(cakeCanvas, cakeFrames[0]);
 	show(projectorCanvas, projectorFrames[0]);
 	show(roosterCanvas, roosterFrames.pray);
+	show(guitaristCanvas, guitaristFrames[0]);
 
 	if (!reduceMotion) {
 		// Slices vanish one by one like a loader, then the cake comes back.
@@ -482,6 +557,31 @@
 			bubble.addEventListener('animationend', function () { bubble.remove(); });
 			rooster.appendChild(bubble);
 		}, 1000);
+
+		// The guitarist shreds: both hands twitch on the strings.
+		var lick = 0;
+		window.setInterval(function () {
+			lick = 1 - lick;
+			show(guitaristCanvas, guitaristFrames[lick]);
+		}, 160);
+
+		// Now and then one or two tiny cheesecakes pop out of the solo.
+		function popCakes() {
+			var count = Math.random() < 0.35 ? 2 : 1;
+			var side = Math.random() < 0.5 ? -1 : 1;
+			for (var c = 0; c < count; c++) {
+				var cake = document.createElement('canvas');
+				cake.className = 'sprite mini-cake';
+				show(cake, miniCake);
+				var direction = count === 2 && c === 1 ? -side : side;
+				cake.style.setProperty('--dx', direction * (18 + Math.random() * 22) + 'px');
+				cake.style.setProperty('--dy', -(16 + Math.random() * 14) + 'px');
+				cake.addEventListener('animationend', function (event) { event.target.remove(); });
+				guitarist.appendChild(cake);
+			}
+			window.setTimeout(popCakes, 1800 + Math.random() * 2400);
+		}
+		window.setTimeout(popCakes, 1200);
 	}
 
 	// Each sprite opens its own story below; only one is open at a time.
