@@ -20,7 +20,7 @@
 	--caramel: #c9762f;
 	--green: #3f9b5a;
 	--green-light: #74c487;
-	--logo: #c5c8cc;
+	--logo: #e1e3e5;
 	--pixel: 2px;
 }
 
@@ -64,17 +64,24 @@ main {
 }
 
 .brand img {
-	width: 68px;
-	height: 68px;
-	opacity: 0.28;
+	width: 100px;
+	height: 100px;
+	opacity: 0.15;
+}
+
+/* The wordmark sits on the bottom line of the chicken; the SVG has a
+   transparent margin under the drawing, and the caps need no descender room. */
+.brand span {
+	margin-bottom: 2px;
+	line-height: 0.72;
 }
 
 .brand {
 	display: inline-flex;
-	align-items: center;
+	align-items: flex-end;
 	gap: 0.9rem;
 	color: var(--logo);
-	font-size: 2.2rem;
+	font-size: 3.2rem;
 	font-weight: 900;
 	letter-spacing: 0.075em;
 	line-height: 1;
