@@ -389,9 +389,10 @@
 	};
 
 	// The guitarist: chibi, sleeveless black top, a big black-and-gold Thai
-	// Yak mask, leaning back mid-solo on a red Flying V with a pointy headstock.
+	// Yak mask in golds only, leaning back mid-solo on a red Flying V with a
+	// pointy headstock.
 	var GUITARIST_COLOURS = Object.assign({
-		g: '#e0b13a', G: '#a87b1c', k: '#2a2622', e: '#fff6d6', x: '#c62828', r: '#b3261e', w: '#ffffff',
+		g: '#e0b13a', G: '#a87b1c', l: '#fff4bf', k: '#2a2622',
 		c: '#3a3f48', C: '#555b66', p: '#2c3038', b: '#16181c',
 		R: '#d8262c', D: '#9e1b20', W: '#f4f4f4', m: '#c9ccd1', N: '#8a5a2b', h: '#1c1d21'
 	}, SKIN);
@@ -407,11 +408,11 @@
 			'..........gggGggg.......',
 			'.........GgGgGgGgG......',
 			'.........kggkkkggk......',
-			'.........keekgkeek......',
-			'........gkexkgkexkg.....',
+			'.........kllkgkllk......',
+			'........gklkkgklkkg.....',
 			'........gkkkkgkkkkg.....',
-			'h.......gkgrrrrrgkg.....',
-			'.hh......kgwrrrwgk......',
+			'h.......gkGlgGglGkg.....',
+			'.hh......kGgGlGgGk......',
 			'..hN......kkkkkkk.......',
 			'....N.......ssS.........',
 			'.....N....sssccccC......',
@@ -438,11 +439,11 @@
 			'..........gggGggg.......',
 			'.........GgGgGgGgG......',
 			'.........kggkkkggk......',
-			'.........keekgkeek......',
-			'........gkexkgkexkg.....',
+			'.........kllkgkllk......',
+			'........gklkkgklkkg.....',
 			'........gkkkkgkkkkg.....',
-			'h.......gkgrrrrrgkg.....',
-			'.hh......kgwrrrwgk......',
+			'h.......gkGlgGglGkg.....',
+			'.hh......kGgGlGgGk......',
 			'..hN......kkkkkkk.......',
 			'....N.......ssS.........',
 			'.....Ns...sssccccC......',
