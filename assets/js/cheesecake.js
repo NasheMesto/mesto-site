@@ -679,6 +679,21 @@
 		});
 	});
 
+	// The pixel guitarist calls the real one: he rides in from the left,
+	// stands for three seconds and rides back out (all motion is in the CSS).
+	var bassist = document.querySelector('[data-bassist]');
+	var bassistPhoto = bassist.querySelector('img');
+	guitarist.addEventListener('click', function () {
+		if (bassist.classList.contains('is-on')) return;
+		var start = function () { bassist.classList.add('is-on'); };
+		if (bassistPhoto.complete) start();
+		else bassistPhoto.addEventListener('load', start, { once: true });
+		if (typeof window.gtag === 'function') window.gtag('event', 'bassist_call');
+	});
+	bassist.addEventListener('animationend', function () {
+		bassist.classList.remove('is-on');
+	});
+
 	window.addEventListener('resize', layout);
 	if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
 	layout();

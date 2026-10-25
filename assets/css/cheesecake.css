@@ -240,7 +240,109 @@ h1 {
 .guitarist {
 	position: absolute;
 	bottom: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.guitarist:focus-visible {
+	outline: 2px dashed var(--caramel);
+	outline-offset: 4px;
+}
+
+/* The real bassist. He stands on a pivot just below the screen (the legs
+   are cut off by the bottom edge) and sways around it. */
+.bassist {
+	--bassist-h: min(100svh, (100vw - 16px) * 1178 / 899);
+	--bassist-off: calc(-112% - 8px);
+	position: fixed;
+	left: 8px;
+	bottom: calc(var(--bassist-h) * -0.06);
+	z-index: 10;
+	height: var(--bassist-h);
+	aspect-ratio: 899 / 1178;
+	transform: translateX(var(--bassist-off));
+	transform-origin: 30% 100%;
+	visibility: hidden;
 	pointer-events: none;
+}
+
+.bassist img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.bassist.is-on {
+	visibility: visible;
+	animation: bassist-ride 4.4s linear both;
+}
+
+/* Baked from a damped-spring simulation (pivot below the feet, tilt pushed
+   by the sideways acceleration): ride in 0.7s and settle, stand 3s, ride
+   out 0.7s. Values are fractions of --bassist-off and degrees of tilt. */
+/* 58 keyframes, 4.40s */
+@keyframes bassist-ride {
+	0.00% { transform: translateX(calc(var(--bassist-off) * 1.0000)) rotate(0.00deg); }
+	0.38% { transform: translateX(calc(var(--bassist-off) * 0.9871)) rotate(-0.14deg); }
+	0.76% { transform: translateX(calc(var(--bassist-off) * 0.9563)) rotate(-0.44deg); }
+	1.14% { transform: translateX(calc(var(--bassist-off) * 0.9154)) rotate(-0.81deg); }
+	1.89% { transform: translateX(calc(var(--bassist-off) * 0.8209)) rotate(-1.57deg); }
+	2.65% { transform: translateX(calc(var(--bassist-off) * 0.7234)) rotate(-2.21deg); }
+	3.41% { transform: translateX(calc(var(--bassist-off) * 0.6299)) rotate(-2.64deg); }
+	4.17% { transform: translateX(calc(var(--bassist-off) * 0.5428)) rotate(-2.86deg); }
+	4.92% { transform: translateX(calc(var(--bassist-off) * 0.4627)) rotate(-2.88deg); }
+	5.30% { transform: translateX(calc(var(--bassist-off) * 0.4254)) rotate(-2.82deg); }
+	6.06% { transform: translateX(calc(var(--bassist-off) * 0.3561)) rotate(-2.57deg); }
+	6.82% { transform: translateX(calc(var(--bassist-off) * 0.2939)) rotate(-2.20deg); }
+	7.95% { transform: translateX(calc(var(--bassist-off) * 0.2133)) rotate(-1.44deg); }
+	8.71% { transform: translateX(calc(var(--bassist-off) * 0.1678)) rotate(-0.87deg); }
+	9.85% { transform: translateX(calc(var(--bassist-off) * 0.1111)) rotate(0.03deg); }
+	10.61% { transform: translateX(calc(var(--bassist-off) * 0.0806)) rotate(0.61deg); }
+	11.74% { transform: translateX(calc(var(--bassist-off) * 0.0452)) rotate(1.41deg); }
+	12.88% { transform: translateX(calc(var(--bassist-off) * 0.0210)) rotate(2.05deg); }
+	14.02% { transform: translateX(calc(var(--bassist-off) * 0.0068)) rotate(2.51deg); }
+	15.15% { transform: translateX(calc(var(--bassist-off) * 0.0008)) rotate(2.76deg); }
+	15.91% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(2.81deg); }
+	17.05% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(2.68deg); }
+	18.18% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(2.36deg); }
+	19.32% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(1.90deg); }
+	22.73% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(0.29deg); }
+	23.86% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.16deg); }
+	24.62% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.41deg); }
+	26.14% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.78deg); }
+	26.89% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.89deg); }
+	28.03% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.96deg); }
+	29.17% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.95deg); }
+	30.30% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.86deg); }
+	36.74% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(0.10deg); }
+	38.26% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(0.24deg); }
+	40.15% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(0.33deg); }
+	43.18% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(0.28deg); }
+	50.00% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.06deg); }
+	53.79% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(-0.12deg); }
+	64.77% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(0.04deg); }
+	84.09% { transform: translateX(calc(var(--bassist-off) * 0.0000)) rotate(0.00deg); }
+	84.85% { transform: translateX(calc(var(--bassist-off) * 0.0023)) rotate(0.13deg); }
+	85.61% { transform: translateX(calc(var(--bassist-off) * 0.0091)) rotate(0.46deg); }
+	86.36% { transform: translateX(calc(var(--bassist-off) * 0.0204)) rotate(0.92deg); }
+	87.50% { transform: translateX(calc(var(--bassist-off) * 0.0459)) rotate(1.68deg); }
+	88.64% { transform: translateX(calc(var(--bassist-off) * 0.0816)) rotate(2.38deg); }
+	89.77% { transform: translateX(calc(var(--bassist-off) * 0.1276)) rotate(2.88deg); }
+	90.53% { transform: translateX(calc(var(--bassist-off) * 0.1638)) rotate(3.07deg); }
+	91.29% { transform: translateX(calc(var(--bassist-off) * 0.2046)) rotate(3.16deg); }
+	92.05% { transform: translateX(calc(var(--bassist-off) * 0.2500)) rotate(3.15deg); }
+	92.80% { transform: translateX(calc(var(--bassist-off) * 0.2999)) rotate(3.06deg); }
+	93.56% { transform: translateX(calc(var(--bassist-off) * 0.3543)) rotate(2.92deg); }
+	94.32% { transform: translateX(calc(var(--bassist-off) * 0.4133)) rotate(2.75deg); }
+	95.08% { transform: translateX(calc(var(--bassist-off) * 0.4768)) rotate(2.57deg); }
+	96.21% { transform: translateX(calc(var(--bassist-off) * 0.5805)) rotate(2.33deg); }
+	96.97% { transform: translateX(calc(var(--bassist-off) * 0.6553)) rotate(2.21deg); }
+	98.11% { transform: translateX(calc(var(--bassist-off) * 0.7761)) rotate(2.10deg); }
+	98.86% { transform: translateX(calc(var(--bassist-off) * 0.8622)) rotate(2.07deg); }
+	100.00% { transform: translateX(calc(var(--bassist-off) * 1.0000)) rotate(2.09deg); }
 }
 
 /* Tiny cheesecakes thrown out of the solo; the script moves them. */
@@ -417,33 +519,17 @@ h1 {
 		transition: none;
 	}
 
-	.guitarist {
-	position: absolute;
-	bottom: 0;
-	pointer-events: none;
-}
+	.bassist.is-on {
+		animation: bassist-fade 4.4s linear both;
+	}
 
-/* Tiny cheesecakes pop out of the solo and fall away to either side. */
-.mini-cake {
-	position: absolute;
-	top: 20%;
-	left: 50%;
-	translate: -50% 0;
-	animation: mini-cake-arc 1.1s forwards, mini-cake-fade 1.1s linear forwards;
-}
-
-@keyframes mini-cake-arc {
-	0% { transform: translate(0, 0); animation-timing-function: cubic-bezier(0.3, 0.7, 0.5, 1); }
-	45% { transform: translate(calc(var(--dx) * 0.5), var(--dy)); animation-timing-function: cubic-bezier(0.5, 0, 0.8, 0.5); }
-	100% { transform: translate(var(--dx), 14px); }
-}
-
-@keyframes mini-cake-fade {
-	0%, 75% { opacity: 1; }
-	100% { opacity: 0; }
-}
-
-.plea {
+	.plea {
 		animation-duration: 0.01s;
 	}
+}
+
+@keyframes bassist-fade {
+	0% { transform: none; opacity: 0; }
+	8%, 90% { transform: none; opacity: 1; }
+	100% { transform: none; opacity: 0; }
 }

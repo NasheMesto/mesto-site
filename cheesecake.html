@@ -19,7 +19,7 @@
 	<meta property="og:title" content="The Basque Drop — Hedonist Cakes × MESTO" />
 	<meta property="og:description" content="Hedonist Cakes × MESTO: a limited drop of Basque cheesecakes on Koh Phangan. ฿150 a slice, ฿100 of it goes to MESTO's new cinema projector." />
 	<meta property="og:url" content="https://nashemesto.com/cheesecake.html" />
-	<link rel="stylesheet" href="assets/css/cheesecake.css?v=12" />
+	<link rel="stylesheet" href="assets/css/cheesecake.css?v=13" />
 </head>
 <body>
 	<div class="page">
@@ -49,9 +49,10 @@
 					<div class="rooster" data-rooster aria-hidden="true">
 						<canvas class="sprite" data-rooster-sprite></canvas>
 					</div>
-					<div class="guitarist" data-guitarist aria-hidden="true">
+					<button type="button" class="guitarist" data-guitarist>
 						<canvas class="sprite" data-guitarist-sprite></canvas>
-					</div>
+						<span class="visually-hidden">Call the bassist</span>
+					</button>
 					<button type="button" class="projector" data-projector aria-expanded="false" aria-controls="about-projector">
 						<canvas class="sprite" data-projector-sprite></canvas>
 						<span class="visually-hidden">About the Vidda C2 Ultra projector</span>
@@ -95,6 +96,11 @@
 		</footer>
 	</div>
 
-	<script src="assets/js/cheesecake.js?v=15"></script>
+	<!-- The real bassist: rides in from the left when the pixel guitarist is tapped. -->
+	<div class="bassist" data-bassist aria-hidden="true">
+		<img src="images/cheesecake/bassist.webp" alt="" width="899" height="1178" />
+	</div>
+
+	<script src="assets/js/cheesecake.js?v=16"></script>
 </body>
 </html>
