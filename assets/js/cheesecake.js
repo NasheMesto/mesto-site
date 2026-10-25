@@ -3,13 +3,15 @@
 	'use strict';
 
 	var fund = document.querySelector('[data-fund]');
+	// The live numbers come from Poster through a Cloudflare Worker; the
+	// data-* attributes are the fallback if it does not answer.
+	var FUND_URL = 'https://mesto-cheesecake-fund.kanevsky.workers.dev/fund';
 	var slices = Number(fund.getAttribute('data-slices')) || 0;
 	var perSlice = Number(fund.getAttribute('data-per-slice')) || 100;
 	var goal = Number(fund.getAttribute('data-goal')) || 1;
 	// Other sweets from the same baker (e.g. a lemon tart) add straight baht.
 	var extra = Number(fund.getAttribute('data-extra')) || 0;
-	var raised = slices * perSlice + extra;
-	var progress = Math.min(raised / goal, 1);
+	var progress = 0;
 
 	var lane = document.querySelector('[data-lane]');
 	var cakeButton = document.querySelector('[data-cake]');
@@ -524,15 +526,32 @@
 
 	/* ---------- start ---------- */
 
-	document.querySelector('[data-raised-amount]').textContent = formatBaht(raised);
-	document.querySelector('[data-goal-amount]').textContent = formatBaht(goal);
-	document.querySelector('[data-count]').textContent = slices + (slices === 1 ? ' slice' : ' slices') + (extra ? ' + other sweets' : '');
-	document.querySelector('[data-bar-fill]').style.width = progress * 100 + '%';
-
 	var bar = document.querySelector('[data-bar]');
-	bar.setAttribute('aria-valuemax', String(goal));
-	bar.setAttribute('aria-valuenow', String(raised));
-	bar.setAttribute('aria-valuetext', formatBaht(raised) + ' of ' + formatBaht(goal));
+
+	function showFund() {
+		var raised = slices * perSlice + extra;
+		progress = Math.min(raised / goal, 1);
+		document.querySelector('[data-raised-amount]').textContent = formatBaht(raised);
+		document.querySelector('[data-goal-amount]').textContent = formatBaht(goal);
+		document.querySelector('[data-count]').textContent = slices + (slices === 1 ? ' slice' : ' slices') + (extra ? ' + other sweets' : '');
+		document.querySelector('[data-bar-fill]').style.width = progress * 100 + '%';
+		bar.setAttribute('aria-valuemax', String(goal));
+		bar.setAttribute('aria-valuenow', String(raised));
+		bar.setAttribute('aria-valuetext', formatBaht(raised) + ' of ' + formatBaht(goal));
+	}
+
+	showFund();
+	fetch(FUND_URL)
+		.then(function (response) { return response.ok ? response.json() : null; })
+		.then(function (data) {
+			if (!data || typeof data.slices !== 'number') return;
+			slices = data.slices;
+			perSlice = data.perSlice || perSlice;
+			extra = data.extra || 0;
+			showFund();
+			layout();
+		})
+		.catch(function () { /* keep the fallback numbers */ });
 
 	var fullCake = cakePoints(0);
 	var cakeBox = boundsOf(fullCake);
