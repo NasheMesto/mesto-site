@@ -6,7 +6,9 @@
 	var slices = Number(fund.getAttribute('data-slices')) || 0;
 	var perSlice = Number(fund.getAttribute('data-per-slice')) || 100;
 	var goal = Number(fund.getAttribute('data-goal')) || 1;
-	var raised = slices * perSlice;
+	// Other sweets from the same baker (e.g. a lemon tart) add straight baht.
+	var extra = Number(fund.getAttribute('data-extra')) || 0;
+	var raised = slices * perSlice + extra;
 	var progress = Math.min(raised / goal, 1);
 
 	var lane = document.querySelector('[data-lane]');
@@ -524,7 +526,7 @@
 
 	document.querySelector('[data-raised-amount]').textContent = formatBaht(raised);
 	document.querySelector('[data-goal-amount]').textContent = formatBaht(goal);
-	document.querySelector('[data-count]').textContent = slices + (slices === 1 ? ' slice' : ' slices');
+	document.querySelector('[data-count]').textContent = slices + (slices === 1 ? ' slice' : ' slices') + (extra ? ' + other sweets' : '');
 	document.querySelector('[data-bar-fill]').style.width = progress * 100 + '%';
 
 	var bar = document.querySelector('[data-bar]');
