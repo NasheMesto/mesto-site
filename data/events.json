@@ -1,6 +1,6 @@
 {
   "source": "https://todo.today/c/mesto-nashe-mesto/",
-  "updatedAt": "2026-10-25T09:37:54.368Z",
+  "updatedAt": "2026-10-25T13:28:00.123Z",
   "timezone": "Asia/Bangkok",
   "events": [
     {
@@ -14,18 +14,6 @@
       "booking": "Walk-in",
       "url": "https://todo.today/koh-phangan/2026/10/25/clothes-swap-open-dj-deck",
       "image": "https://todo.today/wp-content/uploads/event-gallery/images/2026/10/todo-today-koh-phangan-clothes-swap-open-dj-deck-1-thumb.jpg"
-    },
-    {
-      "id": 231257,
-      "title": "Craft Meetup: Getting Ready for Dungeons & Dracula",
-      "start": "2026-10-25T17:00:00+07:00",
-      "end": "2026-10-25T21:00:00+07:00",
-      "date": "2026-10-25",
-      "time": "5:00 PM – 9:00 PM",
-      "price": "Donation",
-      "booking": "Drop-in",
-      "url": "https://todo.today/koh-phangan/2026/10/25/craft-meetup-getting-ready-for-dungeons-dracula-1",
-      "image": "https://todo.today/wp-content/uploads/event-gallery/images/2026/10/todo-today-koh-phangan-craft-meetup-getting-ready-for-dungeons-dracula-1-1-thumb.jpg"
     },
     {
       "id": 233333,
@@ -197,7 +185,7 @@
     },
     {
       "id": 233239,
-      "title": "Dungeons & Dragons: Halloween Ball w/ Mesto",
+      "title": "Dungeons & Dracula: Halloween Ball w/ Mesto",
       "start": "2026-11-07T20:00:00+07:00",
       "end": "2026-11-07T19:00:00.000Z",
       "date": "2026-11-07",
