@@ -19,7 +19,7 @@
 	<meta property="og:title" content="The Basque Drop — Hedonist Cakes × MESTO" />
 	<meta property="og:description" content="Hedonist Cakes × MESTO: a limited drop of Basque cheesecakes on Koh Phangan. ฿150 a slice, ฿100 of it goes to MESTO's new cinema projector." />
 	<meta property="og:url" content="https://nashemesto.com/cheesecake.html" />
-	<link rel="stylesheet" href="assets/css/cheesecake.css?v=14" />
+	<link rel="stylesheet" href="assets/css/cheesecake.css?v=15" />
 </head>
 <body>
 	<div class="page">
@@ -46,9 +46,10 @@
 						<canvas class="sprite" data-cake-sprite></canvas>
 						<span class="visually-hidden">About the cheesecake</span>
 					</button>
-					<div class="rooster" data-rooster aria-hidden="true">
+					<button type="button" class="rooster" data-rooster aria-expanded="false" aria-controls="about-mesto">
 						<canvas class="sprite" data-rooster-sprite></canvas>
-					</div>
+						<span class="visually-hidden">The story of the MESTO chicken</span>
+					</button>
 					<button type="button" class="guitarist" data-guitarist>
 						<canvas class="sprite" data-guitarist-sprite></canvas>
 						<span class="visually-hidden">Call the bassist</span>
@@ -81,6 +82,13 @@
 					</div>
 				</div>
 
+				<div class="about" id="about-mesto" data-about="mesto">
+					<div class="about__inner">
+						<h2>The MESTO chicken</h2>
+						<p>When weed went legal in Thailand, we brought two cannabis plants to MESTO as a team pet, then forgot to water them together, and they died. A chicken jumped into one of the dead pots, laid her eggs and sat on them for weeks. That became our sign: not a fixed logo but the story itself, so draw it any way you like, even with a saucy finger on a napkin.</p>
+					</div>
+				</div>
+
 				<div class="about" id="about-projector" data-about="projector">
 					<div class="about__inner">
 						<img class="about__photo" src="images/cheesecake/vidda-c2-ultra.jpg" alt="Hisense Vidda C2 Ultra projector on its round base" width="750" height="750" />
@@ -105,6 +113,6 @@
 		<img src="images/cheesecake/yak-head.webp" alt="" width="612" height="768" />
 	</div>
 
-	<script src="assets/js/cheesecake.js?v=17"></script>
+	<script src="assets/js/cheesecake.js?v=18"></script>
 </body>
 </html>

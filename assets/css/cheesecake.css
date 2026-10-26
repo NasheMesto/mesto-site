@@ -234,7 +234,16 @@ h1 {
 	position: absolute;
 	bottom: 0;
 	left: 50%;
-	pointer-events: none;
+	padding: 0;
+	border: 0;
+	background: none;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.rooster:focus-visible {
+	outline: 2px dashed var(--caramel);
+	outline-offset: 4px;
 }
 
 .guitarist {

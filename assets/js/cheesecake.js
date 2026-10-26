@@ -588,6 +588,7 @@
 			if (!praying) return;
 			var bubble = document.createElement('span');
 			bubble.className = 'plea';
+			bubble.setAttribute('aria-hidden', 'true');
 			bubble.textContent = pleas[plea];
 			plea = (plea + 1) % pleas.length;
 			bubble.addEventListener('animationend', function () { bubble.remove(); });
@@ -657,6 +658,7 @@
 	// Each sprite opens its own story below; only one is open at a time.
 	var panels = [
 		{ button: cakeButton, about: document.querySelector('[data-about="cake"]'), event: 'cheesecake_info_open' },
+		{ button: rooster, about: document.querySelector('[data-about="mesto"]'), event: 'mesto_info_open' },
 		{ button: projectorButton, about: document.querySelector('[data-about="projector"]'), event: 'projector_info_open' }
 	];
 
