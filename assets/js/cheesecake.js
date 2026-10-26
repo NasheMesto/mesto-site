@@ -679,19 +679,29 @@
 		});
 	});
 
-	// The pixel guitarist calls the real one: he rides in from the left,
+	// The pixel guitarist calls the real one. Taps take turns: the bassist
+	// rides in from the left, then the Yak head from the bottom-right. Each
 	// stands for three seconds and rides back out (all motion is in the CSS).
-	var bassist = document.querySelector('[data-bassist]');
-	var bassistPhoto = bassist.querySelector('img');
+	var callers = [
+		{ el: document.querySelector('[data-bassist]'), event: 'bassist_call' },
+		{ el: document.querySelector('[data-yak-head]'), event: 'yak_head_call' }
+	];
+	var nextCaller = 0;
 	guitarist.addEventListener('click', function () {
-		if (bassist.classList.contains('is-on')) return;
-		var start = function () { bassist.classList.add('is-on'); };
-		if (bassistPhoto.complete) start();
-		else bassistPhoto.addEventListener('load', start, { once: true });
-		if (typeof window.gtag === 'function') window.gtag('event', 'bassist_call');
+		var busy = callers.some(function (caller) { return caller.el.classList.contains('is-on'); });
+		if (busy) return;
+		var caller = callers[nextCaller];
+		nextCaller = (nextCaller + 1) % callers.length;
+		var photo = caller.el.querySelector('img');
+		var start = function () { caller.el.classList.add('is-on'); };
+		if (photo.complete) start();
+		else photo.addEventListener('load', start, { once: true });
+		if (typeof window.gtag === 'function') window.gtag('event', caller.event);
 	});
-	bassist.addEventListener('animationend', function () {
-		bassist.classList.remove('is-on');
+	callers.forEach(function (caller) {
+		caller.el.addEventListener('animationend', function () {
+			caller.el.classList.remove('is-on');
+		});
 	});
 
 	window.addEventListener('resize', layout);
