@@ -36,7 +36,7 @@
   });
   observer.observe(slot, {childList:true,subtree:true});
   const script = document.createElement('script');
-  script.src = origin + '/ticket-embed.js?v=20261016-releases-1';
+  script.src = origin + '/ticket-embed.js?v=20261031-sales-closed-1';
   script.dataset.event = event;
   script.dataset.showTitle = 'false'; script.dataset.showDate = 'false';
   script.addEventListener('error', fail, {once:true});
