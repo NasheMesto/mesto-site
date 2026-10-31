@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scary House · Фотоотчёты · MESTO</title>
+  <meta name="description" content="Фотоотчёты Scary House в MESTO · 31 октября 2026. Все фотографии с праздника появятся здесь — сохраните ссылку.">
+  <link rel="canonical" href="https://nashemesto.com/scary-house-2026-10-31/">
+  <link rel="icon" type="image/svg+xml" href="/images/mesto-chicken-icon.svg">
+  <meta property="og:title" content="Scary House · 31.10.2026 · MESTO">
+  <meta property="og:description" content="Все фотоотчёты с праздника появятся здесь. Сохраните ссылку! / Event photos are coming soon. Save this link!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nashemesto.com/scary-house-2026-10-31/">
+  <meta property="og:image" content="https://nashemesto.com/images/scary-house-art.jpg">
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; color: #293d32; background: #f6f4ed; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 28px 20px; min-height: 100svh; }
+    a { color: inherit; text-underline-offset: 4px; }
+    a:hover { color: #94603b; }
+    :focus-visible { outline: 3px solid #94603b; outline-offset: 5px; }
+    .page { max-width: 440px; margin: auto; text-align: center; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .logo { text-decoration: none; font-size: 24px; font-weight: 900; letter-spacing: -1px; text-align: left; line-height: 1; }
+    .logo span { display: block; font-size: 8px; letter-spacing: 2px; margin-top: 6px; }
+    .languages { display: flex; gap: 4px; }
+    button { font: inherit; cursor: pointer; }
+    .languages button { min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid transparent; border-radius: 24px; color: #626c60; background: transparent; font-size: 12px; font-weight: bold; }
+    .languages button[aria-pressed="true"] { color: #293d32; border-color: #c8ccbf; }
+    .art { display: block; width: 100%; height: auto; aspect-ratio: 1.55; object-fit: cover; object-position: center 46%; border-radius: 12px 12px 48px 12px; }
+    .date { margin: 25px 0 12px; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+    h1 { font-size: clamp(44px, 12vw, 62px); line-height: .98; letter-spacing: -3px; margin: 0 0 12px; }
+    .subtitle { margin: 0 0 26px; font-size: 15px; color: #626c60; }
+    .waiting { padding: 27px 22px; background: #eeece2; border: 1px solid #dedfd4; border-radius: 16px; }
+    .icon { font-size: 28px; display: block; margin-bottom: 12px; }
+    h2 { margin: 0 0 12px; font-size: 23px; letter-spacing: -.6px; line-height: 1.15; }
+    .waiting p { margin: 0; font-size: 15px; line-height: 1.6; color: #626c60; }
+    .save { margin: 22px 12px 28px; font-size: 14px; line-height: 1.6; }
+    .save strong { display: block; margin-bottom: 4px; }
+    footer { border-top: 1px solid #dedfd4; padding-top: 20px; font-size: 12px; color: #626c60; }
+    footer p { margin: 12px 0 0; font-size: 11px; }
+    [hidden] { display: none !important; }
+    @media (max-width: 360px) { body { padding: 20px 16px; } .waiting { padding: 23px 16px; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="logo" href="/" aria-label="MESTO — главная">MESTO<span>KOH PHANGAN</span></a>
+      <nav class="languages" aria-label="Language / Язык" hidden>
+        <button type="button" data-language="ru" aria-pressed="true">RU</button>
+        <button type="button" data-language="en" aria-pressed="false">EN</button>
+      </nav>
+    </header>
+    <main>
+      <img class="art" src="/images/scary-house-art.jpg" alt="Scary House — сказочный дом с привидениями" width="1334" height="1350" fetchpriority="high">
+      <p class="date"><time datetime="2026-10-31">31.10.2026</time> · MESTO</p>
+      <h1>Scary House</h1>
+      <p class="subtitle" data-copy="subtitle">Фотоотчёты с нашего Хэллоуина</p>
+      <section class="waiting" aria-labelledby="photos-title">
+        <span class="icon" aria-hidden="true">📸</span>
+        <h2 id="photos-title" data-copy="title">Фотоотчёты скоро появятся</h2>
+        <p data-copy="message">Здесь мы соберём ссылки на все фотоотчёты от фотографов нашего праздника. Загляните сюда чуть позже!</p>
+      </section>
+      <!-- Add photographer album links here when ready. Keep this page's URL unchanged for the printed QR. -->
+      <p class="save"><strong data-copy="save">Сохраните эту ссылку</strong><span data-copy="saveMessage">Все фотографии будут на этой странице — по тому же QR-коду.</span></p>
+      <noscript><p lang="en">Event photos are coming soon. Save this link — all photographers’ albums will appear on this page.</p></noscript>
+    </main>
+    <footer><a href="/" data-copy="home">На сайт MESTO ↗</a><p>Nashe Mesto · Koh Phangan</p></footer>
+  </div>
+  <script>
+    (() => {
+      const copy = {
+        ru: { subtitle: 'Фотоотчёты с нашего Хэллоуина', title: 'Фотоотчёты скоро появятся', message: 'Здесь мы соберём ссылки на все фотоотчёты от фотографов нашего праздника. Загляните сюда чуть позже!', save: 'Сохраните эту ссылку', saveMessage: 'Все фотографии будут на этой странице — по тому же QR-коду.', home: 'На сайт MESTO ↗', pageTitle: 'Scary House · Фотоотчёты · MESTO', imageAlt: 'Scary House — сказочный дом с привидениями', homeLabel: 'MESTO — главная' },
+        en: { subtitle: 'Photo albums from our Halloween', title: 'Photos are coming soon', message: 'We’ll collect links to all our photographers’ albums right here. Come back a little later!', save: 'Save this link', saveMessage: 'All the photos will be on this page — at the same QR code.', home: 'Visit the MESTO website ↗', pageTitle: 'Scary House · Photo albums · MESTO', imageAlt: 'Scary House — an illustrated haunted house', homeLabel: 'MESTO home' }
+      };
+      function setLanguage(language) {
+        document.documentElement.lang = language;
+        document.title = copy[language].pageTitle;
+        document.querySelector('.art').alt = copy[language].imageAlt;
+        document.querySelector('.logo').setAttribute('aria-label', copy[language].homeLabel);
+        document.querySelectorAll('[data-copy]').forEach(element => { element.textContent = copy[language][element.dataset.copy]; });
+        document.querySelectorAll('[data-language]').forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
+      }
+      document.querySelector('.languages').hidden = false;
+      document.querySelectorAll('[data-language]').forEach(button => { button.addEventListener('click', () => setLanguage(button.dataset.language)); });
+      setLanguage((navigator.language || '').toLowerCase().startsWith('ru') ? 'ru' : 'en');
+    })();
+  </script>
+</body>
+</html>
