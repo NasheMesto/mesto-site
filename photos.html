@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photo albums · MESTO</title>
+  <meta name="description" content="Photo albums from events at MESTO, Koh Phangan. Find your favourite moments and discover our photographers’ galleries.">
+  <link rel="canonical" href="https://nashemesto.com/photos.html">
+  <link rel="icon" type="image/svg+xml" href="images/mesto-chicken-icon.svg">
+  <meta property="og:title" content="Photo albums · MESTO">
+  <meta property="og:description" content="Our events in photographs. Explore the albums and find yourself in the story.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nashemesto.com/photos.html">
+  <meta property="og:image" content="https://nashemesto.com/images/scary-house-photos/harmony-here.jpg">
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; color: #293d32; background: #f6f4ed; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 28px 20px; }
+    a { color: inherit; text-underline-offset: 4px; }
+    a:hover { color: #94603b; }
+    :focus-visible { outline: 3px solid #94603b; outline-offset: 5px; }
+    .page { max-width: 760px; margin: auto; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .logo { text-decoration: none; font-size: 24px; font-weight: 900; letter-spacing: -1px; line-height: 1; }
+    .logo span { display: block; font-size: 8px; letter-spacing: 2px; margin-top: 6px; }
+    .languages { display: flex; gap: 4px; }
+    .languages button { min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid transparent; border-radius: 24px; color: #626c60; background: transparent; font: bold 12px Arial, sans-serif; cursor: pointer; }
+    .languages button[aria-pressed="true"] { color: #293d32; border-color: #c8ccbf; }
+    .site-links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 46px; }
+    .site-links a { display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; border: 1px solid #c8ccbf; border-radius: 8px; text-decoration: none; font-size: 12px; font-weight: bold; }
+    .site-links a:hover { background: #eeece2; }
+    .eyebrow { margin: 0 0 12px; font-size: 11px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+    h1 { font-size: clamp(38px, 7vw, 62px); line-height: 1.05; letter-spacing: -2px; margin: 0 0 16px; }
+    .intro { max-width: 540px; margin: 0 0 30px; color: #626c60; font-size: 16px; line-height: 1.7; }
+    .album-card { overflow: hidden; border: 1px solid #dedfd4; border-radius: 16px; background: #fffdf7; }
+    .album-card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+    .album-content { padding: 26px; }
+    .date { margin: 0 0 10px; font-size: 11px; font-weight: bold; letter-spacing: 1.5px; }
+    h2 { margin: 0 0 12px; font-size: 32px; line-height: 1.15; letter-spacing: -.8px; }
+    .description { color: #626c60; font-size: 15px; line-height: 1.6; margin: 0 0 16px; }
+    .credit { color: #626c60; font-size: 13px; line-height: 1.6; margin: 0 0 22px; }
+    .album-button { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 54px; padding: 15px 18px; border-radius: 9px; background: #293d32; color: #fffdf7; text-decoration: none; font-size: 16px; font-weight: bold; }
+    .album-button:hover { background: #405b49; color: #fffdf7; }
+    footer { margin-top: 36px; border-top: 1px solid #dedfd4; padding-top: 20px; font-size: 12px; color: #626c60; }
+    footer p { line-height: 1.7; }
+    [hidden] { display: none !important; }
+    @media (min-width: 640px) { .album-card { display: grid; grid-template-columns: 1fr 1fr; } .album-card img { height: 100%; } .album-content { display: flex; flex-direction: column; justify-content: center; } }
+    @media (max-width: 360px) { body { padding: 20px 16px; } .album-content { padding: 20px; } .site-links a { padding-inline: 12px; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <a class="logo" href="/" aria-label="MESTO home">MESTO<span>KOH PHANGAN</span></a>
+      <nav class="languages" aria-label="Language / Язык" hidden>
+        <button type="button" data-language="en" aria-pressed="true">EN</button>
+        <button type="button" data-language="ru" aria-pressed="false">RU</button>
+      </nav>
+    </header>
+    <nav class="site-links" aria-label="Explore MESTO">
+      <a href="/" data-copy="navHome">Home</a>
+      <a href="events.html" data-copy="navEvents">Upcoming events</a>
+      <a href="about.html" data-copy="navAbout">About MESTO</a>
+    </nav>
+    <main>
+      <p class="eyebrow" data-copy="eyebrow">MESTO · MEMORIES</p>
+      <h1 data-copy="heading">Photo albums</h1>
+      <p class="intro" data-copy="intro">Our events in photographs. Revisit the evening, find your favourite moments and discover the photographers behind them.</p>
+      <article class="album-card" aria-labelledby="scary-title">
+        <img src="images/scary-house-photos/harmony-here.jpg" alt="A child in a red costume exploring the Halloween rope playground at MESTO" width="1200" height="800" fetchpriority="high">
+        <div class="album-content">
+          <p class="date"><time datetime="2026-10-31">31.10.2026</time></p>
+          <h2 id="scary-title">Scary House</h2>
+          <p class="description" data-copy="description">Our Halloween for kids: little monsters, giant bubbles and a house full of adventures.</p>
+          <p class="credit" data-copy="credit">2 photo albums · Harmony Here & Alisa</p>
+          <a class="album-button" href="scary-house-2026-10-31/"><span data-copy="viewPhotos">View photo albums</span><span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </main>
+    <footer><a href="events.html" data-copy="nextEvent">Find your next MESTO event ↗</a><p>Nashe Mesto · Koh Phangan</p></footer>
+  </div>
+  <script>
+    (() => {
+      const copy = {
+        en: { pageTitle: 'Photo albums · MESTO', homeLabel: 'MESTO home', navLabel: 'Explore MESTO', navHome: 'Home', navEvents: 'Upcoming events', navAbout: 'About MESTO', eyebrow: 'MESTO · MEMORIES', heading: 'Photo albums', intro: 'Our events in photographs. Revisit the evening, find your favourite moments and discover the photographers behind them.', description: 'Our Halloween for kids: little monsters, giant bubbles and a house full of adventures.', credit: '2 photo albums · Harmony Here & Alisa', viewPhotos: 'View photo albums', nextEvent: 'Find your next MESTO event ↗', imageAlt: 'A child in a red costume exploring the Halloween rope playground at MESTO' },
+        ru: { pageTitle: 'Фотоотчёты · MESTO', homeLabel: 'MESTO — главная', navLabel: 'Узнать больше о MESTO', navHome: 'Главная', navEvents: 'Все мероприятия', navAbout: 'О MESTO', eyebrow: 'MESTO · ВОСПОМИНАНИЯ', heading: 'Фотоотчёты', intro: 'Наши события в фотографиях. Вернитесь в тот вечер, найдите любимые моменты и познакомьтесь с фотографами.', description: 'Наш детский Хэллоуин: маленькие монстры, гигантские пузыри и целый дом приключений.', credit: '2 фотоальбома · Harmony Here и Алиса', viewPhotos: 'Смотреть фотоотчёты', nextEvent: 'Выбрать следующее событие в MESTO ↗', imageAlt: 'Ребёнок в красном костюме на хэллоуинской верёвочной площадке в MESTO' }
+      };
+      function setLanguage(language) {
+        document.documentElement.lang = language;
+        document.title = copy[language].pageTitle;
+        document.querySelector('.logo').setAttribute('aria-label', copy[language].homeLabel);
+        document.querySelector('.site-links').setAttribute('aria-label', copy[language].navLabel);
+        document.querySelector('.album-card img').alt = copy[language].imageAlt;
+        document.querySelectorAll('[data-copy]').forEach(element => { element.textContent = copy[language][element.dataset.copy]; });
+        document.querySelectorAll('[data-language]').forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
+        document.querySelector('.album-button').href = 'scary-house-2026-10-31/' + (language === 'ru' ? '?lang=ru' : '');
+      }
+      document.querySelector('.languages').hidden = false;
+      document.querySelectorAll('[data-language]').forEach(button => { button.addEventListener('click', () => setLanguage(button.dataset.language)); });
+      setLanguage('en');
+    })();
+  </script>
+</body>
+</html>
