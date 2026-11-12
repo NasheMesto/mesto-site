@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scary House · Photo albums · MESTO</title>
-  <meta name="description" content="Scary House photo albums at MESTO · October 31, 2026. All event photos will appear here — save this link.">
+  <meta name="description" content="Scary House photo albums at MESTO · October 31, 2026. Explore two Halloween photo albums by Harmony Here and Alisa Kiseleva.">
   <link rel="canonical" href="https://nashemesto.com/scary-house-2026-10-31/">
   <link rel="icon" type="image/svg+xml" href="/images/mesto-chicken-icon.svg">
   <meta property="og:title" content="Scary House · 31.10.2026 · MESTO">
-  <meta property="og:description" content="Event photos are coming soon. Save this link — all photographers’ albums will appear here!">
+  <meta property="og:description" content="The photos are here! Explore our Halloween albums by Harmony Here and Alisa Kiseleva.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://nashemesto.com/scary-house-2026-10-31/">
-  <meta property="og:image" content="https://nashemesto.com/images/scary-house-art.jpg">
+  <meta property="og:image" content="https://nashemesto.com/images/scary-house-photos/harmony-here.jpg">
   <style>
     :root { color-scheme: light; font-family: Arial, sans-serif; color: #293d32; background: #f6f4ed; }
     * { box-sizing: border-box; }
@@ -30,14 +30,26 @@
     button { font: inherit; cursor: pointer; }
     .languages button { min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid transparent; border-radius: 24px; color: #626c60; background: transparent; font-size: 12px; font-weight: bold; }
     .languages button[aria-pressed="true"] { color: #293d32; border-color: #c8ccbf; }
-    .art { display: block; width: 100%; height: auto; aspect-ratio: 1.55; object-fit: cover; object-position: center 46%; border-radius: 12px 12px 48px 12px; }
-    .date { margin: 25px 0 12px; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+    .art { display: block; width: 132px; margin: 0 auto; height: auto; aspect-ratio: 1.55; object-fit: cover; object-position: center 46%; border-radius: 10px 10px 28px 10px; }
+    .date { margin: 18px 0 12px; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
     h1 { font-size: clamp(44px, 12vw, 62px); line-height: .98; letter-spacing: -3px; margin: 0 0 12px; }
     .subtitle { margin: 0 0 26px; font-size: 15px; color: #626c60; }
-    .waiting { padding: 27px 22px; background: #eeece2; border: 1px solid #dedfd4; border-radius: 16px; }
-    .icon { font-size: 28px; display: block; margin-bottom: 12px; }
+    .albums-intro { margin: 0 0 22px; }
+    .albums-intro p { margin: 0; color: #626c60; font-size: 14px; line-height: 1.6; }
+    .album-list { display: grid; gap: 24px; }
+    .album-card { overflow: hidden; border: 1px solid #dedfd4; border-radius: 16px; background: #fffdf7; text-align: left; }
+    .album-cover { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+    .album-content { padding: 20px; }
+    .album-label { margin: 0 0 6px; color: #626c60; font-size: 11px; font-weight: bold; letter-spacing: 1.5px; text-transform: uppercase; }
+    .album-content h3 { margin: 0 0 18px; font-size: 26px; line-height: 1.15; letter-spacing: -.6px; }
+    .album-button, .instagram-badge { display: flex; align-items: center; justify-content: space-between; gap: 12px; text-decoration: none; border-radius: 9px; }
+    .album-button { min-height: 54px; padding: 15px 18px; background: #293d32; color: #fffdf7; font-size: 16px; font-weight: bold; }
+    .album-button:hover { background: #405b49; color: #fffdf7; }
+    .instagram-badge { min-height: 44px; margin-top: 10px; padding: 12px 14px; border: 1px solid #d5d8cc; background: #f2f1e9; font-size: 12px; }
+    .instagram-badge:hover { background: #e8e8dc; color: #293d32; }
+    .instagram-name { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 7px; }
+    .instagram-name strong { font-size: 12px; }
     h2 { margin: 0 0 12px; font-size: 23px; letter-spacing: -.6px; line-height: 1.15; }
-    .waiting p { margin: 0; font-size: 15px; line-height: 1.6; color: #626c60; }
     .save { margin: 22px 12px 28px; font-size: 14px; line-height: 1.6; }
     .save strong { display: block; margin-bottom: 4px; }
     .celebrate { margin: 0 0 30px; padding: 28px 24px; border-radius: 16px; background: #293d32; color: #f6f4ed; text-align: left; }
@@ -52,7 +64,7 @@
     footer { border-top: 1px solid #dedfd4; padding-top: 20px; font-size: 12px; color: #626c60; }
     footer p { margin: 12px 0 0; font-size: 11px; }
     [hidden] { display: none !important; }
-    @media (max-width: 360px) { body { padding: 20px 16px; } .waiting { padding: 23px 16px; } }
+    @media (max-width: 360px) { body { padding: 20px 16px; } .album-content { padding: 18px 16px; } }
   </style>
 </head>
 <body>
@@ -74,15 +86,35 @@
       <p class="date"><time datetime="2026-10-31">31.10.2026</time> · MESTO</p>
       <h1>Scary House</h1>
       <p class="subtitle" data-copy="subtitle">Photo albums from our Halloween</p>
-      <section class="waiting" aria-labelledby="photos-title">
-        <span class="icon" aria-hidden="true">📸</span>
-        <h2 id="photos-title" data-copy="title">Photos are coming soon</h2>
-        <p data-copy="message">We’ll collect links to all our photographers’ albums right here. Come back a little later!</p>
+      <section class="albums" aria-labelledby="photos-title">
+        <div class="albums-intro">
+          <h2 id="photos-title" data-copy="title">The photos are here!</h2>
+          <p data-copy="message">Explore both albums — each photographer captured different moments of our Halloween.</p>
+        </div>
+        <div class="album-list">
+          <article class="album-card" aria-labelledby="harmony-title">
+            <img class="album-cover" src="/images/scary-house-photos/harmony-here.jpg" alt="A child in a red costume exploring the Halloween rope playground — photo by Harmony Here" data-alt="harmonyAlt" width="1200" height="800" decoding="async">
+            <div class="album-content">
+              <p class="album-label" data-copy="photographer">Photographer</p>
+              <h3 id="harmony-title">Harmony Here</h3>
+              <a class="album-button" href="https://harmonyhere.gallery.photo/gallery/halloween-2026-web/" target="_blank" rel="noopener noreferrer" aria-describedby="harmony-title"><span data-copy="viewAlbum">View photo album</span><span aria-hidden="true">↗</span></a>
+              <a class="instagram-badge" href="https://www.instagram.com/harmonyhere/" target="_blank" rel="noopener noreferrer"><span class="instagram-name"><span>Instagram</span><strong>@harmonyhere</strong></span><span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+          <article class="album-card" aria-labelledby="alisa-title">
+            <img class="album-cover" src="/images/scary-house-photos/alisa-kiseleva.jpg" alt="Children in Halloween costumes making spooky treats together — photo by Alisa Kiseleva" data-alt="alisaAlt" width="1200" height="800" loading="lazy" decoding="async">
+            <div class="album-content">
+              <p class="album-label" data-copy="photographer">Photographer</p>
+              <h3 id="alisa-title" data-copy="alisaName">Alisa Kiseleva</h3>
+              <a class="album-button" href="https://61e668f8e83898-89763640.vigbo.gallery/gallery/haloween-h2cuz0/" target="_blank" rel="noopener noreferrer" aria-describedby="alisa-title"><span data-copy="viewAlbum">View photo album</span><span aria-hidden="true">↗</span></a>
+              <a class="instagram-badge" href="https://www.instagram.com/alisakiselewa/" target="_blank" rel="noopener noreferrer"><span class="instagram-name"><span>Instagram</span><strong>@alisakiselewa</strong></span><span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        </div>
       </section>
-      <!-- Add photographer album links here when ready. Keep this page's URL unchanged for the printed QR. -->
-      <p class="save"><strong data-copy="save">Save this link</strong><span data-copy="saveMessage">All the photos will be on this page — at the same QR code.</span></p>
+      <p class="save"><strong data-copy="share">Share your favourite moments</strong><span data-copy="shareMessage">Tag your photographer and @nashemesto.kpg when you share your photos. 💚</span></p>
       <section class="celebrate" aria-labelledby="celebrate-title">
-        <p class="eyebrow">MESTO · EVENTS</p>
+        <p class="eyebrow" data-copy="eventEyebrow">MESTO · EVENTS</p>
         <h2 id="celebrate-title" data-copy="eventTitle">A party like this — or something entirely different?</h2>
         <p data-copy="eventMessage">We’ll create your celebration from start to finish: the concept, decorations, activities and atmosphere. Any theme, any number of guests — let’s find your format and plan the details.</p>
         <div class="contact-links">
@@ -98,17 +130,21 @@
   <script>
     (() => {
       const copy = {
-        ru: { subtitle: 'Фотоотчёты с нашего Хэллоуина', title: 'Фотоотчёты скоро появятся', message: 'Здесь мы соберём ссылки на все фотоотчёты от фотографов нашего праздника. Загляните сюда чуть позже!', save: 'Сохраните эту ссылку', saveMessage: 'Все фотографии будут на этой странице — по тому же QR-коду.', home: 'На сайт MESTO ↗', pageTitle: 'Scary House · Фотоотчёты · MESTO', imageAlt: 'Scary House — сказочный дом с привидениями', homeLabel: 'MESTO — главная' },
-        en: { subtitle: 'Photo albums from our Halloween', title: 'Photos are coming soon', message: 'We’ll collect links to all our photographers’ albums right here. Come back a little later!', save: 'Save this link', saveMessage: 'All the photos will be on this page — at the same QR code.', home: 'Visit the MESTO website ↗', pageTitle: 'Scary House · Photo albums · MESTO', imageAlt: 'Scary House — an illustrated haunted house', homeLabel: 'MESTO home' }
+        ru: { subtitle: 'Фотоотчёты с нашего Хэллоуина', title: 'Фотографии готовы!', message: 'Посмотрите оба альбома — у каждого фотографа свои моменты нашего Хэллоуина.', share: 'Делитесь любимыми моментами', shareMessage: 'Публикуя фотографии, отмечайте своего фотографа и @nashemesto.kpg. 💚', home: 'На сайт MESTO ↗', pageTitle: 'Scary House · Фотоотчёты · MESTO', imageAlt: 'Scary House — сказочный дом с привидениями', homeLabel: 'MESTO — главная' },
+        en: { subtitle: 'Photo albums from our Halloween', title: 'The photos are here!', message: 'Explore both albums — each photographer captured different moments of our Halloween.', share: 'Share your favourite moments', shareMessage: 'Tag your photographer and @nashemesto.kpg when you share your photos. 💚', home: 'Visit the MESTO website ↗', pageTitle: 'Scary House · Photo albums · MESTO', imageAlt: 'Scary House — an illustrated haunted house', homeLabel: 'MESTO home' }
       };
       Object.assign(copy.ru, { navHome: 'Главная', navAbout: 'О MESTO', navEvents: 'Все мероприятия' });
       Object.assign(copy.en, { navHome: 'Home', navAbout: 'About MESTO', navEvents: 'Upcoming events' });
       Object.assign(copy.ru, { eventTitle: 'Хотите такой же праздник — или совсем другой?', eventMessage: 'Создадим ваш праздник под ключ: от идеи и оформления до программы и атмосферы. Любая тема, любое количество гостей — обсудим ваш формат и продумаем детали.', telegram: 'Обсудить праздник в Telegram', email: 'Написать на почту', contactNote: 'Расскажите, какой повод, когда и сколько будет гостей. Дальше придумаем вместе.' });
       Object.assign(copy.en, { eventTitle: 'A party like this — or something entirely different?', eventMessage: 'We’ll create your celebration from start to finish: the concept, decorations, activities and atmosphere. Any theme, any number of guests — let’s find your format and plan the details.', telegram: 'Plan your party on Telegram', email: 'Email us', contactNote: 'Tell us the occasion, your date and how many guests you’re expecting. We’ll take it from there, together.' });
+      Object.assign(copy.en, { eventEyebrow: 'MESTO · EVENTS', photographer: 'Photographer', viewAlbum: 'View photo album', alisaName: 'Alisa Kiseleva', harmonyAlt: 'A child in a red costume exploring the Halloween rope playground — photo by Harmony Here', alisaAlt: 'Children in Halloween costumes making spooky treats together — photo by Alisa Kiseleva', navLabel: 'Explore MESTO' });
+      Object.assign(copy.ru, { eventEyebrow: 'MESTO · ПРАЗДНИКИ', photographer: 'Фотограф', viewAlbum: 'Смотреть фотоальбом', alisaName: 'Алиса Киселёва', harmonyAlt: 'Ребёнок в красном костюме на верёвочной площадке на Хэллоуине — фото Harmony Here', alisaAlt: 'Дети в костюмах готовят хэллоуинские угощения — фото Алисы Киселёвой', navLabel: 'Узнать больше о MESTO' });
       function setLanguage(language) {
         document.documentElement.lang = language;
         document.title = copy[language].pageTitle;
         document.querySelector('.art').alt = copy[language].imageAlt;
+        document.querySelector('.site-links').setAttribute('aria-label', copy[language].navLabel);
+        document.querySelectorAll('[data-alt]').forEach(element => { element.alt = copy[language][element.dataset.alt]; });
         document.querySelector('.logo').setAttribute('aria-label', copy[language].homeLabel);
         document.querySelectorAll('[data-copy]').forEach(element => { element.textContent = copy[language][element.dataset.copy]; });
         document.querySelectorAll('[data-language]').forEach(button => { button.setAttribute('aria-pressed', String(button.dataset.language === language)); });
