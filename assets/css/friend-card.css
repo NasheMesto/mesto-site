@@ -1,11 +1,13 @@
-.friend-card-intro { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; margin-bottom: 3rem; }
+.friend-card-intro { margin-bottom: 3rem; }
+.friend-card-copy { max-width: 48rem; margin: 0 auto 3rem; }
 .friend-card-copy p:last-of-type { margin-bottom: 2rem; }
 .friend-card-main-action { text-align: center; }
 .friend-card-visual { min-width: 0; }
-.friend-card-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; }
+.friend-card-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .45rem; max-width: 48rem; margin-inline: auto; }
 .friend-card-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
-.friend-card-bonus { padding: 1.5rem; border: 2px solid #212931; margin-bottom: 1rem; }
+.friend-card-bonus { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 1rem 2rem; padding: 2rem; border: 2px solid #212931; margin-bottom: 2rem; }
 .friend-card-bonus h2 { margin-bottom: 1rem; font-size: 1.5rem; }
+.friend-card-bonus > p:last-child { grid-column: 1 / -1; }
 .site-page #main > .post p.friend-card-example { font: 900 2.6rem/1.2 "Source Sans Pro", sans-serif; letter-spacing: -.02em; margin-bottom: 1rem; }
 .friend-card-bonus p:last-child, .friend-card-support p:last-child { margin-bottom: 0; }
 .friend-card-support { margin-bottom: 3rem; }
@@ -21,8 +23,7 @@
 .friend-card-qr img { display: block; width: 100%; height: auto; margin: 1rem 0; }
 .site-page #main .friend-card-qr p { font-size: .85rem; line-height: 1.6; margin-bottom: 1rem; }
 @media (max-width: 736px) {
-  .friend-card-intro { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
-  .friend-card-bonus { padding: 1.5rem; }
+  .friend-card-bonus { grid-template-columns: minmax(0, 1fr); padding: 1.5rem; gap: .5rem; }
   .friend-card-signup { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding: 1.5rem; }
   .friend-card-qr { max-width: 22rem; width: 100%; }
   .friend-card-contacts { gap: .75rem; }

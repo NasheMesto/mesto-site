@@ -5093,8 +5093,6 @@ input, select, textarea {
 }
 
 /* Card entry shared by desktop navigation and the mobile menu. */
-#nav ul.links li.friend-card-nav a { background: #fff; color: #212931; }
-#nav ul.links li.friend-card-nav a:hover { background: #e9f8fc; color: #147d9b; }
 #navPanel .friend-card-nav a { font-weight: 900; }
 @media screen and (min-width: 981px) {
   #nav ul.links li a { padding-inline: .75rem; }
