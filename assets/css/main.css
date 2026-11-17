@@ -5092,6 +5092,19 @@ input, select, textarea {
 	}
 }
 
+/* Card entry shared by desktop navigation and the mobile menu. */
+#nav ul.links li.friend-card-nav a { background: #fff; color: #212931; }
+#nav ul.links li.friend-card-nav a:hover { background: #e9f8fc; color: #147d9b; }
+#navPanel .friend-card-nav a { font-weight: 900; }
+@media screen and (min-width: 981px) {
+  #nav ul.links li a { padding-inline: .75rem; }
+  #nav ul.icons { padding-right: .5rem; }
+  #nav ul.icons li { padding-inline: .35rem; }
+}
+@media screen and (min-width: 981px) and (max-width: 1200px) {
+  #nav ul.icons { display: none; }
+}
+
 /* Unified layout for public site pages. Donation uses its own layout. */
 .site-page #main > .post p:not(.support-cta__lead) {
 	font-size: 1rem;
