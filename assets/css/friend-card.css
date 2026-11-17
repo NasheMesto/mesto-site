@@ -30,3 +30,38 @@
   .friend-card-contacts .button { font-size: .7rem; letter-spacing: .04em; }
   .site-page #main > .post p.friend-card-example { font-size: 2.2rem; }
 }
+
+/* Compact Friend Card layout and seasonal bonus label. */
+.site-page #main > .post.friend-card-page { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+.site-page #main > .post.friend-card-page header.major { margin-bottom: 1.75rem; }
+.site-page #main > .post.friend-card-page header.major h1 { font-size: 2.8rem; margin-bottom: 0; }
+.friend-card-intro { display: grid; grid-template-columns: minmax(0, 1fr) 11rem; gap: 1.25rem 2.5rem; align-items: start; margin-bottom: 2rem; }
+.friend-card-copy { max-width: none; margin: 0; }
+.site-page #main > .post.friend-card-page .friend-card-copy p { font-size: 1rem; line-height: 1.55; margin: 0 0 .85rem; }
+.site-page #main > .post.friend-card-page .friend-card-copy p:last-child { margin-bottom: 0; }
+.friend-card-main-action { grid-column: 1 / -1; }
+.friend-card-sticker { display: flex; flex-direction: column; align-items: center; padding: 1.1rem .75rem; background: #ffe374; color: #212931; border: 2px solid #212931; box-shadow: 4px 4px 0 #212931; transform: rotate(5deg); text-align: center; font-family: "Source Sans Pro", sans-serif; }
+.sticker-star { font-size: 1.5rem; line-height: 1; margin-bottom: .5rem; }
+.sticker-kicker { font-size: .8rem; line-height: 1.2; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.friend-card-sticker strong { font-size: 3rem; line-height: 1.15; font-weight: 900; margin: .3rem 0 0; }
+.sticker-label { font-size: .85rem; font-weight: 900; line-height: 1.3; text-transform: uppercase; }
+.sticker-date { font-size: .85rem; line-height: 1.35; margin-top: .75rem; padding-top: .65rem; border-top: 1px solid #212931; width: 100%; }
+.friend-card-signup { padding: 1.5rem; gap: 1rem 1.5rem; scroll-margin-top: 1rem; }
+.friend-card-signup > h2 { font-size: 1.5rem; }
+.friend-card-steps { margin-bottom: 0; font-size: .95rem; line-height: 1.5; }
+.friend-card-steps li { margin-bottom: .6rem; }
+.friend-card-steps li:last-child { margin-bottom: 0; }
+.friend-card-contacts .button { min-height: 3rem; }
+.friend-card-photo-section { margin-top: 2rem; }
+.friend-card-gallery { max-width: none; gap: .5rem; }
+@media (max-width: 736px) {
+  .site-page #main > .post.friend-card-page { padding: 2rem 1.5rem; }
+  .site-page #main > .post.friend-card-page header.major h1 { font-size: 2rem; }
+  .friend-card-intro { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .friend-card-sticker { grid-row: 1; justify-self: center; width: 12rem; padding: .75rem; transform: rotate(3deg); }
+  .sticker-star { display: none; }
+  .friend-card-sticker strong { font-size: 2.5rem; margin-top: .15rem; }
+  .sticker-date { margin-top: .4rem; padding-top: .4rem; }
+  .friend-card-signup { padding: 1.25rem; }
+  .friend-card-steps { font-size: .9rem; }
+}
