@@ -64,6 +64,17 @@
         image: 'images/halloween-ball/poster.jpg',
       },
     },
+    {
+      date: '2026-12-27', titleMatch: /mesto\s+dreams|dreams/i,
+      url: 'events/dreams-2026-12-27.html',
+      fallback: {
+        id: 'mesto-dreams-2026', title: 'MESTO Dreams — Christmas & New Year Art Festival',
+        start: '2026-12-27T16:00:00+07:00', end: '2026-12-28T02:00:00+07:00',
+        date: '2026-12-27', time: '4:00 PM – 2:00 AM',
+        price: 'Early Bird ฿500 · First 50 tickets', booking: 'One ticket · Day & night',
+        image: 'assets/dreams/share-poster.png',
+      },
+    },
   ];
   function matchesTicket(event, ticket) {
     return event.date === ticket.date &&
@@ -78,13 +89,9 @@
     }
     return combined.sort((a, b) => Date.parse(a.start) - Date.parse(b.start));
   }
-  fetch('data/events.json', { cache: 'no-cache' }).then(r => {
-    if (!r.ok) throw new Error('Schedule unavailable');
-    return r.json();
-  }).then(data => {
-    if (!Array.isArray(data.events) || !Number.isFinite(Date.parse(data.updatedAt))) throw new Error('Invalid schedule');
+  function renderEvents(events) {
     const now = Date.now();
-    const active = combinedEvents(data.events).filter(e => {
+    const active = combinedEvents(events).filter(e => {
       const cutoff = e.end || `${e.date}T23:59:59+07:00`;
       return Date.parse(cutoff) > now;
     });
@@ -108,10 +115,19 @@
     host.replaceChildren(fragment);
     updateControls();
     if (!active.length) host.append(element('p', 'Next week’s lineup is on its way. Check back Monday, or visit our Todo.Today channel for the latest announcements.'));
+  }
+  fetch('data/events.json', { cache: 'no-cache' }).then(r => {
+    if (!r.ok) throw new Error('Schedule unavailable');
+    return r.json();
+  }).then(data => {
+    if (!Array.isArray(data.events) || !Number.isFinite(Date.parse(data.updatedAt))) throw new Error('Invalid schedule');
+    renderEvents(data.events);
+    const now = Date.now();
     const updated = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Bangkok', dateStyle: 'medium', timeStyle: 'short' }).format(new Date(data.updatedAt));
     status.textContent = `Last updated: ${updated} (Koh Phangan time).`;
     if (now - Date.parse(data.updatedAt) > 8 * 86400000) status.textContent += ' Please check Todo.Today for the latest schedule.';
   }).catch(() => {
+    renderEvents([]);
     status.textContent = 'The schedule could not be loaded. Please open our Todo.Today channel below.';
   });
 })();
