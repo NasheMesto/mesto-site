@@ -13,5 +13,7 @@
  const text=document.createElement('span');text.className='dreams-promo-copy';
  const title=document.createElement('strong');title.textContent=copy[0];const detail=document.createElement('span');detail.textContent=copy[1];const meta=document.createElement('span');meta.textContent='16:00–02:00 · Early Bird ฿500';
  text.append(title,detail,meta);const cta=document.createElement('span');cta.className='dreams-promo-cta';cta.textContent=copy[2];
- link.append(date,image,text,cta);content.before(link);
+ link.append(date,image,text,cta);
+ const hero=document.querySelector('.home-page .hero-layout');
+ if(hero){hero.classList.add('has-dreams-promo');hero.append(link);}else{content.before(link);}
 })();
