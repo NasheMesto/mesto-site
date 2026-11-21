@@ -9,7 +9,7 @@
  const link=document.createElement('a');link.id='mesto-dreams-promo';
  link.href='/events/dreams-2026-12-27.html'+(['ru','th'].includes(lang)?'?lang='+lang:'');
  const date=document.createElement('span');date.className='dreams-promo-date';date.innerHTML='27<span>DEC</span>';
- const image=document.createElement('img');image.src='/assets/dreams/dreams-logo-poster.png';image.alt='MESTO Dreams';image.width=1774;image.height=887;image.decoding='async';
+ const image=document.createElement('img');image.src='/assets/dreams/dreams-logo-clean.webp';image.alt='MESTO Dreams';image.width=4635;image.height=1864;image.decoding='async';
  const text=document.createElement('span');text.className='dreams-promo-copy';
  const title=document.createElement('strong');title.textContent=copy[0];const detail=document.createElement('span');detail.textContent=copy[1];const meta=document.createElement('span');meta.textContent='16:00–02:00 · Early Bird ฿500';
  text.append(title,detail,meta);const cta=document.createElement('span');cta.className='dreams-promo-cta';cta.textContent=copy[2];
