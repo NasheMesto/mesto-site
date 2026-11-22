@@ -1,0 +1,42 @@
+/* Local prism light: quiet outside the card, caught more strongly inside it. */
+:root{--muted:#d0cdd2}
+.intro:after{background-image:url('lights/prism-arc.webp');left:-150px;right:auto;top:115px;width:430px;height:270px;opacity:.72;transform:rotate(-52deg)}
+.intro h2,.programme h2{position:relative;text-shadow:0 0 30px #ffc5df16}
+.programme>.section-heading{position:relative;isolation:isolate}
+.programme>.section-heading:before{content:'';position:absolute;z-index:-1;pointer-events:none;left:-105px;top:-75px;width:380px;height:200px;background:url('lights/prism-arc.webp') center/contain no-repeat;transform:rotate(173deg);opacity:.72;mix-blend-mode:screen}
+.chapter-light{position:relative;isolation:isolate;--light:url('lights/warm-sun-glint.webp');--light-x:-50px;--light-y:-55px;--light-width:340px;--light-height:230px;--light-origin:0% 0%;--edge-color:#ffe2b9}
+.chapter-light.night-light{--light:url('lights/cool-prism-glint.webp');--light-x:calc(100% - 280px);--light-y:-60px;--light-width:330px;--light-height:200px;--light-origin:100% 0%;--edge-color:#c4eaff}
+.chapter-light:before,.chapter-light>.chapter:before{content:'';position:absolute;pointer-events:none;left:var(--light-x);top:var(--light-y);width:var(--light-width);height:var(--light-height);background:var(--light) center/contain no-repeat;mix-blend-mode:screen}
+.chapter-light:before{z-index:-1;opacity:.35}
+.chapter-light>.chapter{height:100%;background:#202124;isolation:isolate}
+.chapter-light>.chapter:before{z-index:-1;opacity:.78}
+.chapter-light>.chapter:after{content:'';position:absolute;pointer-events:none;inset:0;border:1px solid transparent;background:radial-gradient(ellipse at var(--light-origin),var(--edge-color),#ffffff15 45%,transparent 65%) border-box;mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);mask-composite:exclude}
+.chapter p{color:#dedbe0}
+.chapter-head{color:#f7f5ef}
+#artists:after{background-image:url('lights/spectral-moth.webp');left:auto;right:10px;top:25px;width:300px;height:210px;opacity:.75;transform:rotate(-12deg)}
+#artists>.section-heading{padding-right:230px;min-height:120px}
+.artist-role{color:#c4d4e0}
+.open-call{position:relative;isolation:isolate;overflow:hidden;background:#202124;border:1px solid var(--line)}
+.open-call:before{content:'';position:absolute;z-index:-1;pointer-events:none;background:url('lights/warm-sun-glint.webp') center/contain no-repeat;width:310px;height:220px;left:-120px;bottom:-115px;opacity:.45;mix-blend-mode:screen}
+.open-call .text-button{border:1px solid #ffefce;background:linear-gradient(110deg,#ffe29a,#ffc5d8 55%,#d9caff);color:#19181b;min-height:48px;padding:12px 23px;border-radius:28px;box-shadow:0 0 22px #ffcfb326;font-weight:900}
+.open-call .text-button:hover{background:linear-gradient(110deg,#ffeab9,#ffdae5 55%,#e9dfff);box-shadow:0 0 30px #ffcfb345}
+.dress:after{background-image:url('lights/cool-prism-glint.webp');width:380px;height:250px;right:0;bottom:-30px;opacity:.46;transform:rotate(-12deg)}
+.dress p,.dress h2{position:relative;max-width:780px}
+.ticket-section:after{background-image:url('lights/warm-sun-glint.webp');left:-120px;top:65px;bottom:auto;width:340px;height:260px;opacity:.52;transform:rotate(-38deg)}
+.booking{position:relative;isolation:isolate;overflow:hidden}
+.booking:before{content:'';position:absolute;z-index:-1;pointer-events:none;right:-110px;top:-100px;width:320px;height:220px;background:url('lights/cool-prism-glint.webp') center/contain no-repeat;opacity:.55;mix-blend-mode:screen}
+.booking .button{width:100%}
+.faq:after{content:'';position:absolute;pointer-events:none;z-index:-1;right:-80px;top:30px;width:240px;height:180px;background:url('lights/prism-arc.webp') center/contain no-repeat;opacity:.35;transform:rotate(35deg);mix-blend-mode:screen}
+@media(max-width:760px){
+ .intro:after{left:-115px;right:auto;top:55px;width:290px;height:210px;max-width:none;opacity:.55}
+ .programme>.section-heading:before{left:-85px;top:-55px;width:280px;height:155px;opacity:.6}
+ .chapter-light{--light-x:-45px;--light-y:-55px;--light-width:290px;--light-height:195px}
+ .chapter-light.night-light{--light-x:calc(100% - 240px);--light-y:-55px;--light-width:280px;--light-height:180px}
+ .chapter-light:before{opacity:.28}
+ .chapter-light>.chapter:before{opacity:.7}
+ #artists:after{left:auto;right:-35px;top:35px;width:190px;height:145px;opacity:.6;max-width:none}
+ #artists>.section-heading{padding-right:90px;min-height:110px}
+ .dress:after{left:auto;right:-80px;bottom:-15px;width:250px;height:190px;opacity:.32}
+ .ticket-section:after{left:-105px;right:auto;top:35px;width:260px;height:210px;opacity:.4}
+ .faq:after{right:-85px;width:190px;opacity:.25}
+}
