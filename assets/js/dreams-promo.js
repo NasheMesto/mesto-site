@@ -15,5 +15,15 @@
  text.append(title,detail,meta);const cta=document.createElement('span');cta.className='dreams-promo-cta';cta.textContent=copy[2];
  link.append(date,image,text,cta);
  const hero=document.querySelector('.home-page .hero-layout');
- if(hero){hero.classList.add('has-dreams-promo');hero.append(link);}else{content.before(link);}
+ if(hero){hero.classList.add('has-dreams-promo');hero.append(link);return;}
+ // Every inner page places its announcement beside the centred MESTO logo.
+ const header=document.querySelector('.event-header-layout, .page > header, .ticket-header');
+ const logo=header&&header.querySelector('.logo, .ticket-logo, .brand');
+ if(logo){
+  header.classList.add('dreams-compact-header');
+  logo.classList.add('dreams-compact-logo');
+  link.classList.add('dreams-promo-compact');
+  link.setAttribute('aria-label','MESTO Dreams · 27 DEC · '+copy[2]);
+  header.append(link);
+ }else{content.before(link);}
 })();

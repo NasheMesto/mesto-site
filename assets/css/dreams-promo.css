@@ -23,3 +23,39 @@
 .has-dreams-promo #mesto-dreams-promo .dreams-promo-cta{grid-column:1;justify-self:start;margin-top:2px}
 @media(min-width:737px) and (max-width:1100px){.hero-layout.has-dreams-promo{grid-template-columns:minmax(0,1fr) 220px;gap:32px;max-width:850px}.has-dreams-promo .hero-copy{grid-column:1}.has-dreams-promo #mesto-dreams-promo{grid-column:2}}
 @media(max-width:736px){.hero-layout.has-dreams-promo{grid-template-columns:minmax(0,1fr);max-width:480px;gap:28px}.has-dreams-promo .hero-copy{grid-column:1;grid-row:1}.has-dreams-promo #mesto-dreams-promo{grid-column:1;grid-row:2;justify-self:center;max-width:320px;grid-template-columns:65px minmax(0,1fr);gap:14px;padding:20px}.has-dreams-promo #mesto-dreams-promo .dreams-promo-date{font-size:44px}.has-dreams-promo #mesto-dreams-promo .dreams-promo-date span{display:block;margin:6px 0 0;font-size:22px}.has-dreams-promo #mesto-dreams-promo img{width:190px;justify-self:center}.has-dreams-promo #mesto-dreams-promo .dreams-promo-copy,.has-dreams-promo #mesto-dreams-promo .dreams-promo-cta{grid-column:1/-1}}
+
+/* Inner pages: a small announcement beside the centred MESTO logo. */
+.dreams-compact-header {
+ display:grid; grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
+ align-items:center; gap:12px; width:100%;
+}
+.dreams-compact-header > .dreams-compact-logo {
+ grid-column:2; grid-row:1; justify-self:center; margin:0; text-align:center;
+}
+.dreams-compact-header > .brand { font-size:clamp(24px,4vw,42px); }
+.dreams-compact-header > nav:not([hidden]),
+.dreams-compact-header > .ticket-languages {
+ grid-column:1/-1; justify-self:center;
+}
+#mesto-dreams-promo.dreams-promo-compact {
+ grid-column:3; grid-row:1; justify-self:end; align-self:center;
+ display:grid; grid-template-columns:minmax(0,1fr); gap:6px;
+ width:100%; max-width:160px; min-width:0; margin:0; padding:10px;
+ border-radius:8px; box-shadow:0 4px 16px #0002; pointer-events:auto;
+}
+#mesto-dreams-promo.dreams-promo-compact .dreams-promo-date {
+ font-size:14px; line-height:1.2; letter-spacing:.04em;
+}
+#mesto-dreams-promo.dreams-promo-compact .dreams-promo-date span {
+ display:inline; font-size:inherit; margin:0 0 0 4px;
+}
+#mesto-dreams-promo.dreams-promo-compact img { width:100%; max-width:120px; height:auto; justify-self:center; }
+#mesto-dreams-promo.dreams-promo-compact .dreams-promo-copy { display:none; }
+#mesto-dreams-promo.dreams-promo-compact .dreams-promo-cta {
+ grid-column:1; justify-self:start; font-size:14px; line-height:1.25;
+ white-space:normal; padding-bottom:2px;
+}
+@media(max-width:360px) {
+ .dreams-compact-header { gap:8px; }
+ #mesto-dreams-promo.dreams-promo-compact { padding:8px; }
+}
