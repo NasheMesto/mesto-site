@@ -741,19 +741,21 @@ body {
 		linear-gradient(315deg, #ffffff14, #fff0 22%),
 		linear-gradient(90deg, #17181bf2, #17181bb8),
 		url("../dreams/graphite-light.png") center / cover;
-	box-shadow: 0 1px 2px #0003, 0 3px 8px #0001;
+	box-shadow: 0 1px 2px #00000026, 0 4px 14px #00000014;
 }
 
-/* The lifted bottom-right corner throws a longer, softer shadow. */
+/* The lifted bottom-right corner: a strip hidden under the bottom edge,
+   turned so its shadow peeks out only towards that corner and fades
+   into the edge further left. */
 .page > #mesto-dreams-promo::after {
 	z-index: -2;
-	right: 8px;
-	bottom: 10px;
-	width: 55%;
-	height: 40%;
+	right: 10px;
+	bottom: 12px;
+	width: 50%;
+	height: 22%;
 	background: #0000;
-	box-shadow: 6px 18px 16px #0000004d;
-	transform: rotate(5deg) skewX(-8deg);
+	box-shadow: 4px 22px 14px #00000066;
+	transform: rotate(4deg);
 	transform-origin: right bottom;
 }
 
