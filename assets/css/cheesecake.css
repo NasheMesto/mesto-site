@@ -699,3 +699,99 @@ h1 {
 	8%, 90% { transform: none; opacity: 1; }
 	100% { transform: none; opacity: 0; }
 }
+
+/* The Dreams flyer (assets/js/dreams-promo.js puts it before <main>) lies on
+   this page like a paper flyer dropped on the table: turned 10°, its edges
+   over the MESTO logo and the text below, one corner lifted off the page.
+   The card's face is ::before and the lifted-corner shadow ::after, so the
+   shadow can sit under the face inside the card's own stacking context. */
+body {
+	overflow-x: clip;
+}
+
+.page > #mesto-dreams-promo {
+	position: relative;
+	z-index: 5;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap: 14px 22px;
+	width: min(27rem, 84%);
+	margin: -2.6rem auto -1.5rem;
+	padding: 24px 26px;
+	border: 0 !important;
+	border-radius: 3px;
+	background: none;
+	box-shadow: none;
+	transform: rotate(-10deg);
+	transition: transform 0.25s ease;
+}
+
+.page > #mesto-dreams-promo::before,
+.page > #mesto-dreams-promo::after {
+	content: "";
+	position: absolute;
+	pointer-events: none;
+}
+
+.page > #mesto-dreams-promo::before {
+	z-index: -1;
+	inset: 0;
+	border: 1px solid #ffffff2a;
+	border-radius: inherit;
+	background:
+		linear-gradient(315deg, #ffffff14, #fff0 22%),
+		linear-gradient(90deg, #17181bf2, #17181bb8),
+		url("../dreams/graphite-light.png") center / cover;
+	box-shadow: 0 1px 2px #0003, 0 3px 8px #0001;
+}
+
+/* The lifted bottom-right corner throws a longer, softer shadow. */
+.page > #mesto-dreams-promo::after {
+	z-index: -2;
+	right: 8px;
+	bottom: 10px;
+	width: 55%;
+	height: 40%;
+	background: #0000;
+	box-shadow: 6px 18px 16px #0000004d;
+	transform: rotate(5deg) skewX(-8deg);
+	transform-origin: right bottom;
+}
+
+.page > #mesto-dreams-promo:hover {
+	background: none;
+	transform: rotate(-9deg) translateY(-3px);
+}
+
+.page > #mesto-dreams-promo .dreams-promo-date {
+	font-size: 46px;
+}
+
+.page > #mesto-dreams-promo img {
+	width: 100%;
+	max-width: 210px;
+}
+
+.page > #mesto-dreams-promo .dreams-promo-copy,
+.page > #mesto-dreams-promo .dreams-promo-cta {
+	grid-column: 1 / -1;
+}
+
+.page > #mesto-dreams-promo .dreams-promo-cta {
+	justify-self: start;
+}
+
+.page > #mesto-dreams-promo strong {
+	font-size: 19px;
+}
+
+@media (max-width: 600px) {
+	.page > #mesto-dreams-promo {
+		width: 80%;
+		margin: -1.6rem auto -1rem;
+		padding: 20px;
+	}
+
+	.page > #mesto-dreams-promo .dreams-promo-date {
+		font-size: 38px;
+	}
+}
