@@ -16,5 +16,5 @@ test('Dreams production assets exist and payment points to its dedicated manager
  assert.match(html,/data-mesto-event="event-bd5e5c94-6298-4bdc-8b5e-31180068157f"/);
  assert.doesNotMatch(html,/DREAMS_EVENT_ID|Design preview|No booking or charge is made|noindex/);
  for(const [,asset] of html.matchAll(/(?:src|href)="(\.\.\/assets\/[^"?#]+)/g))assert.ok(fs.existsSync(new URL('events/'+asset,root)),asset);
- assert.match(html,/Salem Witches/);assert.match(html,/Lu Maria &amp; Nata/);
+ assert.match(html,/Salem Witches/);assert.match(html,/Lu &amp; Nata/);assert.doesNotMatch(html,/Lu Maria/);
 });

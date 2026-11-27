@@ -48,3 +48,15 @@ main{overflow:clip}
 @font-face{font-family:NotoThai;src:url('noto-sans-thai.ttf');font-weight:100 900;font-display:swap}html[lang=th] body{font-family:Cabinet,NotoThai,sans-serif}html[lang=th] h2{line-height:1.45;letter-spacing:0}html[lang=th] h3{line-height:1.35;letter-spacing:0}html[lang=th] .subtitle{line-height:1.5}html[lang=th] .eyebrow,html[lang=th] .artist-role,html[lang=th] .facts span{letter-spacing:0}html[lang=th] .facts strong{line-height:1.6}.language button{min-width:32px}.production-note{font-size:14px;color:var(--muted);line-height:1.5}.payment-block{grid-column:1/-1;margin-top:12px;padding:30px;background:#f7f5ef;color:#202124;border-radius:3px}.payment-block h3{font-size:30px;margin:0 0 16px}.payment-block a{text-decoration:underline;text-underline-offset:4px}.payment-block .fine{color:#555}.payment-block .mesto-ticket-widget{background:transparent;max-width:none;border:0;margin:0;padding:0}.payment-block .mesto-ticket-widget h2{font:700 28px Cabinet,sans-serif}.payment-block .mesto-ticket-widget input{color:#202124}.open-call .text-button{display:inline-block}.booking .production-note{margin-top:18px}.booking .conditions a{ text-decoration:underline }.header .language{gap:0}@media(max-width:400px){.header nav{gap:10px}.header .brand{font-size:23px}.header .brand span{font-size:8px;letter-spacing:2px}.header nav a{font-size:13px}.header .language button{padding:8px 5px;min-width:26px}.payment-block{padding:20px}}
 
 @media(max-width:760px){.header nav a[href="#programme"]{display:none}}
+.price-later{margin:0 0 16px;font-size:15px;color:var(--muted)}
+.header nav a{display:inline-flex;align-items:center;min-height:44px}
+.facts a{display:inline-block;padding:10px 0;margin-top:0}
+.conditions summary,details summary{padding:10px 0;margin-top:-10px;margin-bottom:-10px}
+#ticket-checkout{display:inline-block;padding:11px 0}
+.venue-links a{display:inline-flex;align-items:center;min-height:44px}
+.venue-links .button{text-decoration:none;min-width:260px;color:var(--ink);padding:12px 26px}
+.venue-links .button.light{color:#171819}
+.venue-links .button:not(.light):hover{background:#ffffff1a}
+@media(max-width:760px){.header nav a:first-child{display:inline-flex}.venue-links{align-self:stretch}.venue-links .button{min-width:0}}
+.header .brand{flex:none}
+@media(max-width:430px){.header nav a[href="#artists"]{display:none}}
