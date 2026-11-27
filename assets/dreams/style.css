@@ -50,7 +50,7 @@ main{overflow:clip}
 @media(max-width:760px){.header nav a[href="#programme"]{display:none}}
 .price-later{margin:0 0 16px;font-size:15px;color:var(--muted)}
 .header nav a{display:inline-flex;align-items:center;min-height:44px}
-.facts a{display:inline-block;padding:10px 0;margin-top:0}
+.facts a{display:block;width:fit-content;padding:10px 0;margin-top:0}
 .conditions summary,details summary{padding:10px 0;margin-top:-10px;margin-bottom:-10px}
 #ticket-checkout{display:inline-block;padding:11px 0}
 .venue-links a{display:inline-flex;align-items:center;min-height:44px}
@@ -59,4 +59,4 @@ main{overflow:clip}
 .venue-links .button:not(.light):hover{background:#ffffff1a}
 @media(max-width:760px){.header nav a:first-child{display:inline-flex}.venue-links{align-self:stretch}.venue-links .button{min-width:0}}
 .header .brand{flex:none}
-@media(max-width:430px){.header nav a[href="#artists"]{display:none}}
+@media(max-width:480px){.header nav a[href="#artists"]{display:none}}
